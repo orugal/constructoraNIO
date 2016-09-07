@@ -2,3 +2,5 @@ RewriteEngine On
 #ErrorDocument 404 /noPage.php
 
 RewriteRule ^home$ index.php
+RewriteRule ^quienes-somos$ quienesSomos.php
+RewriteRule ^trabaja-con-nosotros$ trabaja.php
