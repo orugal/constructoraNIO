@@ -48,7 +48,7 @@
 			</div>
 				  
 			</nav>
-		<header id="myCarousel" class="carousel slide">
+		<header id="myCarousel" class="carousel slide carouselInt">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -84,6 +84,11 @@
 
     <div class="container-fluid">
     	<div class="container"  style="padding:3%">
+
+    		<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active">Cartagena</li>
+			</ol>
     		<div class="row">
     			<div class="col col-xs-12 col-sm-12 col-lg-7 col-md-7">
     				<h2>Búscanos</h2>

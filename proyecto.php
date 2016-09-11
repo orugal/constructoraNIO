@@ -48,7 +48,7 @@
 			</div>
 				  
 			</nav>
-		<header id="myCarousel" class="carousel slide">
+		<header id="myCarousel" class="carousel slide carouselInt">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -93,7 +93,12 @@
 					 	 <button type="button" class="btn btn-default">APTO MODELOS</button>
 					</div>
     			</div>
-    			<div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10" style="padding:5%">
+    			<div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10" style="padding:3%">
+
+    		<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active">Ciudadela NIO</li>
+			</ol>
     				<p class="parrafosInternos">
 	    				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

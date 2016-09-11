@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>PROYECTOS</title>
+		<title>EXPERIENCIA</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta charset=utf-8>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic,900italic,900&subset=latin,greek,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
@@ -84,45 +84,13 @@
 
     		<ol class="breadcrumb">
 			  <li><a href="#">Home</a></li>
-			  <li class="active">Quiénes somos</li>
+			  <li class="active">Nuestra experiencia</li>
 			</ol>
 
     		<div class="row">
-    			<div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8 paddingInt1">
-    				<h3>¿QUÉ HACEMOS?</h3>
-    				<img src="images/diseno/img1.jpg" width="100%" class="thumbnail" />
-    				<p class="parrafosInternos textoGlobal">
-	    				Somos un equipo de profesionales y técnicos de alto nivel que desarrollamos con seriedad y compromiso proyectos de vivienda, hoteles y oficinas con  altos estándares de calidad. Pensamos en  diseños arquitectónicos  vanguardistas, innovadores, sostenibles y amigables con el medio ambiente que contribuyan con el desarrollo del país y de familias que buscan construir sueños en concreto.
-    				</p>
-    				<img src="images/diseno/btn1.gif" />
-    			</div>
-    			<div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4 paddingInt2">
-    				<div class="row">
-    					<div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 miniInternas">
-							<center><img src="images/diseno/img2.jpg" width="100px" height="100px" class="img-circle" /></center><br>
-		    				<h4 class="tituloMiniInterna">NUESTRA VISIÓN</h4>
-		    				<!--<img src="images/diseno/img2.jpg" width="100%" />-->
-		    				<p class="parrafosInternos textoGlobal">
-			    				Constructora Nio S.A. promueve oportunidades de negocio inmobiliario para proveer espacios de armonía y felicidad.
-		    				</p>
-		    				<center><a href="" class="btn btn-link links">Más información</a></center>
-    					</div>
-    					<center>
-    						<img src="images/diseno/bordeHor.png" width="100%" />
-    					</center>
-    					<div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 miniInternas">
-							<center><img src="images/diseno/img2.jpg" width="100px" height="100px" class="img-circle" /></center><br>
-		    				<h4 class="tituloMiniInterna">NUESTRA MISIÓN</h4>
-		    				<!--<img src="images/diseno/img2.jpg" width="100%" />-->
-		    				<p class="parrafosInternos textoGlobal">
-			    				Constructora Nio S.A. promueve oportunidades de negocio inmobiliario para proveer espacios de armonía y felicidad.
-		    				</p>
-		    				<center><a href="" class="btn btn-link links">Más información</a></center>
-    					</div>
-    					<center>
-    						<img src="images/diseno/bordeHor.png" width="100%" />
-    					</center>
-    				</div>
+    			<div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12">
+    				<h3>NUESTRA EXPERIENCIA</h3>
+    				<center><img src="images/diseno/mapa.png" /></center>
     			</div>
     		</div>
     	</div>

@@ -1,7 +1,9 @@
 *{font-family: "Roboto"}
-body{font-family: "Roboto"}
+body{font-family: "Roboto";color:#3C3D4D;}
 
 a{color:#ff4e00;}
+.links{color:#FF5300 !important;}
+.links:hover{color:#FF5300 !important;}
 .navbar-fixed-top{box-shadow: none !important;
     border: none;
     background: none;}
@@ -92,13 +94,29 @@ nav.navbar {
 .navbar-fixed-top .navbar-brand{color:#fff;}
 .navbar-fixed-top .navbar-brand:hover{color:#fff;}
 
+
+.carouselInt{height: 50% !important}
+
 /*.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{margin-top:30%;}*/
 
 .margin{margin-top:0%;}
+.paddingInt1{padding:0 3% 0 0;background: url(../images/diseno/borde.png) no-repeat right center}
+.paddingInt2{padding:5% 0 0 3%}
+.paddingInt3{padding:0% 0 0 3%}
+
+/*.truncate{
+  width:250px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}*/
 
     .navbar-collapse{background:transparent !important;margin:0% 0 0 0 !important}
 @media only screen and (max-width : 320px) 
 {
+    .paddingInt1{}
+    .paddingInt2{}
+    .paddingInt3{}
     .wallCabezaHome{background: url(../img/1.jpg)no-repeat center center; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -121,6 +139,9 @@ nav.navbar {
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
+    .paddingInt1{}
+    .paddingInt2{}
+    .paddingInt3{}
    .wallCabezaHome{background: url(../img/1.jpg)no-repeat center center; 
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -255,3 +276,11 @@ nav.navbar {
 .btn-default.focus,.btn-default:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c;border-radius:0;}
 .btn-default:hover{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
 .btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
+
+
+
+.tituloMiniInterna{text-align: center}
+.textoGlobal{color:#848E97;font-size: 1.0em;text-align: justify;font-weight: 300}
+.miniInternas{margin:10% 0 0 0;font-weight: 300}
+.miniInternas2{margin:5% 0 0 0;font-weight: 300}
+.pagination li a{border:none;}

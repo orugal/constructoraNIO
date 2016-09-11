@@ -79,9 +79,9 @@
 			</ul>
         </a>
     </li>
-    <li><a href="<?php echo _DOMINIO?>lotesMarAdentro">EXPERIENCIA</a></li>
-    <li><a href="<?php echo _DOMINIO?>crystalLagoons">NOTICIAS</a></li>
-    <li><a href="http://www.constructoranio.com/" target="_blank">PREGUNTAS FRECUENTES</a></li>
-    <li><a href="<?php echo _DOMINIO?>contacto">SERVICIO AL CLIENTE</a></li>
-    <li><a href="<?php echo _DOMINIO?>contacto">CONTÁCTANOS</a></li>
+    <li><a href="experiencia">EXPERIENCIA</a></li>
+    <li><a href="noticias">NOTICIAS</a></li>
+    <li><a href="preguntas-frecuentes" target="_blank">PREGUNTAS FRECUENTES</a></li>
+    <li><a href="#">SERVICIO AL CLIENTE</a></li>
+    <li><a href="contacto">CONTÁCTANOS</a></li>
  </ul>
