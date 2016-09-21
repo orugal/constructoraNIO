@@ -278,6 +278,22 @@ nav.navbar {
 .btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
 
 
+.navbarInt {
+    position: relative !important;
+    min-height: 50px !important;
+    border: 1px solid transparent !important;
+    margin-bottom:0 !important;
+}
+.bannersInt{min-height: 300px !important}
+
+.bgInternas{background: url(../images/diseno/plazaInt.jpg)no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+
 
 .tituloMiniInterna{text-align: center}
 .textoGlobal{color:#848E97;font-size: 1.0em;text-align: justify;font-weight: 300}

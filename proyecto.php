@@ -23,61 +23,36 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/diseno/favicon.ico" />
 	</head>
 	<body>
-		<nav class="navbar navbar-fixed-top navbar-center">
-			<div class="container">
-					<div class="container-fluid">
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand visible-lg visible-md margin" href="home">
-				      	<img src="images/diseno/logo.png" />
-				      </a>
-				      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
-				      	<img src="images/diseno/logo.png" width="40%" />
-				      </a>
-				    </div>
+		<div class="container-fluid">
+		<div class="container">
+			<nav class="navbar navbarInt navbar-center">
+				<div class="container">
+						<div class="container-fluid">
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <a class="navbar-brand visible-lg visible-md margin" href="home">
+					      	<img src="images/diseno/logo.png" />
+					      </a>
+					      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
+					      	<img src="images/diseno/logo.png" width="40%" />
+					      </a>
+					    </div>
 
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
-				      <?php include("opcMenu.php") ?>
-				    </div>
-				  </div>
-			</div>
-				  
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
+					      <?php include("opcMenu.php") ?>
+					    </div>
+					  </div>
+				</div>
 			</nav>
-		<header id="myCarousel" class="carousel slide carouselInt">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-         	<div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/foto1.png');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <!--<h2>Caption 1</h2>-->
-                    <h2 class="text-right" style="padding:0 10% 0 0">
-                    <!--<i class="fa fa-leaf" aria-hidden="true"></i> -->
-                    | una invitación a un nuevo estilo de vida</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </header>
+		</div>
+	</div>
+	<div class="container-fluid bannersInt bgInternas">
+	</div>
 
     <div class="container-fluid">
     	<div class="container">

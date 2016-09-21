@@ -60,7 +60,7 @@
         <div class="carousel-inner">
          	<div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/foto1.png');"></div>
+                <div class="fill" style="background-image:url('images/diseno/plaza.jpg');"></div>
                 <div class="carousel-caption" style="text-align: left;">
                     <!--<h2>Caption 1</h2>-->
                     <h2 class="text-right" style="padding:0 10% 0 0">
@@ -70,7 +70,7 @@
             </div>
             <div class="item">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/foto1.png');"></div>
+                <div class="fill" style="background-image:url('images/diseno/home.jpg');"></div>
                 <div class="carousel-caption" style="text-align: left;">
                     <!--<h2 class="text-center">Caption 1</h2>-->
                     <h2 class="text-right" style="padding:0 10% 0 0">
@@ -80,14 +80,14 @@
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/foto1.png');"></div>
+                <div class="fill" style="background-image:url('images/diseno/plaza.jpg');"></div>
                 <div class="carousel-caption" style="text-align: left;">
                     <h2 class="text-right" style="padding:0 10% 0 0">| Proyecto Ciudadela NIO</h2>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/foto1.png');"></div>
+                <div class="fill" style="background-image:url('images/diseno/home.jpg');"></div>
                 <div class="carousel-caption" style="text-align: left;">
                     <h2 class="text-right" style="padding:0 10% 0 0">| Proyecto Ciudadela NIO</h2>
                 </div>

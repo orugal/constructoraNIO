@@ -25,33 +25,35 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/diseno/favicon.ico" />
 	</head>
 	<body>
-	<div class="container">
-		<nav class="navbar navbar-default" style="border:none">
-			<div class="container">
-					<div class="container-fluid">
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand visible-lg visible-md margin" href="home">
-				      	<img src="images/diseno/logo.png" />
-				      </a>
-				      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
-				      	<img src="images/diseno/logo.png" width="40%" />
-				      </a>
-				    </div>
+	<div class="container-fluid">
+		<div class="container">
+			<nav class="navbar navbarInt navbar-center">
+				<div class="container">
+						<div class="container-fluid">
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <a class="navbar-brand visible-lg visible-md margin" href="home">
+					      	<img src="images/diseno/logo.png" />
+					      </a>
+					      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
+					      	<img src="images/diseno/logo.png" width="40%" />
+					      </a>
+					    </div>
 
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
-				      <?php include("opcMenu.php") ?>
-				    </div>
-				  </div>
-			</div>
-				  
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
+					      <?php include("opcMenu.php") ?>
+					    </div>
+					  </div>
+				</div>
 			</nav>
+		</div>
 	</div>
+	<!--<div class="container-fluid bannersInt bgInternas"></div>-->
     <div class="container-fluid">
     	<div class="container"  style="padding:3%">
     		<div class="row">
