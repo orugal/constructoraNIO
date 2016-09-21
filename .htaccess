@@ -6,3 +6,5 @@ RewriteRule ^quienes-somos$ quienesSomos.php
 RewriteRule ^trabaja-con-nosotros$ trabaja.php
 RewriteRule ^experiencia$ experiencia.php
 RewriteRule ^noticias$ noticias.php
+RewriteRule ^preguntas-frecuentes$ preguntas.php
+RewriteRule ^form-GLPI$ posventa.php

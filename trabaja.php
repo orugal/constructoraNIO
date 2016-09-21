@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>PRÓXIMOS LANZAMIENTOS</title>
+		<title>TRABAJA CON NOSOTROS</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta charset=utf-8>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic,900italic,900&subset=latin,greek,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
@@ -20,10 +20,13 @@
 		<link rel="stylesheet" type="text/css" href="css/nio.css" />
 		<link rel="stylesheet" type="text/css" href="css/full-slider.css" />
 		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/diseno/favicon.ico" />
 	</head>
 	<body>
-		<nav class="navbar navbar-fixed-top navbar-center">
+	<div class="container">
+		<nav class="navbar navbar-default" style="border:none">
 			<div class="container">
 					<div class="container-fluid">
 				    <div class="navbar-header">
@@ -48,80 +51,69 @@
 			</div>
 				  
 			</nav>
-		<header id="myCarousel" class="carousel slide carouselInt">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-         	<div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/img_big5.jpg');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <!--<h2>Caption 1</h2>-->
-                    <h2 class="text-right" style="padding:0 10% 0 0">
-                    <!--<i class="fa fa-leaf" aria-hidden="true"></i> -->
-                     ¡Proximamente!<br>
-                    </h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </header>
-
+	</div>
     <div class="container-fluid">
     	<div class="container"  style="padding:3%">
-
-    		<ol class="breadcrumb">
-			  <li><a href="#">Home</a></li>
-			  <li class="active">Cartagena</li>
-			</ol>
     		<div class="row">
-    			<div class="col col-xs-12 col-sm-12 col-lg-7 col-md-7">
-    				<h2>Búscanos</h2>
-    				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110580.10660504199!2d-74.91257111434815!3d4.240795542226971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f2861c4f48c75%3A0x9b8d16c352425a32!2sFlandes%2C+Tolima!5e1!3m2!1ses!2sco!4v1471792779723" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    			</div>
-    			<div class="col col-xs-12 col-sm-12 col-lg-5 col-md-5">
-    				<h2>Regístrate</h2>
-    				<form>
-					  <div class="form-group">
-					    <label for="email">Tu nombre <span class="small">(Requerido)</span>:</label>
-					    <input type="text" class="form-control" id="nombre">
-					  </div>
-					  <div class="form-group">
-					    <label for="email">Tu email <span class="small">(Requerido)</span>:</label>
-					    <input type="email" class="form-control" id="email">
-					  </div>
-					  <div class="form-group">
-					    <label for="email">Tu teléfono / Celular <span class="small">(Requerido)</span>:</label>
-					    <input type="text" class="form-control" id="telefono">
-					  </div>
-					  <div class="form-group">
-					    <label for="email">¿Por qué te gustaría invertir en este proyecto en flandes?:</label>
-					    <textarea class="form-control" id="porque"></textarea>
-					  </div>
+    			<div class="col col-xs-12 col-sm-12 col-lg-3 col-md-3"></div>
+    			<div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    			<form method="post" id="formEnvio">
+    				<h2 class="titulos" style="padding:2%;background:#ff8e4c;color:#FFF;text-align:center;font-size:1.5em;font-weight:normal">TRABAJA CON NOSOTROS</h2>
+					    
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
+    						Descarga nuestro <a href="#">Formato hoja de vida</a> , diligencia los datos y completa el formulario.
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#ff8e4c"><h4>DATOS DE CONTACTO</h4></div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label class="visible-sm visible-xs" for="nombre">&nbsp;</label>
+					    	<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre (*)">
+    					</div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label class="visible-sm visible-xs" for="apellidos">&nbsp;</label>
+					    	<input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electrónico (*)">
+    					</div>
+    				</div>
 
-					  <div class="form-group">
-						  <div class="radio">
-						    <strong>Conozco y acepto las políticas de datos personales y autorizo el manejo de estos<br></strong>
-						    <label><input type="radio"> Si</label>
-						    <label><input type="radio"> No</label>
-						  </div>
-					  </div>
-					  <button type="submit" class="btn btn-warning">Enviar</button>
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="cedula">&nbsp;</label>
+					    	<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono fijo">
+    					</div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="cedula">&nbsp;</label>
+					    	<input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cargo">
+    					</div>
+    				</div>
+
+    				<div class="row" style="margin:5% 0 0 0">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
+							<div class="form-group">
+							    <label for="exampleInputFile">Adjunta tu hoja de vida</label>
+							    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+							    <small id="fileHelp" class="form-text text-muted">Sólo se permiten archivos PFD.</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="checkbox">
+					    <label><input type="checkbox"> Acepto recibir información de NIO en mi celular</label>
+					</div>
+					<div class="checkbox">
+					    <label><input type="checkbox">  Acepto recibir información de NIO en mi correo electrónico</label>
+					</div>
+
+    				<div class="row" style="margin:2% 0 0 0">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12 text-right">
+					  		<button type="button" class="btn btn-warning" onclick="nio.enviaWebServicePostVenta()">Enviar</button>
+					  	</div>
+					 </div> 		
+    				
 					</form>
     			</div>
+    			<div class="col col-xs-12 col-sm-12 col-lg-3 col-md-3"></div>
     		</div>
     	</div>
     </div>
@@ -154,15 +146,18 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-	<script type="text/javascript" src="js/R-preloadcssimages.jquery.js"></script>
+	<script type="text/javascript" src="js/moment.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="js/nio.js"></script>
 	<script type="text/javascript">
 
 		$(document).ready(function(){
-			$('.carousel').carousel({
-			  interval: 4000
-			})
+			//inicializo el seleccionador de fecha
+			$('#fechaEntrega').datetimepicker({
+		            format: 'YYYY-MM-DD'
+		     });
 		});
 
 	</script>

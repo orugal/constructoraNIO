@@ -81,7 +81,26 @@
     </li>
     <li><a href="experiencia">EXPERIENCIA</a></li>
     <li><a href="noticias">NOTICIAS</a></li>
-    <li><a href="preguntas-frecuentes" target="_blank">PREGUNTAS FRECUENTES</a></li>
-    <li><a href="#">SERVICIO AL CLIENTE</a></li>
+    <li><a href="preguntas-frecuentes">PREGUNTAS FRECUENTES</a></li>
+    <li class="dropdown visible-lg visible-md">
+         <a class="dropdown-toggle" data-toggle="dropdown"	>
+          	SERVICIO AL CLIENTE <b class="glyphicon glyphicon-triangle-bottom mini right"></b>
+          	<ul class="dropdown-menu">
+		        <li class="dropdown-submenu">
+		        	<a href="form-GLPI" style="color:#505052">POSTVENTA</a>
+		        </li>
+		        <li class="dropdown-submenu">
+		        	<a href="form-GLPI" style="color:#505052">PQRS</a>
+		        </li>
+		        <li class="dropdown-submenu">
+		        	<a href="form-GLPI" style="color:#505052">FELICITACIONES</a>
+		        </li>	
+		        <li class="dropdown-submenu">
+		        	<a href="form-GLPI" style="color:#505052">PLAN REFERIDOS</a>
+		        </li>	
+			</ul>
+        </a>
+    </li>
+
     <li><a href="contacto">CONTÁCTANOS</a></li>
  </ul>
