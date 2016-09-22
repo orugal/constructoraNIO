@@ -1,147 +1,194 @@
-<!--                                                    
-     ("`-''-/").___....''"`-._
-      `6_ 6  )   `-.  (     ).`-.__.`) 
-      (_Y_.)'  ._   )  `._ `. ``-..-'
-    _..`..'_..-_/  /..'_.' ,'
-   (il),-''  (li),'  ((!.-'
+<?php
+ini_set("display_errors",0);
+session_start();
+//$_SESSION['ingreso']	=	1;
+//valido si se dio la orden de cerrar session
+if(isset($_GET['logout']))
+{
+	unset($_SESSION['login']);
+	echo "<script>document.location='index.php'</script>";
+}
+if(isset($_GET['quit']))
+{
+	unset($_SESSION['ingreso']);
+	echo "<script>document.location='index.php'</script>";
+}
+require('core/PHPPaging.lib.php');
+//inicializa el archivo de configuracion interna del portal
+require_once('config/configuracion.php');
+//inicializa la conecion
+include('config/conexion.php');
+//Clase de las funciones
+require_once('core/funciones.class.php');	
+//clase que controla el funcionamiento
+require_once('core/core.class.php');
 
-   Desarrollado por  @orugal
-   https://github.com/orugal
--->
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>CONSTRUCTORA NIO</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta charset=utf-8>
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic,900italic,900&subset=latin,greek,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<!--<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />-->
-		<link rel="stylesheet" type="text/css" href="css/nio.css" />
-		<link rel="stylesheet" type="text/css" href="css/full-slider.css" />
-		<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
-		<link rel="shortcut icon" type="image/x-icon" href="images/diseno/favicon.ico" />
-	</head>
-	<body>
-		<nav class="navbar navbar-fixed-top navbar-center">
-			<div class="container">
-					<div class="container-fluid">
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand visible-lg visible-md margin" href="home">
-				      	<img src="images/diseno/logo.png" />
-				      </a>
-				      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
-				      	<img src="images/diseno/logo.png" width="40%" />
-				      </a>
-				    </div>
+//verifico el nodo al cual se esta haciendo referencia
+$id		=	(isset($_GET['id']))?$_GET['id']:1;
+//objeto de la clase funciones
+$funciones	=	new Funciones();
+//objeto de la clase core
+$core	=	new Core();
+//muestro los banners del home
+if($id==1)
+{
+//	$banners	=	$funciones->banners($id,4);//carga los banners del home
+}
+//var_dump($banners);
+if(isset($_GET['tipo']))
+{
+	$tipo	=	$_GET['tipo'];
+}
+else
+{
+	$tipo	=	'';
+}
 
-				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
-				      <?php include("opcMenu.php") ?>
-				    </div>
-				  </div>
-			</div>
-				  
-			</nav>
-		<header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+//$titulo_pagina	=	$funciones->obtenerTitulo($id);
+//busca la miga recursiva
+	
+$contenido			=	$core->contenido($id,$tipo);
+$tipo				=	($tipo=='')?$funciones->obtenerTipoNodo($id):$tipo;
 
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-         	<div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/plaza.jpg');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <!--<h2>Caption 1</h2>-->
-                    <h2 class="text-right" style="padding:0 10% 0 0">
-                    <!--<i class="fa fa-leaf" aria-hidden="true"></i> -->
-                    | Proyecto Ciudadela NIO</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/home.jpg');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <!--<h2 class="text-center">Caption 1</h2>-->
-                    <h2 class="text-right" style="padding:0 10% 0 0">
-                    <!--<i class="fa fa-heart" aria-hidden="true"></i>-->
-					| Proyecto Ciudadela NIO</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/plaza.jpg');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <h2 class="text-right" style="padding:0 10% 0 0">| Proyecto Ciudadela NIO</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('images/diseno/home.jpg');"></div>
-                <div class="carousel-caption" style="text-align: left;">
-                    <h2 class="text-right" style="padding:0 10% 0 0">| Proyecto Ciudadela NIO</h2>
-                </div>
-            </div>
-        </div>
+if(isset($_GET['hijo']))
+{
+	$info_id	=	$funciones->infoId($_GET['hijo']);
+}
+else
+{
+	
+	if(isset($_GET["visitada"])){
+		//echo $id;
+		//$info_id	=	$funciones->infoId($id);
+		$info_id        =       $funciones->consultaUniversal("principal"," id_padre=$id and id=".$_GET["visitada"]." order by fecha desc");
+	}else{
+		if($id!=14){
+			$info_id        =       $funciones->infoId($id);
+		}else{
+			$info_id	=	$funciones->consultaUniversal("principal"," id_padre=$id order by fecha desc");
+		}
+	}
+}
+$datos			=	array();
+$queryImagenesHome	=	$db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre=445 AND visible=1"));
+//$queryImagenesHome	=	$db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre=445 AND visible=1 ORDER BY RAND() LIMIT 1"));
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </header>
+$noticias			=	$db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre IN(1205,1206) AND eliminado=0 AND visible=1 AND promocion=1 ORDER BY fecha DESC"));
+$frase				=	$funciones->infoId(1218);
+//como esta es una página tipo parallax y no tiene páginas internas sino solo info hacia abajo debo consultar todo en esta seccion
 
-	<div class="container-fluid" style="margin:2% 0 0 0">
-		<div class="container">
-			<div class="row" style="padding: -3% 0 0 0">
-				<div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center"></div>
-				<div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center">
-					<a href="contacto"><img src="images/diseno/btnContacto.png" width="100%" /></a>
-				</div>
-				<div class="col-sm-12 col-xs-12 col-md-4 col-lg-4 text-center">
-					<h2 class="text-center clasH2">SUEÑOS EN CONCRETO</h2>
-				</div>
-				<div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center">
-					<a href="https://www.facebook.com/ConstructoraNIO/" target="_blank"><img src="images/diseno/face.png" width="20%" /></a>
-					<a href="https://www.instagram.com/constructora_nio/" target="_blank"><img src="images/diseno/insta.png" width="20%" /></a>
-					<a href="#"><img src="images/diseno/youtube.png" width="20%" /></a>
-					<a href="https://twitter.com/ConstructoraNIO" target="_blank"><img src="images/diseno/twitter.png" width="20%" /></a>
-				</div>
-				<div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center"></div>
-			</div>	
-		</div>
-	</div>
-	<div class="container-fluid text-center" style="margin:2% 0 0 0 ">
-		<div class="container">
-			Sede principal Boogotá - Cll 79 # 8 - 38 | E-mail: info@constructoranio.com
-		</div>
-	</div>
+//experiencia
+$expe                       =   $funciones->infoId(1205);
 
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-	<script type="text/javascript" src="js/R-preloadcssimages.jquery.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/nio.js"></script>
-	<script type="text/javascript">
+//bievenidos
+$bienvenido                 =   $funciones->infoId(1204);
 
-		$(document).ready(function(){
-			$('.carousel').carousel({
-			  interval: 4000
-			})
-		});
+//quienes somos
+$quienesSomos				=	$funciones->infoId(13);
 
-	</script>
-	</body>
-</html>
+//menu
+$menu   					=	$funciones->obtenerListado(1190);
+
+//galeria
+$galeria						=	$funciones->obtenerListado(1195);
+
+//banners HOME
+$banners 					=	$funciones->obtenerListado(1334);
+
+//Equpo
+//$listNoticias 				=	$funciones->obtenerListado(1235);
+
+$primeraNot                   =   $db->GetAll(sprintf("SELECT MAX(id) as id FROM principal WHERE id_padre IN(1235) AND eliminado=0 AND visible=1 ORDER BY id DESC"));   
+//primera noticia
+if(isset($_GET['idNoticia']))
+{
+    $listNoticias                   =   $db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre IN(1235) AND eliminado=0 AND visible=1 AND id =%s ORDER BY id DESC",$_GET['idNoticia']));
+}
+else
+{
+    $listNoticias                   =   $db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre IN(1235) AND eliminado=0 AND visible=1 AND id =%s ORDER BY id DESC",$primeraNot[0]['id']));
+}
+$ssql                           = sprintf("SELECT * FROM principal WHERE id_padre IN(1235) AND eliminado=0 AND visible=1 ORDER BY id DESC");
+$paging=new PHPPaging;
+$paging->paginasAntes(6);
+$paging->paginasDespues(6);
+if($_GET['ver'])
+{
+    $e_ssql=mysql_query($ssql);
+    $numver=mysql_num_rows($e_ssql);
+}
+else
+{
+    $numver=2;
+}
+
+$paging->porPagina($numver);
+$paging->agregarConsulta($ssql);
+$paging->ejecutar();
+$paging->linkAgregar = "#enterate";
+if(!$paging->numTotalRegistros())
+ {
+    $no_encon="No hay regitros con este criterio de b&uacute;squeda!!!";
+}
+
+$links = $paging->fetchNavegacion();
+
+
+$tablet_browser = 0;
+$mobile_browser = 0;
+$body_class = 'desktop';
+ 
+if (preg_match('/(tablet|ipad|playbook)|(android(?!.*(mobi|opera mini)))/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+    $tablet_browser++;
+    $body_class = "tablet";
+}
+ 
+if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android|iemobile)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
+    $mobile_browser++;
+    $body_class = "mobile";
+}
+ 
+if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
+    $mobile_browser++;
+    $body_class = "mobile";
+}
+ 
+$mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+$mobile_agents = array(
+    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
+    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
+    'ipaq','java','jigs','kddi','keji','leno','lg-c','lg-d','lg-g','lge-',
+    'maui','maxo','midp','mits','mmef','mobi','mot-','moto','mwbp','nec-',
+    'newt','noki','palm','pana','pant','phil','play','port','prox',
+    'qwap','sage','sams','sany','sch-','sec-','send','seri','sgh-','shar',
+    'sie-','siem','smal','smar','sony','sph-','symb','t-mo','teli','tim-',
+    'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
+    'wapr','webc','winw','winw','xda ','xda-');
+ 
+if (in_array($mobile_ua,$mobile_agents)) {
+    $mobile_browser++;
+}
+ 
+if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'opera mini') > 0) {
+    $mobile_browser++;
+    //Check for tablets on opera mini alternative headers
+    $stock_ua = strtolower(isset($_SERVER['HTTP_X_OPERAMINI_PHONE_UA'])?$_SERVER['HTTP_X_OPERAMINI_PHONE_UA']:(isset($_SERVER['HTTP_DEVICE_STOCK_UA'])?$_SERVER['HTTP_DEVICE_STOCK_UA']:''));
+    if (preg_match('/(tablet|ipad|playbook)|(android(?!.*mobile))/i', $stock_ua)) {
+      $tablet_browser++;
+    }
+}
+
+if ($tablet_browser > 0) {
+// Si es tablet has lo que necesites
+   include(_PLANTILLAS.'interfaz/index.html');
+}
+else if ($mobile_browser > 0) {
+// Si es dispositivo mobil has lo que necesites
+   include(_PLANTILLAS.'interfaz/index.html');
+}
+else {
+// Si es ordenador de escritorio has lo que necesites
+   include(_PLANTILLAS.'interfaz/index.html');
+} 
+
+?>

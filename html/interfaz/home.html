@@ -1,0 +1,20 @@
+<div class="carousel-inner">
+   <?php foreach($banners as $ban){?>
+        <div class="item active">
+            <div class="fill" style="background-image:url('<?php echo _DOMINIO."images/".$ban['imagen']?>');"></div>
+            <div class="carousel-caption" style="text-align: left;">
+                <h2 class="text-right" style="padding:0 10% 0 0">
+                <?php echo $ban['contenido']?></h2>
+            </div>
+        </div>
+    <?php }?>
+</div>
+
+<!-- Controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+</header>
