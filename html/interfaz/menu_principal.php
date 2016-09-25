@@ -1,8 +1,76 @@
 <?php
 	global $core;
 	global $id;
+	global $funciones;
 	$menuPrincipal = $core->listarMenuPrincipal();
 ?>
+
+<!-- Menú para dispositivos de pantalla grande-->
+<ul class="nav navbar-nav floatRight visible-md visible-lg">
+	<?php foreach($menuPrincipal as $menuP){ ?>
+	    <li class="dropdown visible-lg visible-md">
+	         <a <?php if(count($menuP['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>>
+	          	<?php echo $menuP['titulo'] ?>
+	          	<?php if(count($menuP['hijos']) > 0){ ?>
+		          	<b class="glyphicon glyphicon-triangle-bottom mini right"></b>
+		          	<ul class="dropdown-menu">
+		          		<?php foreach($menuP['hijos'] as $mh){ ?>
+					        <li class="dropdown-submenu">
+					        	<a style="color:#505052" <?php if(count($mh['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($mh['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>>
+					        	<?php echo $mh['titulo'] ?>
+					        	<?php if(count($mh['hijos']) > 0){ ?>
+						        	<b class="glyphicon glyphicon-triangle-right mini"></b></a>
+						        	<ul class="dropdown-menu">
+						        		<?php foreach($mh['hijos'] as $ml2){ ?>
+							            	<li>
+							            		<a style="color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a>
+							            	</li>
+							            <?php } ?>
+									</ul>
+								<?php } ?>
+								</a>
+					        </li>
+				        <?php } ?>
+					</ul>
+				<?php } ?>
+	        </a>
+    	</li>
+	<?php } ?>
+</ul>
+
+<!-- Menú para dispositivos móviles pequeños-->
+<ul class="nav navbar-nav" style="margin: 0 0 5% 0">
+	<?php foreach($menuPrincipal as $menuP){ ?>
+	<li class="dropdown visible-sm visible-xs">
+        <a <?php if(count($menuP['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>><?php echo $menuP['titulo'] ?> 
+        	<?php if(count($menuP['hijos']) > 0){ ?><b class="caret"></b><?php } ?>
+        </a>
+        <?php if(count($menuP['hijos']) > 0){ ?>
+	        <ul class="dropdown-menu multi-column columns-3">
+	        	<?php foreach($menuP['hijos'] as $mh){ ?>
+		            <div class="row">
+			            <div class="col-sm-4">
+				            <ul class="multi-column-dropdown">
+					            <li style="background:#eee">
+					            	<a <?php if(count($mh['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($mh['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><strong><?php echo $mh['titulo'] ?></strong></a>
+					            </li>
+					            <?php if(count($mh['hijos']) > 0){ ?>
+					            	<li class="divider"></li>
+						        	<?php foreach($mh['hijos'] as $ml2){ ?>
+					            		<li><a style="color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a></li>
+					            	<?php } ?>
+					            <?php } ?>
+				            </ul>
+			            </div>
+		            </div>
+	            <?php } ?>
+	        </ul>
+        <?php } ?>
+    </li>
+    <?php }?>
+</ul>
+
+<!--
 
 <ul class="nav navbar-nav floatRight">
 
@@ -20,7 +88,7 @@
     	</ul>
     </li>
 
-<!-- Menú sólo movil-->
+
     <li class="dropdown visible-sm visible-xs">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROYECTOS <b class="caret"></b></a>
         <ul class="dropdown-menu multi-column columns-3">
@@ -47,7 +115,7 @@
     </li>
 
 
-<!-- Fin menú sólo movil-->
+
 
 
 
@@ -114,3 +182,4 @@
 
 
  </ul>
+-->

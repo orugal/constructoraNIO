@@ -15,10 +15,10 @@
           <h2 class="text-center clasH2">SUEÑOS EN CONCRETO</h2>
         </div>
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center">
-          <?php if($info_id[0]['linkFacebook'] !=""){?><a href="<?php echo $info_id[0]['linkFacebook']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/face.png" width="20%" /></a><?php }?>
-          <?php if($info_id[0]['linkInstagram'] !=""){?><a href="<?php echo $info_id[0]['linkInstagram']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/insta.png" width="20%" /></a><?php }?>
-          <?php if($info_id[0]['linkYoutube'] !=""){?><a href="<?php echo $info_id[0]['linkYoutube']?>"><img src="<?php echo _DOMINIO ?>images/diseno/youtube.png" width="20%" /></a><?php }?>
-          <?php if($info_id[0]['linkTwitter'] !=""){?><a href="<?php echo $info_id[0]['linkTwitter']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/twitter.png" width="20%" /></a><?php }?>
+          <?php if($infoHome[0]['linkFacebook'] !=""){?><a href="<?php echo $infoHome[0]['linkFacebook']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/face.png" width="20%" /></a><?php }?>
+          <?php if($infoHome[0]['linkInstagram'] !=""){?><a href="<?php echo $infoHome[0]['linkInstagram']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/insta.png" width="20%" /></a><?php }?>
+          <?php if($infoHome[0]['linkYoutube'] !=""){?><a href="<?php echo $infoHome[0]['linkYoutube']?>"><img src="<?php echo _DOMINIO ?>images/diseno/youtube.png" width="20%" /></a><?php }?>
+          <?php if($infoHome[0]['linkTwitter'] !=""){?><a href="<?php echo $infoHome[0]['linkTwitter']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/twitter.png" width="20%" /></a><?php }?>
         </div>
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center"></div>
       </div>  
@@ -26,8 +26,8 @@
   </div>
   <div class="container-fluid text-center" style="margin:2% 0 0 0 ">
     <div class="container">
-      <?php echo $info_id[0]['direccion']?> | <?php echo $info_id[0]['mail']?><br>
-      <?php echo $info_id[0]['telefono']?> <?php echo $info_id[0]['telefono2']?>
+      <?php echo $infoHome[0]['direccion']?> | <?php echo $infoHome[0]['mail']?><br>
+      <?php echo $infoHome[0]['telefono']?> <?php echo $infoHome[0]['telefono2']?>
 
     </div>
   </div>

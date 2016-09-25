@@ -1,13 +1,30 @@
-<div class="contenedores">
-    <div class="centros">
-        <div class="centrosInt">
-            <div class="latQuienes">
-                <img src="<?php echo _DOMINIO ?>images/<?php echo $infoId[0]['imagen'] ?>" />
-            </div>
-            <div class="contQuienes">
-                <h2><?php echo $infoId[0]['titulo'] ?></h2>
-                <?php echo $infoId[0]['contenido'] ?>
-            </div>
+
+
+<div class="row">
+    <div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8 paddingInt1">
+        <h3><?php echo $info_id[0]['titulo']?></h3>
+        <img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="100%" class="thumbnail" />
+        <p class="parrafosInternos textoGlobal">
+           <?php echo $info_id[0]['contenido']?>
+        </p>
+        <img src="images/diseno/btn1.gif" />
+    </div>
+    <div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4 paddingInt2">
+        <div class="row">
+            <?php foreach($hijosQuienes as $hq){?>
+                <div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 miniInternas">
+                    <center><img src="<?php echo $funciones->imagenCorrecta($hq['imagen']);?>" width="100px" height="100px" class="img-circle" /></center><br>
+                    <h4 class="tituloMiniInterna"><?php echo utf8_encode($hq['titulo'])?></h4>
+                    <!--<img src="images/diseno/img2.jpg" width="100%" />-->
+                    <p class="parrafosInternos textoGlobal" style="text-align: center">
+                       <center><?php echo $hq['contenido']?></center>
+                    </p>
+                    <center><a href="<?php echo $funciones->traerUrl($hq['id']) ?>" class="btn btn-link links">Leer más</a></center>
+                </div>
+                <center>
+                    <img src="images/diseno/bordeHor.png" width="100%" />
+                </center>
+            <?php }?>
         </div>
     </div>
 </div>

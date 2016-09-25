@@ -29,6 +29,8 @@ $id		=	(isset($_GET['id']))?$_GET['id']:1;
 $funciones	=	new Funciones();
 //objeto de la clase core
 $core	=	new Core();
+//genera las urls amigables
+$htaccess = $funciones->automaticHtaccess();
 //muestro los banners del home
 if($id==1)
 {
@@ -76,6 +78,9 @@ $queryImagenesHome	=	$db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre
 $noticias			=	$db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre IN(1205,1206) AND eliminado=0 AND visible=1 AND promocion=1 ORDER BY fecha DESC"));
 $frase				=	$funciones->infoId(1218);
 //como esta es una página tipo parallax y no tiene páginas internas sino solo info hacia abajo debo consultar todo en esta seccion
+
+
+$infoHome                       =   $funciones->infoId(1);
 
 //experiencia
 $expe                       =   $funciones->infoId(1205);
@@ -188,7 +193,14 @@ else if ($mobile_browser > 0) {
 }
 else {
 // Si es ordenador de escritorio has lo que necesites
-   include(_PLANTILLAS.'interfaz/index.html');
+   if($id == 1)
+   {
+        include(_PLANTILLAS.'interfaz/index.html');
+   }
+   else
+   {
+        include(_PLANTILLAS.'interfaz/index2.html');
+   } 
 } 
 
 ?>

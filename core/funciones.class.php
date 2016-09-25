@@ -70,6 +70,7 @@ class Funciones
 								  "alto"=>$result->fields['alto'],
 								  "visitas"=>$result->fields['visitas'],
 								  "fecha"=>$result->fields['fecha'],
+								  "url_amigable"=>$result->fields['url_amigable'],
 								  "puntoscanje"=>$result->fields['puntoscanje'],
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
@@ -435,6 +436,7 @@ class Funciones
 								  "fecha"=>$result->fields['fecha'],
 								  "votos"=>$result->fields['votos'],
 								  "calificacion"=>$result->fields['calificacion'],
+								  "url_amigable"=>$result->fields['url_amigable'],
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
 								  "linkInstagram"=>$result->fields['linkInstagram'],
@@ -1345,6 +1347,37 @@ class Funciones
 		fwrite($fp, $datos, 8000);
 		fclose($fp); 
 	}
+	function automaticHtaccess()
+	{
+		global $db;
+		global $funciones;
+
+		$marcas	=	$db->GetAll(sprintf("SELECT * FROM principal WHERE visible=1 AND eliminado=0 ORDER BY orden ASC"));
+		$fp = fopen('.htaccess',"w+");
+		$salto = '';
+		//salto de linea para servidor windows
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') 
+		{
+		    $salto = "\r\n";
+		} 
+		else 
+		{
+		    $salto = "\n";
+		}
+
+
+		$datos	 = 	"RewriteEngine On".$salto;
+		$datos	.=	"#ErrorDocument 404 /noPage.php".$salto.$salto;
+		foreach($marcas as $data)
+		{
+			if(!empty($data['url_amigable']))
+			{
+				$datos	.='RewriteRule ^'.$data['url_amigable'].'$ index.php?id='.$data['id'].$salto;
+			}
+		}	
+		fwrite($fp, $datos, 8000);
+		fclose($fp); 
+	}
 
 	function traerUrl($id)
 	{
@@ -1361,6 +1394,46 @@ class Funciones
 		return $url;
 	}
 
+	/**
+	 * Funcion que devuelve un array con los valores:
+	 *	os => sistema operativo
+	 *	browser => navegador
+	 *	version => version del navegador
+	 */
+	function detect()
+	{
+		$browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","SAFARI","CHROME");
+		$os=array("WIN","MAC","LINUX");
+	 
+		# definimos unos valores por defecto para el navegador y el sistema operativo
+		$info['browser'] = "OTHER";
+		$info['os'] = "OTHER";
+	 
+		# buscamos el navegador con su sistema operativo
+		foreach($browser as $parent)
+		{
+			$s = strpos(strtoupper($_SERVER['HTTP_USER_AGENT']), $parent);
+			$f = $s + strlen($parent);
+			$version = substr($_SERVER['HTTP_USER_AGENT'], $f, 15);
+			$version = preg_replace('/[^0-9,.]/','',$version);
+			if ($s)
+			{
+				$info['browser'] = $parent;
+				$info['version'] = $version;
+			}
+		}
+	 
+		# obtenemos el sistema operativo
+		foreach($os as $val)
+		{
+			if (strpos(strtoupper($_SERVER['HTTP_USER_AGENT']),$val)!==false)
+				$info['os'] = $val;
+		}
+	 
+		# devolvemos el array de valores
+		return $info;
+	}
+
 	function entorno()
 	{
 		if(_ENTORNO == 'produccion')
@@ -1372,5 +1445,20 @@ class Funciones
 			return false;
 		}
 	}
+
+	function imagenCorrecta($imagen)
+	{
+		$salida =	"";
+		if(trim($imagen) != "")
+		{
+			$salida = _DOMINIO."images/".$imagen;
+		}
+		else
+		{
+			$salida = _DOMINIO."images/diseno/sin_imagen.jpg";
+		}
+		return $salida;
+	}
+
 }
 ?>

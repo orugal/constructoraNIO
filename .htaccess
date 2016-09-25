@@ -1,10 +1,13 @@
 RewriteEngine On
 #ErrorDocument 404 /noPage.php
 
-RewriteRule ^home$ index.php
-RewriteRule ^quienes-somos$ quienesSomos.php
-RewriteRule ^trabaja-con-nosotros$ trabaja.php
-RewriteRule ^experiencia$ experiencia.php
-RewriteRule ^noticias$ noticias.php
-RewriteRule ^preguntas-frecuentes$ preguntas.php
-RewriteRule ^form-GLPI$ posventa.php
+RewriteRule ^home$ index.php?id=1
+RewriteRule ^quienes-somos$ index.php?id=1320
+RewriteRule ^que-hacemos$ index.php?id=1331
+RewriteRule ^trabaja-con-nosotros$ index.php?id=1321
+RewriteRule ^nuestra-mision$ index.php?id=1332
+RewriteRule ^nuestra-vision$ index.php?id=1333
+RewriteRule ^experiencia$ index.php?id=1316
+RewriteRule ^noticias$ index.php?id=1317
+RewriteRule ^preguntas-frecuentes$ index.php?id=1318
+RewriteRule ^contacto$ index.php?id=1315

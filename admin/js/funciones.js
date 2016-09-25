@@ -1,8 +1,3 @@
-
-
-
-
-
 function campos(accion)
 {
 	document.getElementById('antetitulo').style.display = accion;
@@ -79,6 +74,7 @@ function campos(accion)
 		document.getElementById('permisos').style.display = accion;
 		//document.getElementById('recom').style.display = accion;
 		document.getElementById('fecha_form').style.display = accion;
+		document.getElementById('url_amigable').style.display = '';
 		
 }
 function tiposid(id)

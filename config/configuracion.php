@@ -26,8 +26,8 @@ define('_RUTA_ABSOLUTA'										,$ruta_absoluta);		//Ruta relativa del portal e
 //Carpetas
 define('_PLANTILLAS'	                                 	,$ruta_absoluta.'html/');			//Url desde el navegador
 define('_NOMBRE_EMPRESA'	                                ,'Constructora NIO');			//Url desde el navegador
-//define('_DOMINIO'	                     		           ,'http://192.168.1.14/CMSorugal/');			//local
-define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/constructoraNIO/');			//local
+define('_DOMINIO'	                     		           ,'http://192.168.0.10/constructoraNIO/');			//local
+//define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/constructoraNIO/');			//local
 
 
 define('_ENTORNO',											"desarrollo");//desarrollo - produccion

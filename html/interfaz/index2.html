@@ -1,157 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title><?=_NOMBRE_EMPRESA?> - <?=$info_id[0]['titulo']?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="title" content="<?=_NOMBRE_EMPRESA?> - <?=$info_id[0]['titulo']?>" />
-	<meta name="robots" content="all" />
-	<meta name="keywords" content="<?=$info_id[0]['keywords']?>" />
-	<meta name="description" content="<?=$info_id[0]['notas']?>" />
-    <meta name="autor"  content="Farez Prieto - Wannabe.com.co"/>
-    <?if(isset($_GET['hijo']) AND $_GET['hijo'] == '1193'){?>
-    	<link rel="stylesheet" href="css/estiloN.css" />
-    <?}else{?>
-    	<link rel="stylesheet" href="css/estilo.css" />
-    <?}?>
-    
-    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-    <script src="js/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-5.6.2.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="css/shadowbox.css">
-	<script type="text/javascript" src="js/shadowbox.js"></script>
-    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-    <script type="text/javascript" src="js/funciones.js"></script>
-	
-	 	<script type="text/javascript">
-		 $(document).ready( function(){	
-							
-							//carousel
-							$('#foo2').carouFredSel({
-								prev: '#flechaI',
-								next: '#flechaD',
-								//pagination: "#pager2",
-								auto: false
-							});		
-							
-							Shadowbox.init({
-							    handleOversize: "drag",
-							    modal: true
-							});	
-							 $('#slider').nivoSlider({
-								effect:'fold',
-								slices:15,
-								animSpeed:500,
-								pauseTime:5000,
-								directionNav:false, //Next & Prev
-								directionNavHide:false, //Only show on hover
-								controlNav:false, //1,2,3...
-								pauseOnHover:true, //Stop animation while hovering
-								beforeChange: function(){},
-								afterChange: function(){}
-								});
-														
-			});
-		
-		</script>   
-    
-    <script src="js/AC_RunActiveContent.js" type="text/javascript"></script>
- </head>
-<body id="interno">
-	 <?if($_GET['hijo'] == '1193'){?>
-	 	<div style="background:url(images/diseno/nubes.png);width:100%;height:500px;position:absolute;top:0;left:0;z-index:-1"></div>
-	 <?}?>
+<!--                                                    
+     ("`-''-/").___....''"`-._
+      `6_ 6  )   `-.  (     ).`-.__.`) 
+      (_Y_.)'  ._   )  `._ `. ``-..-'
+    _..`..'_..-_/  /..'_.' ,'
+   (il),-''  (li),'  ((!.-'
 
-	<div id="contenedor">
-    	<div id="centro">
-        	<!--Inicia Cabeza-->
-        	<div id="cabeza">
-            	<div id="logo"><a href="<?=_DOMINIO?>" title="<?=_NOMBRE_EMPRESA?>"><img src="images/diseno/logo.png" alt="Logo MMM Britalia"/></a></div>
-                <div id="opcionesCabeza">
-                	<div id="contCabeza">
-						<div id="slogan"><img src="images/diseno/slogan.png" alt="Slogan MMM Britalia"/></div>
-						<div id="panelRadio">
-							<div id="btnEmisora">
-							<a style="cursor:pointer" title="Se&ntilde;al en vivo" onclick="pop()">
-							<img src="images/diseno/emisoraBtn.png" alt="Botón Emisora"/></a></div>
-						</div>
-					</div>
-                    <div id="panelMenu">
-                    	<ul id="menu">
-                        	<?include(_PLANTILLAS."interfaz/menu_principal.php");?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Termina Cabeza-->
-             <?if($_GET['hijo'] != '1193'){?>
-           <!-- Panel cabezaMobil -->
-            <div id="panelCabezotes">
-                <div id="subPanelCabezotes">
-					<div id="wrapper">
-						<div class="slider-wrapper theme-default">
-							<div id="slider" class="nivoSlider">
-								<?if($id == 2){?><!--Quienes somos-->
-									<img src="banner/quienes/1.jpg" data-thumb="banner/quienes/1.jpg" alt="" />
-									<img src="banner/quienes/2.jpg" data-thumb="banner/quienes/2.jpg" alt="" title="" />
-									<img src="banner/quienes/3.jpg" data-thumb="banner/quienes/3.jpg" alt="" title="" />
-								<?}elseif($info_id[0]['id_padre'] == 13){?><!-- Mensajes -->
-									<img src="banner/mensajes/1.jpg" data-thumb="banner/mensajes/1.jpg" alt="" />
-									<img src="banner/mensajes/2.jpg" data-thumb="banner/mensajes/2.jpg" alt="" title="" />
-									<img src="banner/mensajes/3.jpg" data-thumb="banner/mensajes/3.jpg" alt="" title="" />
-								<?}elseif($id == 11){?><!-- Misiones -->
-									<!-- <img src="banner/misiones/1.jpg" data-thumb="banner/misiones/1.jpg" alt="" />-->
-									<img src="banner/misiones/2.jpg" data-thumb="banner/misiones/2.jpg" alt="" title="" />
-									<img src="banner/misiones/3.jpg" data-thumb="banner/misiones/3.jpg" alt="" title="" />
-									<img src="banner/misiones/4.jpg" data-thumb="banner/misiones/4.jpg" alt="" title="" />
-									<img src="banner/misiones/5.jpg" data-thumb="banner/misiones/5.jpg" alt="" title="" />
-								<?}elseif($id == 14){?><!-- Ministerios -->
-									<img src="banner/ministerios/1.jpg" data-thumb="banner/ministerios/1.jpg" alt="" />
-									<img src="banner/ministerios/2.jpg" data-thumb="banner/ministerios/2.jpg" alt="" title="" />
-									<img src="banner/ministerios/3.jpg" data-thumb="banner/ministerios/3.jpg" alt="" title="" />
-									<img src="banner/ministerios/4.jpg" data-thumb="banner/ministerios/4.jpg" alt="" title="" />
-									<img src="banner/ministerios/5.jpg" data-thumb="banner/ministerios/5.jpg" alt="" title="" />
-								<?}elseif($id == 337){?><!-- contactenos -->
-									<img src="banner/contacto/1.jpg" data-thumb="banner/contacto/1.jpg" alt="" />
-									<img src="banner/contacto/2.jpg" data-thumb="banner/contacto/2.jpg" alt="" title="" />
-								<?}elseif($id == 1190){?><!-- galeria -->
-									<img src="banner/gal/1.jpg" data-thumb="banner/gal/1.jpg" alt="" />
-									<img src="banner/gal/2.jpg" data-thumb="banner/gal/2.jpg" alt="" title="" />
-									<img src="banner/gal/3.jpg" data-thumb="banner/gal/3.jpg" alt="" title="" />
-									<img src="banner/gal/4.jpg" data-thumb="banner/gal/4.jpg" alt="" title="" />
-								<?}else{?>
-									<img src="banner/ev/1.jpg" data-thumb="banner/ev/1.jpg" alt="" />
-									<img src="banner/ev/2.jpg" data-thumb="banner/ev/2.jpg" alt="" title="" />
-									<img src="banner/ev/3.jpg" data-thumb="banner/ev/3.jpg" alt="" title="" />
-								<?}?>
-							</div>
-						</div>
+   Desarrollado por  @orugal
+   https://github.com/orugal
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><?=_NOMBRE_EMPRESA?> - <?=$info_id[0]['titulo']?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="<?=_NOMBRE_EMPRESA?> - <?=$info_id[0]['titulo']?>" />
+		<meta name="robots" content="all" />
+		<meta name="keywords" content="<?=$info_id[0]['keywords']?>" />
+		<meta name="description" content="<?=$info_id[0]['notas']?>" />
+	    <meta name="autor"  content="Farez Prieto - https://github.com/orugal"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset=utf-8>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,400italic,500italic,700,700italic,900italic,900&subset=latin,greek,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>css/bootstrap.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>css/bootstrap-theme.css" />-->
+		<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>css/nio.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>css/full-slider.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>font-awesome/css/font-awesome.min.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo _DOMINIO?>images/diseno/favicon.ico" />
+	</head>
+	<body>
+		<div class="container-fluid">
+		<div class="container">
+			<nav class="navbar navbarInt navbar-center">
+				<div class="container">
+						<div class="container-fluid">
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <a class="navbar-brand visible-lg visible-md margin" href="home">
+					      	<img src="images/diseno/logo.png" />
+					      </a>
+					      <a class="navbar-brand visible-xs visible-sm" href="home" style="margin-top:-15px">
+					      	<img src="images/diseno/logo.png" width="40%" />
+					      </a>
+					    </div>
 
-					</div>
-               	  <!--<script type="text/javascript">
-AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','1096','height','233','title','Cabezote','src','swf/cabezote','quality','high','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','swf/cabezote','wmode','transparent' ); //end AC code
-</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="1096" height="233" title="Cabezote">
-                      <param name="movie" value="swf/cabezote.swf" />
-                      <param name="quality" value="high" />
-                      <param name="wmode" value="transparent" />
-                      <embed src="swf/cabezote.swf" wmode="transparent" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1096" height="233"></embed>
-              	  </object></noscript>-->
-                  <div id="tituloUniversal">
-                  		<h1><?=$info_id[0]['titulo']?></h1>
-                  </div>
-                </div>
-          </div>
-            <!-- Fin del Panel cabezaMobil-->
-            <?}?>
-            <!--Cuerpo --> 
-            <div id="cuerpo">
-	            <!-- contenido -->
-					 <?include	($contenido)?>
-				<!-- Fin dontenido --> 
-            </div>
-            <!-- Termina el cuerpo -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="border:none;box-shadow: none;">
+					      <?include(_PLANTILLAS."interfaz/menu_principal.php");?>
+					    </div>
+					  </div>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="container-fluid bannersInt bgInternas">
+	</div>
+
+    <div class="container-fluid" style="margin:3% 0 3% 0">
+        <div class="container">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Quiénes somos</li>
+            </ol>
+		    <!--contenido-->
+		    <?php include($contenido); ?>
         </div>
-    </div>
-</body>
+    </div>       
+	
+	<!-- pie de página-->
+	<?php include(_PLANTILLAS."interfaz/pie.php") ?>
+
+	<script type="text/javascript" src="<?php echo _DOMINIO?>js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo _DOMINIO?>js/jquery.parallax-1.1.3.js"></script>
+	<script type="text/javascript" src="<?php echo _DOMINIO?>js/R-preloadcssimages.jquery.js"></script>
+	<script type="text/javascript" src="<?php echo _DOMINIO?>js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?php echo _DOMINIO?>js/nio.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('.carousel').carousel({
+			  interval: 4000
+			})
+		});
+
+	</script>
+	</body>
 </html>
