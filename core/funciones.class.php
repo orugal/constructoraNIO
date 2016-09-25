@@ -1110,6 +1110,13 @@ class Funciones
     	$titulo	=	$this->consultaUniversal("principal"," id=".$id,'titulo');
     	return $titulo[0]['titulo'];
     }
+	function traduceFecha($fecha)
+	{
+		$partes  = explode(" ",$fecha);
+		$pedazos = explode("-",$partes[0]);
+		return $pedazos[2]." de ".$this->TraducirMes($pedazos[1])." de ".$pedazos[0];
+	}
+
 	/*
 	 * Funcion que traduce el mes
 	 */
@@ -1372,7 +1379,14 @@ class Funciones
 		{
 			if(!empty($data['url_amigable']))
 			{
-				$datos	.='RewriteRule ^'.$data['url_amigable'].'$ index.php?id='.$data['id'].$salto;
+				if($data['id_padre'] == _NOTICIAS)
+				{
+					$datos	.='RewriteRule ^'.$data['url_amigable'].'$ index.php?id='.$data['id_padre']."&visitada=".$data['id'].$salto;
+				}
+				else
+				{
+					$datos	.='RewriteRule ^'.$data['url_amigable'].'$ index.php?id='.$data['id'].$salto;
+				}
 			}
 		}	
 		fwrite($fp, $datos, 8000);
@@ -1455,7 +1469,7 @@ class Funciones
 		}
 		else
 		{
-			$salida = _DOMINIO."images/diseno/sin_imagen.jpg";
+			$salida = _DOMINIO."images/diseno/noImagen.png";
 		}
 		return $salida;
 	}

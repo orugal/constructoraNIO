@@ -78,65 +78,110 @@ if(isset($_POST['enviar']))
 	}
 }
 ?>
-<div class="contenedores">
-	<div class="centros">
-		<div class="centrosInt">
-			<div class="contDataUsuario">
-				<form method="post">
-					<div class="subContContacto">
-						Gracias por Visitarnos, por favor complete el formulario y nosotros lo llamaremos sin costo alguno.
-					</div>
-					<div class="infoInternaContContacto">
-						<span class="obligatorio">Todos los campos son obligatorios</span>
-					</div>
-					<?php if($errores != ""){ ?>	
-						<div class="infoInternaContContacto">
-							<span class="errorContacto"><?php echo $errores ?></span>
-						</div>
-					<?php } ?>
-					<div class="infoInternaContContacto">
-						<label>Nombre
-							<input type="text" name="nombres" value="<?php echo $nombres ?>" placeholder="Escribe tu nombre" class="cajasContacto" />		
-						</label>
-					</div>
-					<div class="infoInternaContContacto">
-						<div class="panel50">
-							<label>Teléfono
-								<input type="text" name="telefono" value="<?php echo $telefono ?>" placeholder="Escribe tu Telefono Fijo" class="cajasContacto" />		
-							</label>
-						</div>
-						<div class="panel50">
-							<label>Mail
-								<input type="text" name="mail" value="<?php echo $mail ?>" placeholder="Escribe Número Celular" class="cajasContacto" />		
-							</label>
-						</div>
-					</div>
-					<div class="infoInternaContContacto">
-						<label>Mensaje
-							<textarea name="comentario"  placeholder="Dejanos tu mensaje" class="textAreaContacto"><?php echo $comentario ?></textarea>		
-						</label>
-					</div>	
-					<div class="infoInternaContContacto">
-						<label>Código de Seguridad<br>
-							<img src="<?php echo _DOMINIO ?>php/captcha/captcha.php" width="200px"/>
-						</label>
-					</div>
-					<div class="infoInternaContContacto">
-						<label>Escribe el código de seguridad
-							<input type="text" name="seguridad" placeholder="Escribe las letras que aparecen arriba." class="cajasContacto" />		
-						</label>
-					</div>
-					<div class="infoInternaContContacto">
-						<input type="submit" value="Enviar" name="enviar" class="btnEnviarContacto"/>
-					</div>
-				</form>
+<div class="row">
+	<div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4">
+			<br><br>
+	    	<div class="card">
+			  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+			  <div class="card-block">
+			    <h4 class="card-title">Bogotá</h4>
+			    <p class="card-text">
+			    	Dirección: Cll 79 # 8 – 38<br>
+					Email: info@constructoranio.com<br>
+					Celular: (+57) 315 707 6127
+			    </p>
+			  </div>
 			</div>
-			<div class="contDataEmpresa">
-				<img src="<?php echo _DOMINIO ?>/images/diseno/imgContacto.png"><br><br>
-				<!--Cel: 311 098 098<br>-->
-				<strong>Tel:  616 2066 ext 108</strong><br>
-				info@asograsas.com
+
+	    	<div class="card">
+			  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+			  <div class="card-block">
+			    <h4 class="card-title">Neiva</h4>
+			    <p class="card-text">
+			    	Dirección: Av 26 N°41 –66/ Neiva, Colombia.<br>
+					Email: ventastangara@constructoranio.com<br>
+					Teléfonos: (+57) 315 707 6127
+			    </p>
+			  </div>
 			</div>
-		</div>
+
+	    	<div class="card">
+			  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+			  <div class="card-block">
+			    <h4 class="card-title">Ibagué</h4>
+			    <p class="card-text">
+			    	Dirección: Crr 4h N° 40 – 58<br>
+					Teléfonos: (+57) 315 707 6127
+			    </p>
+			  </div>
+			</div>
 	</div>
+    			<div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8">
+    			<form method="post" id="formEnvio" enctype="multipart/form-data">
+    				<h2 class="titulos" style="padding:2%;background:#ff8e4c;color:#FFF;text-align:center;font-size:1.5em;font-weight:normal;text-transform: uppercase"><?php echo $info_id[0]['titulo'] ?></h2>
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#ff8e4c"><h4>DATOS DE CONTACTO</h4></div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label class="visible-sm visible-xs" for="nombre">&nbsp;</label>
+					    	<select type="text" class="form-control" id="espacio" name="espacio">
+					    		<option value="">Tipo de usuario (*)...</option>
+					    		<option value="Comprador">Comprador</option>
+					    		<option value="Oferta de lotes">Oferta de lotes</option>
+					    		<option value="Trabaje con nosotros">Trabaje con nosotros</option>
+					    	</select>
+    					</div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label class="visible-sm visible-xs" for="apellidos">&nbsp;</label>
+					    	<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Escriba su nombre (*)">
+    					</div>
+    				</div>
+
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="tipoDoc">&nbsp;</label>
+					    	<input type="text" class="form-control" id="cedula" name="cedula" placeholder="Correo electrónico (*)">
+					    	</select>
+    					</div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="cedula">&nbsp;</label>
+					    	<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono fijo">
+    					</div>
+    				</div>
+
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="celular">&nbsp;</label>
+					    	<select type="text" class="form-control" id="espacio" name="espacio">
+					    		<option value="">Cliente (*)...</option>
+					    		<option value="Compradores">Compradores</option>
+					    		<option value="Negocios inmobiliarios">Negocios inmobiliarios</option>
+					    	</select>
+    					</div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+    						<label for="telefono">&nbsp;</label>
+					    	<select type="text" class="form-control" id="espacio" name="espacio">
+					    		<option value="">Proyecto  (*)...</option>
+					    		<option value="Neiva">Neiva</option>
+					    		<option value="Ibagué">Ibagué</option>
+					    		<option value="Montería">Montería</option>
+					    		
+					    	</select>
+    					</div>
+    				</div>
+
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
+    						<label for="correo">&nbsp;</label>
+					    	<textarea class="form-control" id="correo" name="correo" placeholder="ESCRIBA UN BREVE COMENTARIO (*)"></textarea>
+    					</div>
+    				</div>
+
+	    				<div class="row" style="margin:2% 0 0 0">
+	    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12 text-right">
+						  		<button type="button" class="btn btn-warning" onclick="nio.enviaWebServicePostVenta()">Enviar información</button>
+						  	</div>
+						 </div> 
+					</form>
+    			</div>
+    		</div>
 </div>

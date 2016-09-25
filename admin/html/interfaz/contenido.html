@@ -253,7 +253,7 @@ else {?>
 				<?if($tipo_contenido==60){?>Nombre<?}else{?>Nombre<?}?>
 			</td>
 			<td>
-				<input type="text"  class="form-control" name="titulo,r" size="53" value="<? echo $titulo; ?>">
+				<input type="text"  class="form-control" name="titulo,r" size="53" value="<? echo $titulo; ?>" onkeyup="generaUrlAmigable(this)">
 			</td>
 		</tr>
 		<tr id="antetitulo">
@@ -361,26 +361,7 @@ else {?>
 			</td>
 			<td>
 				<!-- <textarea cols="40" rows="10" name="resumen">-->
-				<textarea cols="40" id="noise2" rows="10" name="resumen"  class="widgEditor nothing form-control"><? echo $resumen; ?></textarea>
-			</td>
-		</tr>
-		<tr id="fecha_form">
-			<td class="celdas">
-				Fecha
-			</td>
-			<td class="celdas">
-				<input type="text" name="fecha" id="fecha" size="20" value="<?=$fecha?>" readonly>
-	        	<input type="button" id="btn_fecha"style="border:1px solid;font:0.8em;" value="Seleccione la fecha">
-	                                <script type="text/javascript">
-	                                    Calendar.setup({
-	                                        inputField     :    "fecha",      // id of the input field
-	                                        ifFormat       :    "%Y-%m-%d",       // format of the input field
-	                                        showsTime      :    false,            // will display a time selector
-	                                        button         :    "btn_fecha",   // trigger for the calendar (button ID)
-	                                        singleClick    :    true,           // double-click mode
-	                                        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
-	                                    });
-	                                    </script>
+				<textarea cols="40" id="noise2" rows="5" name="resumen"  class="form-control"><? echo $resumen; ?></textarea>
 			</td>
 		</tr>
 		<tr id="descriptivo">
@@ -404,6 +385,25 @@ else {?>
 
 				<!--<div class="summernote" name="contenido" ><? echo $contenido; ?></div>-->
 			<?}?>	
+			</td>
+		</tr>
+		<tr id="fecha_form">
+			<td class="celdas">
+				Fecha
+			</td>
+			<td class="celdas">
+				<input type="text" name="fecha" id="fecha" size="20" value="<?php echo date('Y-m-d',strtotime($fecha))?>" readonly class="form-control">
+	        	<input type="button" id="btn_fecha"style="border:1px solid;font:0.8em;" value="Seleccione la fecha" class="btn btn-primary">
+	                                <script type="text/javascript">
+	                                    Calendar.setup({
+	                                        inputField     :    "fecha",      // id of the input field
+	                                        ifFormat       :    "%Y-%m-%d",       // format of the input field
+	                                        showsTime      :    false,            // will display a time selector
+	                                        button         :    "btn_fecha",   // trigger for the calendar (button ID)
+	                                        singleClick    :    true,           // double-click mode
+	                                        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+	                                    });
+	                                    </script>
 			</td>
 		</tr>
 		<tr id="horarioinicio">
@@ -825,7 +825,7 @@ else {?>
 				Url amigable
 			</td>
 			<td class="celdas">
-				<input type="text" class="form-control"  name="url_amigable" size="53" value="<? echo $url_amigable; ?>">
+				<input type="text" class="form-control"  name="url_amigable" id="url_amigable_txt" size="53" value="<? echo $url_amigable; ?>">
 			</td>
 		</tr>
 		<!-- LINKS REDES SOCIALES-->

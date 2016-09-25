@@ -37,6 +37,27 @@ define('_MENSAJE_FAIL',										"Perd&oacute;n, pero esta es zona restringida")
 
 
 
+//Configuración SOAP GLPI PRUEBAS
+if(_ENTORNO == 'desarrollo')
+{
+	define('_URL_GLPI' ,										"glpi/plugins/webservices/soap.php");
+	define('_HOST_GLPI' ,										"localhost");
+	define('_PROT_GLPI' ,										"http");
+	define('_USER_GLPI' ,										"glpi");
+	define('_CLAVE_GLPI' ,										"glpi");
+}
+else
+{
+	define('_URL_GLPI' ,										"plugins/webservices/soap.php");
+	define('_HOST_GLPI' ,										"tickets.constructoranio.com");
+	define('_PROT_GLPI' ,										"https");
+	define('_USER_GLPI' ,										"web");
+	define('_CLAVE_GLPI' ,										"Prontas23*");
+}
+
+$sinCabezote = array(1315,1327,1328,1329,1330);
+
+
 define('_ID_AFILIADOS',1676);//en menu principal
 
 //BASE DE DATOS
@@ -82,6 +103,8 @@ define('_BUSCAR'										,89);
 define('_CATALOGO'										,2);
 /*Tener en cuenta esta constante en caso de que sea instale un catalogo de productos*/
 define('_ATRIBUTOS'										,209);
+define('_PREGUNTAS_FREC'								,1318);
+define('_NOTICIAS'										,1317);
 
 //tipos de contenido especiales
 define('_TIPO_PRODUCTO'									,10);

@@ -800,7 +800,7 @@ $tabla .= '</td>
 									$tabla.='<td align="center"><b>SUBCONTENIDOS</b></td>';
 								}
 							}
-							if($tipo_contenido == 17 or  $tipo_contenido == 54)//esto es para poner noticia en el home
+							if($tipo_contenido == 17)//esto es para poner noticia en el home
 							{
 								$tabla.='<td align="center"><b>HOME</b></td>';
 							}
@@ -923,7 +923,7 @@ $tabla .= '</td>
 													</a>
 												</td>';		
 								}
-								if($tipo_contenido == 17 or $tipo_contenido == 54)//esto es para poner la noticia en el home
+								if($tipo_contenido == 17 )//esto es para poner la noticia en el home
 								{
 									$tabla	.=	'<td align="center">';
 									if($rew['promocion'] == 1)//seleccionado
@@ -967,7 +967,7 @@ $tabla .= '</td>
 											<td align="center">
 												<input type="submit" value="Visible" name="activar" class="btn btn-primary">
 											</td>';
-					if($tipo_contenido == 17 or $tipo_contenido == 54)//esto es para poner la noticia en el home
+					if($tipo_contenido == 17)//esto es para poner la noticia en el home
 					{
 						$tabla.='<td align="center"><input type="submit" value="Poner en Home" name="home"  class="btn btn-primary"></td>';
 					}

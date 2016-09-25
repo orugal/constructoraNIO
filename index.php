@@ -24,6 +24,7 @@ require_once('core/funciones.class.php');
 require_once('core/core.class.php');
 
 //verifico el nodo al cual se esta haciendo referencia
+
 $id		=	(isset($_GET['id']))?$_GET['id']:1;
 //objeto de la clase funciones
 $funciones	=	new Funciones();
@@ -48,6 +49,9 @@ else
 
 //$titulo_pagina	=	$funciones->obtenerTitulo($id);
 //busca la miga recursiva
+
+$migaRecursiva  = $funciones->BusquedaRecursiva($id,array());
+
 	
 $contenido			=	$core->contenido($id,$tipo);
 $tipo				=	($tipo=='')?$funciones->obtenerTipoNodo($id):$tipo;

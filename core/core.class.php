@@ -127,6 +127,12 @@ class Core
 			case  49:
 				return $this->tipoAreaInterna();
 			break;
+			case  53: //cartelera
+				return $this->tipoCartelera();
+			break;
+			case  54: //pelicula
+				return $this->tipoCartelera();
+			break;
 			case  55:
 				return $this->tipoRemi();
 			break;
@@ -468,6 +474,19 @@ class Core
 		global $id;
 		
 		$var = _PLANTILLAS."interfaz/lineas.php";
+		return $var;
+	}
+	/*
+	 * Funcion que realiza el funcionamiento de las carteleras
+	 * @return $var retorna la aplicacion
+	*/
+	function tipoCartelera()
+	{
+		global $db;
+		global $funciones;
+		global $id;
+		
+		$var = _PLANTILLAS."interfaz/cartelera.php";
 		return $var;
 	}
 	/*

@@ -84,13 +84,14 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('antetitulo').style.display = '';
+		//document.getElementById('antetitulo').style.display = '';
 		document.getElementById('descripcion').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('pie_imagen').style.display = 'none';
 		document.getElementById('keywords').style.display = 'none';
 		document.getElementById('notas').style.display = 'none';
+		document.getElementById('resumen').style.display = '';
 
 		
 	}
@@ -110,6 +111,20 @@ function tiposid(id)
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('imagen2').style.display = '';
 		document.getElementById('mostrar_imagen2').style.display = '';
+	}
+	//cartelera
+	else if(id	== 53)
+	{
+		campos('none');
+		document.getElementById('titulo').style.display = '';
+	}
+	//peliculas
+	else if(id	== 54)
+	{
+		campos('none');
+		document.getElementById('titulo').style.display = '';
+		document.getElementById('descripcion').style.display = '';
+		document.getElementById('url_amigable').style.display = 'none';
 	}
 	//si es tipo Noticias
 	else if(id == 1)
@@ -153,9 +168,6 @@ function tiposid(id)
 		campos('none');
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('adjunto').style.display = '';
-		document.getElementById('imagen').style.display = '';
-		document.getElementById('descripcion').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
 	}
 	//si es tipo home
 	else if(id == 6)
@@ -285,12 +297,12 @@ function tiposid(id)
 		document.getElementById('titulo').style.display = '';
 		//document.getElementById('subtitulo').style.display = '';
 		document.getElementById('resumen').style.display = '';
-		//document.getElementById('descripcion').style.display = '';
+		document.getElementById('descripcion').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		//document.getElementById('imagen_home').style.display = '';
 		document.getElementById('autor').style.display = '';
 		//document.getElementById('mail_autor').style.display = '';
-		document.getElementById('link').style.display = '';
+		//document.getElementById('link').style.display = '';
 		//document.getElementById('tipo_link').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('fecha_form').style.display = '';
@@ -1147,4 +1159,21 @@ function sendForm()
 		$("#formPrincipal").submit();
 	});
 
+}
+
+function generaUrlAmigable(e)
+{
+	var texto    = $(e).val();
+	$.ajax({
+        url: "externos/ajax.php",
+        data: "accion=1&texto="+texto,
+        type: "POST",
+        success:function(urlAmigable)
+        {
+			$("#url_amigable_txt").val(urlAmigable); 
+        },
+        error:function(e) {
+            //$("#ERRORES").html(e.statusText + e.status + e.responseText);
+        }
+    });  
 }

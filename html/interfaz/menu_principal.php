@@ -9,21 +9,21 @@
 <ul class="nav navbar-nav floatRight visible-md visible-lg">
 	<?php foreach($menuPrincipal as $menuP){ ?>
 	    <li class="dropdown visible-lg visible-md">
-	         <a <?php if(count($menuP['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>>
+	         <a style="text-transform:uppercase;" <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>>
 	          	<?php echo $menuP['titulo'] ?>
-	          	<?php if(count($menuP['hijos']) > 0){ ?>
+	          	<?php if(count($menuP['hijos']) > 0 && $menuP['id'] != _PREGUNTAS_FREC && $menuP['id'] != _NOTICIAS){ ?>
 		          	<b class="glyphicon glyphicon-triangle-bottom mini right"></b>
 		          	<ul class="dropdown-menu">
 		          		<?php foreach($menuP['hijos'] as $mh){ ?>
 					        <li class="dropdown-submenu">
-					        	<a style="color:#505052" <?php if(count($mh['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($mh['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>>
+					        	<a style="color:#505052;text-transform:uppercase;" <?php if(count($mh['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($mh['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>>
 					        	<?php echo $mh['titulo'] ?>
 					        	<?php if(count($mh['hijos']) > 0){ ?>
 						        	<b class="glyphicon glyphicon-triangle-right mini"></b></a>
 						        	<ul class="dropdown-menu">
 						        		<?php foreach($mh['hijos'] as $ml2){ ?>
 							            	<li>
-							            		<a style="color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a>
+							            		<a style="text-transform:uppercase;color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a>
 							            	</li>
 							            <?php } ?>
 									</ul>

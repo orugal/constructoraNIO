@@ -3,10 +3,19 @@ RewriteEngine On
 
 RewriteRule ^home$ index.php?id=1
 RewriteRule ^quienes-somos$ index.php?id=1320
+RewriteRule ^postventa$ index.php?id=1327
 RewriteRule ^que-hacemos$ index.php?id=1331
+RewriteRule ^neiva-tendra-mar$ index.php?id=1317&visitada=1344
 RewriteRule ^trabaja-con-nosotros$ index.php?id=1321
+RewriteRule ^pqrs$ index.php?id=1328
 RewriteRule ^nuestra-mision$ index.php?id=1332
+RewriteRule ^trayendo-el-mar-a-las-viviendas-en-neiva$ index.php?id=1317&visitada=1345
+RewriteRule ^felicitaciones$ index.php?id=1329
 RewriteRule ^nuestra-vision$ index.php?id=1333
+RewriteRule ^como-usar-la-prima-para-vivienda-propia$ index.php?id=1317&visitada=1346
+RewriteRule ^plan-referidos$ index.php?id=1330
+RewriteRule ^la-constructora-nio-estuvo-presente-en-las-fiestas-de-san-pedro$ index.php?id=1317&visitada=1347
+RewriteRule ^la-arquitectura-bioclimatica-es-la-nueva-apuesta-de-la-construccion$ index.php?id=1317&visitada=1348
 RewriteRule ^experiencia$ index.php?id=1316
 RewriteRule ^noticias$ index.php?id=1317
 RewriteRule ^preguntas-frecuentes$ index.php?id=1318
