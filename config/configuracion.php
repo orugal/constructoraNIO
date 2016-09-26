@@ -26,8 +26,8 @@ define('_RUTA_ABSOLUTA'										,$ruta_absoluta);		//Ruta relativa del portal e
 //Carpetas
 define('_PLANTILLAS'	                                 	,$ruta_absoluta.'html/');			//Url desde el navegador
 define('_NOMBRE_EMPRESA'	                                ,'Constructora NIO');			//Url desde el navegador
-define('_DOMINIO'	                     		           ,'http://192.168.0.10/constructoraNIO/');			//local
-//define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/constructoraNIO/');			//local
+define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/constructoraNIO/');			//local
+//define('_DOMINIO'	                     		           ,'http://www.constructoranio.com/webNueva/');			//local
 
 
 define('_ENTORNO',											"desarrollo");//desarrollo - produccion
@@ -41,10 +41,10 @@ define('_MENSAJE_FAIL',										"Perd&oacute;n, pero esta es zona restringida")
 if(_ENTORNO == 'desarrollo')
 {
 	define('_URL_GLPI' ,										"glpi/plugins/webservices/soap.php");
-	define('_HOST_GLPI' ,										"localhost");
+	define('_HOST_GLPI' ,										"192.168.0.12:8081");
 	define('_PROT_GLPI' ,										"http");
-	define('_USER_GLPI' ,										"glpi");
-	define('_CLAVE_GLPI' ,										"glpi");
+	define('_USER_GLPI' ,										"admin");
+	define('_CLAVE_GLPI' ,										"123456789");
 }
 else
 {

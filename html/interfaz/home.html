@@ -1,13 +1,21 @@
+
+        <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 <div class="carousel-inner">
-   <?php foreach($banners as $ban){?>
-        <div class="item active">
+   <?php $contador=0;foreach($banners as $ban){?>
+        <div class="item <?php if($contador == 0){?>active<?php }?>">
             <div class="fill" style="background-image:url('<?php echo _DOMINIO."images/".$ban['imagen']?>');"></div>
             <div class="carousel-caption" style="text-align: left;">
                 <h2 class="text-right" style="padding:0 10% 0 0">
                 <?php echo $ban['contenido']?></h2>
             </div>
         </div>
-    <?php }?>
+    <?php $contador++;}?>
 </div>
 
 <!-- Controls -->
