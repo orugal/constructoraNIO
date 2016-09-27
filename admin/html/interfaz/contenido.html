@@ -245,8 +245,7 @@ else {?>
 				</select>
 			</td>
 		</tr>
-		<?php }?>	
-		
+		<?php }?>
 		<!-- campos producto -->
 		<tr id="titulo">
 			<td>
@@ -302,14 +301,6 @@ else {?>
 			</td>
 			<td class="celdas">
 				<input type="text" class="form-control"  name="horarios" size="53" value="<? echo $horarios; ?>">
-			</td>
-		</tr>
-		<tr id="mapa">
-			<td>
-				Ingrese la URL de Google Maps http://....
-			</td>
-			<td class="celdas">
-				<textarea cols="40" class="form-control" rows="10" name="mapa"><? echo $mapa; ?></textarea>
 			</td>
 		</tr>
 		<tr id="codproducto">
@@ -811,21 +802,20 @@ else {?>
 				<b>CONFIGURACI&Oacute;N SEO</b>
 			</td>
 		</tr>
+		<tr id="mapa">
+			<td>
+				Introduzca el c&oacute;digo de google maps en esta secci&oacute;n
+			</td>
+			<td class="celdas">
+				<textarea cols="40" class="form-control" rows="10" name="mapa"><? echo $mapa; ?></textarea>
+			</td>
+		</tr>
 		<tr id="keywords">
 			<td>
 				Keywords
 			</td>
 			<td class="celdas">
 				<input type="text" class="form-control"  name="keywords" size="53" value="<? echo $keywords; ?>">
-			</td>
-		</tr>
-		</tr>
-		<tr id="url_amigable">
-			<td>
-				Url amigable
-			</td>
-			<td class="celdas">
-				<input type="text" class="form-control"  name="url_amigable" id="url_amigable_txt" size="53" value="<? echo $url_amigable; ?>">
 			</td>
 		</tr>
 		<!-- LINKS REDES SOCIALES-->
@@ -886,6 +876,14 @@ else {?>
 			</td>
 			<td class="celdas">
 				<textarea cols="40" class="form-control" rows="3" name="notas"><? echo $notas; ?></textarea>
+			</td>
+		</tr>
+		<tr id="url_amigable">
+			<td>
+				Url amigable
+			</td>
+			<td class="celdas">
+				<input type="text" class="form-control"  name="url_amigable" id="url_amigable_txt" size="53" value="<? echo $url_amigable; ?>">
 			</td>
 		</tr>
 		<tr>

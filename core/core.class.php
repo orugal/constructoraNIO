@@ -140,6 +140,9 @@ class Core
 				return $this->tipoSubRemi();
 			break;
 			case  59:
+				return $this->tipoOfertaPadre();
+			break;
+			case  60:
 				return $this->tipoOferta();
 			break;
 		}
@@ -355,6 +358,15 @@ class Core
 		global $id;
 		
 		$var = _PLANTILLAS.'interfaz/tipoOferta.php';
+		return $var;
+	}
+	function tipoOfertaPadre()
+	{
+		global $db;
+		global $funciones;
+		global $id;
+		
+		$var = _PLANTILLAS.'interfaz/tipoOfertaPadre.php';
 		return $var;
 	}
 	/*

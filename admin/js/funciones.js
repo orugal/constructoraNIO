@@ -71,10 +71,10 @@ function campos(accion)
 	document.getElementById('horarioinicio').style.display =  accion;
 	document.getElementById('horariofin').style.display =  accion;
 	
-		document.getElementById('permisos').style.display = accion;
-		//document.getElementById('recom').style.display = accion;
-		document.getElementById('fecha_form').style.display = accion;
-		document.getElementById('url_amigable').style.display = '';
+	document.getElementById('permisos').style.display = accion;
+	//document.getElementById('recom').style.display = accion;
+	document.getElementById('fecha_form').style.display = accion;
+	document.getElementById('url_amigable').style.display = '';
 		
 }
 function tiposid(id)
@@ -522,15 +522,10 @@ function tiposid(id)
 		campos('none');
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('pie_imagen').style.display = 'none';
-		//document.getElementById('fecha_form').style.display = '';
-		document.getElementById('keywords').style.display = 'none';
-		document.getElementById('notas').style.display = 'none';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('autor').style.display = '';
-		document.getElementById('resumen').style.display = '';
-		document.getElementById('horarioinicio').style.display =  '';
-	document.getElementById('horariofin').style.display =  '';
+		document.getElementById('descripcion').style.display = '';
+		document.getElementById('mapa').style.display = '';
 	}
 	//productos minisite
 	else if(id ==43)
@@ -540,9 +535,6 @@ function tiposid(id)
 		document.getElementById('resumen').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('pie_imagen').style.display = 'none';
-		document.getElementById('keywords').style.display = 'none';
-		document.getElementById('notas').style.display = 'none';
 
 	}
 	//si es tipo servicios
@@ -681,14 +673,9 @@ function tiposid(id)
 		campos('none');
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('resumen').style.display = '';
-		document.getElementById('telefono').style.display = '';
-		document.getElementById('telefono2').style.display = '';
-		document.getElementById('mail').style.display = '';
-		document.getElementById('pie_imagen').style.display = 'none';
-		document.getElementById('keywords').style.display = 'none';
-		document.getElementById('notas').style.display = 'none';
-		document.getElementById('imagen').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('keywords').style.display = '';
+		document.getElementById('notas').style.display = '';
+		document.getElementById('mapa').style.display = '';
 	}
 }
 /*

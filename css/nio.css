@@ -1,9 +1,9 @@
 *{font-family: "Roboto"}
 body{font-family: "Roboto";color:#3C3D4D;}
 
-a{color:#ff4e00;}
-.links{color:#FF5300 !important;}
-.links:hover{color:#FF5300 !important;}
+a{color:#444;}
+.links{color:#444 !important;}
+.links:hover{color:#444 !important;}
 .navbar-fixed-top{box-shadow: none !important;
     border: none;
     background: none;}
@@ -272,10 +272,11 @@ nav.navbar {
 .btn-group-vertical{border-radius: 0}
 .btn-group-vertical>.btn:first-child:not(:last-child){border-radius: 0}
 .btn-group-vertical>.btn:last-child:not(:first-child){border-radius: 0}
+/*
 .btn-default{border-radius:0;color:#545558;background-color:#e4e1e2;border-color:#ccc;border:none;margin:0 0 5% 0;padding: 8% }
 .btn-default.focus,.btn-default:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c;border-radius:0;}
 .btn-default:hover{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
-.btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
+.btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}*/
 
 
 .navbarInt {
@@ -300,3 +301,5 @@ nav.navbar {
 .miniInternas{margin:10% 0 0 0;font-weight: 300}
 .miniInternas2{margin:5% 0 0 0;font-weight: 300}
 .pagination li a{border:none;}
+
+iframe{width: 100% !important;height:450px !important;}

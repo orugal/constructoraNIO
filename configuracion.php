@@ -26,11 +26,11 @@ define('_RUTA_ABSOLUTA'										,$ruta_absoluta);		//Ruta relativa del portal e
 //Carpetas
 define('_PLANTILLAS'	                                 	,$ruta_absoluta.'html/');			//Url desde el navegador
 define('_NOMBRE_EMPRESA'	                                ,'Constructora NIO');			//Url desde el navegador
-define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/constructoraNIO/');			//local
-//define('_DOMINIO'	                     		           ,'http://www.constructoranio.com/webNueva/');			//local
+//define('_DOMINIO'	                     		           ,'http://192.168.0.10/constructoraNIO/');			//local
+define('_DOMINIO'	                     		           ,'http://www.constructoranio.com/webNueva/');			//local
 
 
-define('_ENTORNO',											"desarrollo");//desarrollo - produccion
+define('_ENTORNO',											"produccion");//desarrollo - produccion
 define('_LOGO',												_DOMINIO."images/diseno/logo.png");//logo
 define('_BANNER_ADMIN',										false);
 define('_MENSAJE_FAIL',										"Perd&oacute;n, pero esta es zona restringida");
@@ -55,7 +55,7 @@ else
 	define('_CLAVE_GLPI' ,										"Prontas23*");
 }
 
-$sinCabezote = array(1315,1327,1328,1329,1330,1321);
+$sinCabezote = array(1315,1327,1328,1329,1330,1321));
 
 
 define('_ID_AFILIADOS',1676);//en menu principal
@@ -64,9 +64,9 @@ define('_ID_AFILIADOS',1676);//en menu principal
 //Nombre del hosting
 define('_HOST'											,'localhost');
 //Usuario base de datos
-define('_USER'											,'root');
+define('_USER'											,'glondono_userNew');
 //Contraseña del usuario
-define('_PASS'											,'');
+define('_PASS'											,'Jg$E3D+u');
 //base de datos
 define('_DB'											,'glondono_webNueva');
 

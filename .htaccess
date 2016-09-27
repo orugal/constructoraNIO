@@ -6,10 +6,14 @@ RewriteRule ^quienes-somos$ index.php?id=1320
 RewriteRule ^postventa$ index.php?id=1327
 RewriteRule ^que-hacemos$ index.php?id=1331
 RewriteRule ^neiva-tendra-mar$ index.php?id=1317&visitada=1344
+RewriteRule ^cartagena$ index.php?id=1349
+RewriteRule ^ciudadela-nio-neiva$ index.php?id=1351
 RewriteRule ^trabaja-con-nosotros$ index.php?id=1321
+RewriteRule ^proximos-lanzamientos$ index.php?id=1326
 RewriteRule ^pqrs$ index.php?id=1328
 RewriteRule ^nuestra-mision$ index.php?id=1332
 RewriteRule ^trayendo-el-mar-a-las-viviendas-en-neiva$ index.php?id=1317&visitada=1345
+RewriteRule ^flandes$ index.php?id=1350
 RewriteRule ^felicitaciones$ index.php?id=1329
 RewriteRule ^nuestra-vision$ index.php?id=1333
 RewriteRule ^como-usar-la-prima-para-vivienda-propia$ index.php?id=1317&visitada=1346
