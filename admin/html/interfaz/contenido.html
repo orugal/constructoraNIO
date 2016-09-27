@@ -174,74 +174,82 @@ else {?>
 				<input type="hidden" id="guardar" name="guardar" size="53">
 			</td>
 		</tr>
-		<?php if(!$funciones->entorno()){ ?>
+		<?php if(!$funciones->entorno() or $tipo_contenido == 43){ ?>
 		<tr>
 			<td>
 				Tipo Contenido
 			</td>
 			<td class="celdas">
 				<select id="tipo_id" name="tipo_contenido" onchange="tiposid(this.value)"  class="form-control">
-					<option value="0" <?if($tipo_contenido == 0){echo 'selected';}?>>Default</option>
-					<option value="1" <?if($tipo_contenido == 1){echo 'selected';}?>>Noticias</option>
-					<option value="16" <?if($tipo_contenido == 16){echo 'selected';}?>>Cat Noticias</option>
-					<option value="17" <?if($tipo_contenido == 17){echo 'selected';}?>>Noticia</option>
-					<option value="3" <?if($tipo_contenido == 3){echo 'selected';}?>>Catalogo</option>
-					<option value="2" <?if($tipo_contenido == 2){echo 'selected';}?>>Categoria Catalogo</option>
-					<option value="8" <?if($tipo_contenido == 8){echo 'selected';}?>>Subcategoria Catalogo</option>
-					<option value="9" <?if($tipo_contenido == 9){echo 'selected';}?>>Linea</option>
-					<option value="10" <?if($tipo_contenido == 10){echo 'selected';}?>>Video</option>
-					<option value="4" <?if($tipo_contenido == 4){echo 'selected';}?>>Galer&iacute;a de Imagenes</option>
-					<option value="21" <?if($tipo_contenido == 21){echo 'selected';}?>>Imagen</option>
-					<option value="6" <?if($tipo_contenido == 6){echo 'selected';}?>>Home</option>
-					<option value="5" <?if($tipo_contenido == 5){echo 'selected';}?>>Aplicacion PHP</option>
-					<option value="7" <?if($tipo_contenido == 7){echo 'selected';}?>>Foro</option>
-					<option value="11" <?if($tipo_contenido == 11){echo 'selected';}?>>Descarga de Archivos</option>
-					<option value="12" <?if($tipo_contenido == 12){echo 'selected';}?>>Archivos</option>
-					<option value="13" <?if($tipo_contenido == 13){echo 'selected';}?>>Aplicacion PHP administrativa</option>
-					<option value="14" <?if($tipo_contenido == 14){echo 'selected';}?>>Galeria de Video</option>
-					<option value="15" <?if($tipo_contenido == 15){echo 'selected';}?>>Video</option>
-					<option value="18" <?if($tipo_contenido == 18){echo 'selected';}?>>Titular</option>
-					<option value="19" <?if($tipo_contenido == 19){echo 'selected';}?>>Jugadores</option>
-					<option value="20" <?if($tipo_contenido == 20){echo 'selected';}?>>Jugador</option>
-					<option value="22" <?if($tipo_contenido == 22){echo 'selected';}?>>Atributos</option>
-					<option value="23" <?if($tipo_contenido == 23){echo 'selected';}?>>Subatributos</option>
-					<option value="24" <?if($tipo_contenido == 24){echo 'selected';}?>>Tiendas</option>
-					<option value="25" <?if($tipo_contenido == 25){echo 'selected';}?>>Tienda</option>
-					<option value="26" <?if($tipo_contenido == 26){echo 'selected';}?>>Academias</option>
-					<option value="27" <?if($tipo_contenido == 27){echo 'selected';}?>>Academia</option>
-					<option value="28" <?if($tipo_contenido == 28){echo 'selected';}?>>Ofertero</option>
-					<option value="29" <?if($tipo_contenido == 29){echo 'selected';}?>>SubOfertero</option>
-					<option value="30" <?if($tipo_contenido == 30){echo 'selected';}?>>Eventos</option>
-					<option value="31" <?if($tipo_contenido == 31){echo 'selected';}?>>Subventos</option>
-					<option value="32" <?if($tipo_contenido == 32){echo 'selected';}?>>Categorias Vacantes</option>
-					<option value="33" <?if($tipo_contenido == 33){echo 'selected';}?>>Subcategoria Vacantes</option>
-					<option value="34" <?if($tipo_contenido == 34){echo 'selected';}?>>Rese&ntilde;as</option>
-					<option value="35" <?if($tipo_contenido == 35){echo 'selected';}?>>Areas de trabajo</option>
-					<option value="36" <?if($tipo_contenido == 36){echo 'selected';}?>>Banner en Imagen</option>
-					<option value="37" <?if($tipo_contenido == 37){echo 'selected';}?>>Banner en Flash</option>
-					<option value="38" <?if($tipo_contenido == 38){echo 'selected';}?>>Planes Creditos</option>
-					<option value="39" <?if($tipo_contenido == 39){echo 'selected';}?>>Planes Tiempo</option>
-					<option value="40" <?if($tipo_contenido == 40){echo 'selected';}?>>Categoria Tiendas</option>
-					<option value="41" <?if($tipo_contenido == 41){echo 'selected';}?>>Tiendas</option>
-					<option value="42" <?if($tipo_contenido == 42){echo 'selected';}?>>Mini Site</option>
-					<option value="43" <?if($tipo_contenido == 43){echo 'selected';}?>>Productos Mini Site</option>
-					<option value="44" <?if($tipo_contenido == 44){echo 'selected';}?>>Servicios</option>
-					<option value="45" <?if($tipo_contenido == 45){echo 'selected';}?>>Subservicios</option>
-					<option value="46" <?if($tipo_contenido == 46){echo 'selected';}?>>Boletin</option>
-					<option value="47" <?if($tipo_contenido == 47){echo 'selected';}?>>Areas Comunes</option>
-					<option value="48" <?if($tipo_contenido == 48){echo 'selected';}?>>Sub area</option>
-					<option value="49" <?if($tipo_contenido == 49){echo 'selected';}?>>Area Interna</option>
-					<option value="50" <?if($tipo_contenido == 50){echo 'selected';}?>>Encuestas</option>
-					<option value="51" <?if($tipo_contenido == 51){echo 'selected';}?>>Pregunta</option>
-					<option value="52" <?if($tipo_contenido == 52){echo 'selected';}?>>Respuesta</option>
-					<option value="53" <?if($tipo_contenido == 53){echo 'selected';}?>>Cartelera</option>
-					<option value="54" <?if($tipo_contenido == 54){echo 'selected';}?>>Peliculas</option>
-					<option value="55" <?if($tipo_contenido == 55){echo 'selected';}?>>Marcas</option>
-					<option value="56" <?if($tipo_contenido == 56){echo 'selected';}?>>SubMarcas</option>
-					<option value="57" <?if($tipo_contenido == 57){echo 'selected';}?>>Banners Home</option>
-					<option value="58" <?if($tipo_contenido == 58){echo 'selected';}?>>Banner</option>
-					<option value="59" <?if($tipo_contenido == 59){echo 'selected';}?>>Categorias Ofertas Laborales</option>
-					<option value="60" <?if($tipo_contenido == 60){echo 'selected';}?>>Oferta</option>
+
+					<?php if($tipo_contenido == 43){?>
+						<option value="4" <?if($tipo_contenido == 4){echo 'selected';}?>>Galer&iacute;a de Imagenes</option>
+						<option value="15" <?if($tipo_contenido == 15){echo 'selected';}?>>Video</option>
+						<option value="11" <?if($tipo_contenido == 11){echo 'selected';}?>>Archivo Brochure</option>
+					<?php }else{?>
+						<option value="0" <?if($tipo_contenido == 0){echo 'selected';}?>>Default</option>
+						<option value="1" <?if($tipo_contenido == 1){echo 'selected';}?>>Noticias</option>
+						<option value="16" <?if($tipo_contenido == 16){echo 'selected';}?>>Cat Noticias</option>
+						<option value="17" <?if($tipo_contenido == 17){echo 'selected';}?>>Noticia</option>
+						<option value="3" <?if($tipo_contenido == 3){echo 'selected';}?>>Catalogo</option>
+						<option value="2" <?if($tipo_contenido == 2){echo 'selected';}?>>Categoria Catalogo</option>
+						<option value="8" <?if($tipo_contenido == 8){echo 'selected';}?>>Subcategoria Catalogo</option>
+						<option value="9" <?if($tipo_contenido == 9){echo 'selected';}?>>Linea</option>
+						<option value="10" <?if($tipo_contenido == 10){echo 'selected';}?>>Video</option>
+						<option value="6" <?if($tipo_contenido == 6){echo 'selected';}?>>Home</option>
+						<option value="5" <?if($tipo_contenido == 5){echo 'selected';}?>>Aplicacion PHP</option>
+						<option value="7" <?if($tipo_contenido == 7){echo 'selected';}?>>Foro</option>
+						<option value="11" <?if($tipo_contenido == 11){echo 'selected';}?>>Descarga de Archivos</option>
+						<option value="12" <?if($tipo_contenido == 12){echo 'selected';}?>>Archivos</option>
+						<option value="13" <?if($tipo_contenido == 13){echo 'selected';}?>>Aplicacion PHP administrativa</option>
+						<option value="14" <?if($tipo_contenido == 14){echo 'selected';}?>>Galeria de Video</option>
+						<option value="15" <?if($tipo_contenido == 15){echo 'selected';}?>>Video</option>
+						<option value="18" <?if($tipo_contenido == 18){echo 'selected';}?>>Titular</option>
+						<option value="19" <?if($tipo_contenido == 19){echo 'selected';}?>>Jugadores</option>
+						<option value="20" <?if($tipo_contenido == 20){echo 'selected';}?>>Jugador</option>
+						<option value="22" <?if($tipo_contenido == 22){echo 'selected';}?>>Atributos</option>
+						<option value="23" <?if($tipo_contenido == 23){echo 'selected';}?>>Subatributos</option>
+						<option value="4" <?if($tipo_contenido == 4){echo 'selected';}?>>Galer&iacute;a de Imagenes</option>
+						<option value="21" <?if($tipo_contenido == 21){echo 'selected';}?>>Imagen</option>
+						<option value="24" <?if($tipo_contenido == 24){echo 'selected';}?>>Tiendas</option>
+						<option value="25" <?if($tipo_contenido == 25){echo 'selected';}?>>Tienda</option>
+						<option value="26" <?if($tipo_contenido == 26){echo 'selected';}?>>Academias</option>
+						<option value="27" <?if($tipo_contenido == 27){echo 'selected';}?>>Academia</option>
+						<option value="28" <?if($tipo_contenido == 28){echo 'selected';}?>>Ofertero</option>
+						<option value="29" <?if($tipo_contenido == 29){echo 'selected';}?>>SubOfertero</option>
+						<option value="30" <?if($tipo_contenido == 30){echo 'selected';}?>>Eventos</option>
+						<option value="31" <?if($tipo_contenido == 31){echo 'selected';}?>>Subventos</option>
+						<option value="32" <?if($tipo_contenido == 32){echo 'selected';}?>>Categorias Vacantes</option>
+						<option value="33" <?if($tipo_contenido == 33){echo 'selected';}?>>Subcategoria Vacantes</option>
+						<option value="34" <?if($tipo_contenido == 34){echo 'selected';}?>>Rese&ntilde;as</option>
+						<option value="35" <?if($tipo_contenido == 35){echo 'selected';}?>>Areas de trabajo</option>
+						<option value="36" <?if($tipo_contenido == 36){echo 'selected';}?>>Banner en Imagen</option>
+						<option value="37" <?if($tipo_contenido == 37){echo 'selected';}?>>Banner en Flash</option>
+						<option value="38" <?if($tipo_contenido == 38){echo 'selected';}?>>Planes Creditos</option>
+						<option value="39" <?if($tipo_contenido == 39){echo 'selected';}?>>Planes Tiempo</option>
+						<option value="40" <?if($tipo_contenido == 40){echo 'selected';}?>>Categoria Tiendas</option>
+						<option value="41" <?if($tipo_contenido == 41){echo 'selected';}?>>Tiendas</option>
+						<option value="42" <?if($tipo_contenido == 42){echo 'selected';}?>>Mini Site</option>
+						<option value="43" <?if($tipo_contenido == 43){echo 'selected';}?>>Productos Mini Site</option>
+						<option value="44" <?if($tipo_contenido == 44){echo 'selected';}?>>Servicios</option>
+						<option value="45" <?if($tipo_contenido == 45){echo 'selected';}?>>Subservicios</option>
+						<option value="46" <?if($tipo_contenido == 46){echo 'selected';}?>>Boletin</option>
+						<option value="47" <?if($tipo_contenido == 47){echo 'selected';}?>>Areas Comunes</option>
+						<option value="48" <?if($tipo_contenido == 48){echo 'selected';}?>>Sub area</option>
+						<option value="49" <?if($tipo_contenido == 49){echo 'selected';}?>>Area Interna</option>
+						<option value="50" <?if($tipo_contenido == 50){echo 'selected';}?>>Encuestas</option>
+						<option value="51" <?if($tipo_contenido == 51){echo 'selected';}?>>Pregunta</option>
+						<option value="52" <?if($tipo_contenido == 52){echo 'selected';}?>>Respuesta</option>
+						<option value="53" <?if($tipo_contenido == 53){echo 'selected';}?>>Cartelera</option>
+						<option value="54" <?if($tipo_contenido == 54){echo 'selected';}?>>Peliculas</option>
+						<option value="55" <?if($tipo_contenido == 55){echo 'selected';}?>>Marcas</option>
+						<option value="56" <?if($tipo_contenido == 56){echo 'selected';}?>>SubMarcas</option>
+						<option value="57" <?if($tipo_contenido == 57){echo 'selected';}?>>Banners Home</option>
+						<option value="58" <?if($tipo_contenido == 58){echo 'selected';}?>>Banner</option>
+						<option value="59" <?if($tipo_contenido == 59){echo 'selected';}?>>Categorias Ofertas Laborales</option>
+						<option value="60" <?if($tipo_contenido == 60){echo 'selected';}?>>Oferta</option>
+					<?php }?>
+
 				</select>
 			</td>
 		</tr>
