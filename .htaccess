@@ -10,6 +10,7 @@ RewriteRule ^neiva-tendra-mar$ index.php?id=1317&visitada=1344
 RewriteRule ^cartagena$ index.php?id=1349
 RewriteRule ^ciudadela-nio-neiva$ index.php?id=1351
 RewriteRule ^brochure$ index.php?id=1352
+RewriteRule ^renders$ index.php?id=1363
 RewriteRule ^trabaja-con-nosotros$ index.php?id=1321
 RewriteRule ^proximos-lanzamientos$ index.php?id=1326
 RewriteRule ^pqrs$ index.php?id=1328
@@ -17,13 +18,17 @@ RewriteRule ^nuestra-mision$ index.php?id=1332
 RewriteRule ^trayendo-el-mar-a-las-viviendas-en-neiva$ index.php?id=1317&visitada=1345
 RewriteRule ^flandes$ index.php?id=1350
 RewriteRule ^avance-de-obra$ index.php?id=1353
+RewriteRule ^ibague-torre-kea$ index.php?id=1361
+RewriteRule ^recorre-kea$ index.php?id=1364
 RewriteRule ^felicitaciones$ index.php?id=1329
 RewriteRule ^nuestra-vision$ index.php?id=1333
 RewriteRule ^como-usar-la-prima-para-vivienda-propia$ index.php?id=1317&visitada=1346
 RewriteRule ^renders$ index.php?id=1354
+RewriteRule ^planos$ index.php?id=1365
 RewriteRule ^plan-referidos$ index.php?id=1330
 RewriteRule ^la-constructora-nio-estuvo-presente-en-las-fiestas-de-san-pedro$ index.php?id=1317&visitada=1347
 RewriteRule ^planos$ index.php?id=1355
+RewriteRule ^entrega-torre-kea$ index.php?id=1366
 RewriteRule ^la-arquitectura-bioclimatica-es-la-nueva-apuesta-de-la-construccion$ index.php?id=1317&visitada=1348
 RewriteRule ^tour-virtual$ index.php?id=1356
 RewriteRule ^experiencia$ index.php?id=1316

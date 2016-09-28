@@ -95,8 +95,15 @@
 			$('.carousel').carousel({
 			  interval: 4000
 			})
+
+			 $('.nav-tabs a').click(function(){
+			 	  $(".btn-default").removeClass("active");
+		          $(this).addClass("active")
+		      })
+
 		});
 
 	</script>
+
 	</body>
 </html>

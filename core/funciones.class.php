@@ -71,7 +71,8 @@ class Funciones
 								  "visitas"=>$result->fields['visitas'],
 								  "fecha"=>$result->fields['fecha'],
 								  "url_amigable"=>$result->fields['url_amigable'],
-								  "multiImagen"=>$result->fields['multiImagen'],
+								  "multiImagenText"=>$result->fields['multiImagenText'],
+								  "multiImagenArray"=>json_decode($result->fields['multiImagenText'],true),
 								  "puntoscanje"=>$result->fields['puntoscanje'],
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
@@ -440,7 +441,8 @@ class Funciones
 								  "votos"=>$result->fields['votos'],
 								  "calificacion"=>$result->fields['calificacion'],
 								  "url_amigable"=>$result->fields['url_amigable'],
-								  "multiImagen"=>$result->fields['multiImagen'],
+								  "multiImagenText"=>$result->fields['multiImagenText'],
+								  "multiImagenArray"=>json_decode($result->fields['multiImagenText'],true),
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
 								  "linkInstagram"=>$result->fields['linkInstagram'],
@@ -677,7 +679,7 @@ class Funciones
 										//armo los campos a los cuales le insertare la informacion
 											$campos		.=	sprintf("".$key.",");
 											//armo los valores para cada campo
-											$valores	.=	sprintf("'".utf8_decode($info)."',");
+											$valores	.=	sprintf("'".$info."',");
 									}
 								}
 							}
@@ -689,7 +691,7 @@ class Funciones
 						$ultimo_orden	=	$this->getUltimoOrden($variables['id_padre']);
 						
 						//empiezo con el armado del insert
-						$insert		=	sprintf("INSERT INTO %s (%s,orden) VALUES (%s,'%s')",$tabla,$campos,$valores,$ultimo_orden+1);
+						$insert		=	sprintf("INSERT INTO ".$tabla." (".$campos.",orden) VALUES (".$valores.",'".($ultimo_orden+1)."')");
 				break;
 				//actualizar	
 				case 2;
@@ -825,7 +827,7 @@ class Funciones
         {
             //Fase 1
             //Reemplazamos caracteres no alfanumericos y especiales
-            $final = ereg_replace("[^a-zA-Z0-9[αινσϊ]ρ\.;,@#<>%/\&_\: \-]","",$strVar);
+            $final = ereg_replace("[^a-zA-Z0-9[αινσϊ]ρ\.;,<>/\_\: \-]","",$strVar);
             //Fase 2
             //Reemplazamos cadenas peligrosas como select etc, con expresiones regulares
             $final = ereg_replace("^[Ss][Ee][Ll][Ee][Cc][Tt]$|^[Ii][Nn][Ss][Ee][Rr][Tt]$|^[Dd][Ee][Ll][Ee][Tt][Ee]$|^[Dd][Rr][Oo][Pp]$|^[Ss][Cc][Rr][Ii][Pp][Tt]$|^[Jj][Aa][Vv][Aa][Ss][Cc][Rr][Ii][Pp][Tt]$|^[Cc][Oo][Oo][Kk][Ii][Ee]$|^[Gg][Rr][Aa][Nn][Tt]$","",$final);
@@ -838,7 +840,7 @@ class Funciones
             }
             else
             {
-                $peligros = array(";", "--", "'","<",">","#","*","=","\\");
+                $peligros = array(";", "--", "'","<",">","*","\\");
                 $final = strip_tags($final);
             }
             //Fase 4
@@ -1479,6 +1481,17 @@ class Funciones
 			$salida = _DOMINIO."images/diseno/noImagen.png";
 		}
 		return $salida;
+	}
+	function id_youtube($url) 
+	{
+		//$url="https://www.youtube.com/watch?v=zp-64wdY_u4";
+		$parte = array();
+	    $patron = '%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x';
+	    $array = preg_match($patron, $url, $parte);
+	    if (false !== $array) {
+	        return $parte[1];
+	    }
+	    return false;
 	}
 
 }

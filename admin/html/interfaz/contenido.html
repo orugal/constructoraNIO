@@ -42,6 +42,52 @@ function mostrar(dato,caja)
 	}
 }
 
+function ponerGaleriaFinal()
+{
+	$.ajax({
+        url: "externos/ajax.php",
+        data: "accion=2",
+        type: "POST",
+        dataType:'json',
+        success:function(data)
+        {
+        	//alert(JSON.stringify(data.txt));
+        	if(data.continuar == 1)
+        	{
+        		$("#fotosGalMini").html(data.html);
+				$("#multiImagenText").val(JSON.stringify(data.txt));
+        	}
+        	else
+        	{
+        		$("#fotosGalMini").html("");
+				$("#multiImagenText").val("");
+        	}
+			
+        },
+        error:function(e) 
+        {
+           
+        }
+    });
+}
+
+function quitarFoto(idFile,eliminacion)
+{
+	$.ajax({
+        url: "externos/ajax.php",
+        data: "accion=3&idFile="+idFile+"&eli="+eliminacion,
+        type: "POST",
+        success:function(data)
+        {
+			ponerGaleriaFinal()
+        },
+        error:function(e) 
+        {
+           
+        }
+    });
+}
+
 function quitarImagenActual(caja,elemento)
 {
 	if(caja=='imagen')
@@ -644,19 +690,33 @@ else {?>
 				</div>
 			</td>
 		</tr>
+		<tr id="visorGaleria">
+			<td colspan="2" id="fotosGalMini">
+				<?php if($multiImagenText != "")
+				{
+					$_SESSION['galeria'] = json_decode($multiImagenText,true);
+				?>
+					<script type="text/javascript">
+						ponerGaleriaFinal();
+					</script>
+				<?}else{
+				  unset($_SESSION['galeria']);
+				}?>
+			</td>
+		</tr>
 		<tr id="multiImagen"> 
 			<td>
-				Multiple im&aacute;gen
+				Galer&iacute;a de fotos
 			</td>
 			<td>
 				<table align="left">
 					<tr>
 						<td align="left">
-							<input type="text" class="form-control" readonly="" name="multiImagen" id="multiImagenText" size="53" value="<? echo $imagen; ?>">
+							<input type="text" class="form-control" readonly="" name="multiImagenText" id="multiImagenText" size="53" value='<?php echo $multiImagenText; ?>'>
 
 						</td>
 						<td align="left">
-							&nbsp; <a border="0" href="#" onClick="ventanaPop('imagen')"> <span class="glyphicon glyphicon-picture" style="font-size:1.8em"></span> </a>&nbsp;
+							&nbsp; <a border="0" href="#" onClick="ventanaPopMultiple('multiImagenText')"> <span class="glyphicon glyphicon-picture" style="font-size:1.8em"></span> </a>&nbsp;
 							<a id="btnEliminaFoto1" <?php if($imagen == ""){?> style="display:none" <?php }?> title="Eliminar im&aacute;gen del contenido" border="0" style="cursor:pointer" onClick="quitarImagenActual('imagen',this)"> <span class="glyphicon glyphicon-remove text-danger" style="font-size:1.8em"></span> </a>
 						</td>
 					</tr>

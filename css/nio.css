@@ -1,7 +1,7 @@
-*{font-family: "Roboto"}
+*{font-family: "Roboto";outline: none !important }
 body{font-family: "Roboto";color:#3C3D4D;}
 
-a{color:#444;}
+a{color:#444;outline: none !important }
 .links{color:#444 !important;}
 .links:hover{color:#444 !important;}
 .navbar-fixed-top{box-shadow: none !important;
@@ -272,12 +272,31 @@ nav.navbar {
 .btn-group-vertical{border-radius: 0}
 .btn-group-vertical>.btn:first-child:not(:last-child){border-radius: 0}
 .btn-group-vertical>.btn:last-child:not(:first-child){border-radius: 0}
-/*
-.btn-default{border-radius:0;color:#545558;background-color:#e4e1e2;border-color:#ccc;border:none;margin:0 0 5% 0;padding: 8% }
-.btn-default.focus,.btn-default:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c;border-radius:0;}
-.btn-default:hover{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
-.btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}*/
 
+.btn-default{border-radius:0;color:#545558;background-color:#e4e1e2;border-color:#ccc;border:none;margin:0 0 5% 0;padding: 8% }
+.btn-default.focus,.btn-default:focus{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
+.btn-default:hover{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
+.btn-default.active,.btn-default:active,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;}
+
+
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+  color:#fff;background-color:#6d6d6d;border-color:#adadad;border-radius:0;
+}
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color:#fff !important;background-color:#6d6d6d !important;border-color:#adadad !important;border-radius:0 !important;
+}
 
 .navbarInt {
     position: relative !important;
