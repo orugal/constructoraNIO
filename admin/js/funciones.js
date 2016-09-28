@@ -75,6 +75,9 @@ function campos(accion)
 	//document.getElementById('recom').style.display = accion;
 	document.getElementById('fecha_form').style.display = accion;
 	document.getElementById('url_amigable').style.display = '';
+	document.getElementById('multiImagen').style.display = accion
+	document.getElementById('videoYoutube').style.display = accion;
+	document.getElementById('issuu').style.display = accion;
 		
 }
 function tiposid(id)
@@ -160,7 +163,8 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('resumen').style.display = '';
+		document.getElementById('descripcion').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
 	}
 	//si es tipo aplicacion PHP
 	else if(id == 5)
@@ -240,9 +244,7 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('adjunto').style.display = '';
-		document.getElementById('resumen').style.display = '';
-		document.getElementById('descripcion').style.display = '';
+		document.getElementById('issuu').style.display = '';
 	}
 	//archivos
 	else if(id == 12)
@@ -274,11 +276,8 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		//document.getElementById('adjunto').style.display = '';
 		document.getElementById('descripcion').style.display = '';
-		document.getElementById('resumen').style.display = '';
-		//document.getElementById('imagen').style.display = '';
-		document.getElementById('descriptivo').style.display = '';
+		document.getElementById('videoYoutube').style.display = '';
 	}
 	
 	//subnoticia
@@ -521,20 +520,14 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('pie_imagen').style.display = 'none';
-		document.getElementById('imagen').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('descripcion').style.display = '';
-		document.getElementById('mapa').style.display = '';
 	}
 	//productos minisite
 	else if(id ==43)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('resumen').style.display = '';
-		document.getElementById('imagen').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('descripcion').style.display = '';
+		document.getElementById('mapa').style.display = '';
 
 	}
 	//si es tipo servicios

@@ -23,7 +23,7 @@
 						        	<ul class="dropdown-menu">
 						        		<?php foreach($mh['hijos'] as $ml2){ ?>
 							            	<li>
-							            		<a style="text-transform:uppercase;color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a>
+							            		<a style="text-transform:uppercase;color:#505052" <?php if(count($ml2['hijos']) == 0 or $ml2['tipo_contenido'] == 43){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a>
 							            	</li>
 							            <?php } ?>
 									</ul>

@@ -85,6 +85,7 @@ class Core
 				return $this->tipoTiendas();
 			break;
 			case  42:
+			case  43:
 				return $this->tipoSite();
 			break;
 			//si es tipo academia

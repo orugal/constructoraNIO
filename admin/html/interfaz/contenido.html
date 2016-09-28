@@ -174,7 +174,8 @@ else {?>
 				<input type="hidden" id="guardar" name="guardar" size="53">
 			</td>
 		</tr>
-		<?php if(!$funciones->entorno() or $tipo_contenido == 43){ ?>
+		<?php $infoPadre = $funciones->infoId($id_padre)?>
+		<?php if(!$funciones->entorno() or $infoPadre[0]['tipo_contenido'] == 43){ ?>
 		<tr>
 			<td>
 				Tipo Contenido
@@ -182,8 +183,8 @@ else {?>
 			<td class="celdas">
 				<select id="tipo_id" name="tipo_contenido" onchange="tiposid(this.value)"  class="form-control">
 
-					<?php if($tipo_contenido == 43){?>
-						<option value="4" <?if($tipo_contenido == 4){echo 'selected';}?>>Galer&iacute;a de Imagenes</option>
+					<?php if($infoPadre[0]['tipo_contenido'] == 43){?>
+						<option value="4" <?if($tipo_contenido == 4){echo 'selected';}else{echo "selected";}?>>Galer&iacute;a de Imagenes</option>
 						<option value="15" <?if($tipo_contenido == 15){echo 'selected';}?>>Video</option>
 						<option value="11" <?if($tipo_contenido == 11){echo 'selected';}?>>Archivo Brochure</option>
 					<?php }else{?>
@@ -370,10 +371,10 @@ else {?>
 		</tr>
 		<tr id="descripcion">
 			<td>
-				<?if($tipo_contenido == 43){echo "Codigo de Youtube";}elseif($tipo_contenido == 58){echo "Texto del banner";}else{echo "Descripci&oacute;n";}?>
+				<?if($tipo_contenido == 000){echo "Codigo de Youtube";}elseif($tipo_contenido == 58){echo "Texto del banner";}else{echo "Descripci&oacute;n";}?>
 			</td>
 			<td>
-			<?if($tipo_contenido == 43 or $tipo_contenido == 58){?>
+			<?if( $tipo_contenido == 58){?>
 				<input type="text" class="form-control" name="contenido" size="53" value="<? echo $contenido; ?>">
 			<?}else{?>
 				<textarea  rows="10" name="contenido"  class="form-control summernote">
@@ -643,6 +644,25 @@ else {?>
 				</div>
 			</td>
 		</tr>
+		<tr id="multiImagen"> 
+			<td>
+				Multiple im&aacute;gen
+			</td>
+			<td>
+				<table align="left">
+					<tr>
+						<td align="left">
+							<input type="text" class="form-control" readonly="" name="multiImagen" id="multiImagenText" size="53" value="<? echo $imagen; ?>">
+
+						</td>
+						<td align="left">
+							&nbsp; <a border="0" href="#" onClick="ventanaPop('imagen')"> <span class="glyphicon glyphicon-picture" style="font-size:1.8em"></span> </a>&nbsp;
+							<a id="btnEliminaFoto1" <?php if($imagen == ""){?> style="display:none" <?php }?> title="Eliminar im&aacute;gen del contenido" border="0" style="cursor:pointer" onClick="quitarImagenActual('imagen',this)"> <span class="glyphicon glyphicon-remove text-danger" style="font-size:1.8em"></span> </a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
 		<!-- fin campos producto -->
 		<tr id="imagen">
 			<td>
@@ -794,6 +814,14 @@ else {?>
 				<input type="text" class="form-control" name="link" size="53"  value="<? echo $link; ?>">
 			</td>
 		</tr>
+		<tr id="videoYoutube">
+			<td>
+				Url del v&iacute;deo de youtube
+			</td>
+			<td>
+				<input type="text" class="form-control" name="videoYoutube" size="53"  value="<? echo $videoYoutube; ?>">
+			</td>
+		</tr>
 		<tr id="tipo_link">
 			<td>
 				Tipo Link
@@ -812,10 +840,18 @@ else {?>
 		</tr>
 		<tr id="mapa">
 			<td>
-				Introduzca el c&oacute;digo de google maps en esta secci&oacute;n
+				<?php if($tipo_contenido ==11){?>Introduzca el c&oacute;digo del <br>brochure en ISSUU<?php }elseif($tipo_contenido ==15){?>Video de youtube<?php }else{?>Introduzca el c&oacute;digo de google maps en esta secci&oacute;n<?php }?>
 			</td>
 			<td class="celdas">
 				<textarea cols="40" class="form-control" rows="10" name="mapa"><? echo $mapa; ?></textarea>
+			</td>
+		</tr>
+		<tr id="issuu">
+			<td>
+				Introduzca el c&oacute;digo del <br>brochure en ISSUU
+			</td>
+			<td class="celdas">
+				<textarea cols="40" class="form-control" rows="10" name="issuu" ><? echo $issuu; ?></textarea>
 			</td>
 		</tr>
 		<tr id="keywords">
@@ -1180,7 +1216,11 @@ else {?>
 	</table>
 </form>
 <!-- En esta parte se llama la funcion que muestra y oculta campos segun el tipo de nodo, esto es para la persistecia-->
-<script>tiposid(<?echo $tipo_contenido;?>)</script>
+<?php if(isset($_GET['nueva']) && $infoPadre[0]['tipo_contenido'] == 43){?>
+	<script>tiposid(4)</script>
+<?php }else{ ?>
+	<script>tiposid(<?php echo $tipo_contenido;?>)</script>
+<?php } ?>
 
 <script>
 $(document).ready(function() {

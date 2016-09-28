@@ -21,7 +21,7 @@ $hijos		=	$core->info_id_hijos;
        <button type="button" class="btn btn-default">APTO MODELOS</button>
     </div>
     </div>
-    <div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10" style="padding:3%">
+    <div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10" style="padding:0 2%">
 
     <!--<ol class="breadcrumb">
     <li><a href="#">Home</a></li>

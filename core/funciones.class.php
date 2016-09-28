@@ -71,13 +71,16 @@ class Funciones
 								  "visitas"=>$result->fields['visitas'],
 								  "fecha"=>$result->fields['fecha'],
 								  "url_amigable"=>$result->fields['url_amigable'],
+								  "multiImagen"=>$result->fields['multiImagen'],
 								  "puntoscanje"=>$result->fields['puntoscanje'],
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
 								  "linkInstagram"=>$result->fields['linkInstagram'],
 								  "linkGooglePlus"=>$result->fields['linkGooglePlus'],
 								  "linkYoutube"=>$result->fields['linkYoutube'],
-								  "linkLinkedin"=>$result->fields['linkLinkedin']
+								  "linkLinkedin"=>$result->fields['linkLinkedin'],
+								  "videoYoutube"=>$result->fields['videoYoutube'],
+								  "issuu"=>$result->fields['issuu']
 								  );
 			
 			array_push($arreglo_final,$arreglo);
@@ -437,12 +440,16 @@ class Funciones
 								  "votos"=>$result->fields['votos'],
 								  "calificacion"=>$result->fields['calificacion'],
 								  "url_amigable"=>$result->fields['url_amigable'],
+								  "multiImagen"=>$result->fields['multiImagen'],
 								  "linkFacebook"=>$result->fields['linkFacebook'],
 								  "linkTwitter"=>$result->fields['linkTwitter'],
 								  "linkInstagram"=>$result->fields['linkInstagram'],
 								  "linkGooglePlus"=>$result->fields['linkGooglePlus'],
 								  "linkYoutube"=>$result->fields['linkYoutube'],
-								  "linkLinkedin"=>$result->fields['linkLinkedin']);
+								  "linkLinkedin"=>$result->fields['linkLinkedin'],
+								  "videoYoutube"=>$result->fields['videoYoutube'],
+								  "issuu"=>$result->fields['issuu']
+								  );
 			array_push($arreglo_final,$arreglo);
 			$result->MoveNext();	
 		}
@@ -856,7 +863,7 @@ class Funciones
 		//inicio la seguridad del metodo POST
     	foreach($_POST as $key=>$info)
 		{
-			if($key!='contenido' and $key!='mapa' and $key!='imagen' and $key!='titulo' and $key!='link' and $key!='resumen')
+			if($key!='contenido' and $key!='mapa' and $key!='issuu' and $key!='videoYoutube' and $key!='mapa' and $key!='imagen' and $key!='titulo' and $key!='link' and $key!='resumen')
 			{
 				$_POST[$key]	=	$this->evitaSql($info,$key);
 			}
