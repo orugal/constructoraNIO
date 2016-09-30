@@ -55,7 +55,7 @@ else
 	define('_CLAVE_GLPI' ,										"Prontas23*");
 }
 
-$sinCabezote = array(1315,1327,1328,1329,1330,1321);
+$sinCabezote = array(/*1315,1327,1328,1329,1330,1321*/);
 
 
 define('_ID_AFILIADOS',1676);//en menu principal

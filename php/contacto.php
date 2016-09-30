@@ -118,9 +118,9 @@ if(isset($_POST['enviar']))
 	</div>
     			<div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8">
     			<form method="post" id="formEnvio" enctype="multipart/form-data">
-    				<h2 class="titulos" style="padding:2%;background:#ff8e4c;color:#FFF;text-align:center;font-size:1.5em;font-weight:normal;text-transform: uppercase"><?php echo $info_id[0]['titulo'] ?></h2>
+    				<h2 class="titulos" style="padding:2%;background:#444;color:#FFF;text-align:center;font-size:1.5em;font-weight:normal;text-transform: uppercase"><?php echo $info_id[0]['titulo'] ?></h2>
     				<div class="row">
-    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#ff8e4c"><h4>DATOS DE CONTACTO</h4></div>
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#444"><h4>DATOS DE CONTACTO</h4></div>
     					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
     						<label class="visible-sm visible-xs" for="nombre">&nbsp;</label>
 					    	<select type="text" class="form-control" id="espacio" name="espacio">
@@ -178,7 +178,7 @@ if(isset($_POST['enviar']))
 
 	    				<div class="row" style="margin:2% 0 0 0">
 	    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12 text-right">
-						  		<button type="button" class="btn btn-warning" onclick="nio.enviaWebServicePostVenta()">Enviar información</button>
+						  		<button type="button" class="btn btn-warning" onclick="nio.enviaWebServicePostVenta()" style="background:#444;border:1px solid #444">Enviar información</button>
 						  	</div>
 						 </div> 
 					</form>
