@@ -213,7 +213,7 @@ if(isset($_SESSION['nioGLPI']))
 	}
 	elseif($accion == 4)//Solicitud PQR
 	{
-		$envio			= sendPQR($_POST,$destino);
+		$envio			= sendPQR($_POST);
 		if(count($envio) > 0)
 		{
 
@@ -236,7 +236,7 @@ else
 echo json_encode($salida);
 
 
-function sendPQR($data,$archivo)
+function sendPQR($data)
 {
 	global $db;
 	extract($data);
@@ -249,7 +249,7 @@ function sendPQR($data,$archivo)
 
 
 
-	$contenidoArmado             = "INFORMACIÓN PQR\n\n";
+	$contenidoArmado             = "INFORMACIÓN ".$titulo."\n\n";
 	$contenidoArmado            .= "Nombres: ".$nombre."\n";
 	$contenidoArmado            .= "Apellidos: ".$apellidos."\n";
 	$contenidoArmado            .= "Tipo de documento de identidad: ".$tipoDoc."\n";
@@ -264,8 +264,8 @@ function sendPQR($data,$archivo)
 	$argsCre['session']			=	$_SESSION['nioGLPI'];
 	$argsCre['method']			=	'glpi.createTicket';
 	$argsCre['type']			=	1;
-	$argsCre['category']		=	$tipoDano;
-	$argsCre['title']			=	"Ticket formulario PQR Constructora NIO";
+	//$argsCre['category']		=	$tipoDano;
+	$argsCre['title']			=	"Ticket formulario ".$titulo." Constructora NIO";
 	$argsCre['user_email']		=	$correo;
 	$argsCre['content']			=	$contenidoArmado;
 	$argsCre['use_email_notification']			=	true;
@@ -276,12 +276,12 @@ function sendPQR($data,$archivo)
 		//envio la notificación al correo
 		$noti['session']			=	$_SESSION['nioGLPI'];
 		$noti['method']				=	'glpi.addTicketFollowup';
-		$noti['content']			=	"Ticket de Seguimieto PQR Constructora NIO";
+		$noti['content']			=	"Ticket de Seguimieto ".$titulo." Constructora NIO";
 		$noti['ticket']				=	$ticket['id'];
 		$ticketNoti					= $client->__soapCall('genericExecute', array(new SoapParam($noti, 'params')));
 
 		//aca debo guardar en la base de datos la información para que puedan bajarla en excel más adelante
-		$query = sprintf("INSERT INTO tickets (
+		$query = sprintf("INSERT INTO pqr (
 							ticketGLPI,
 							nombre,
 							apellido,
@@ -290,19 +290,10 @@ function sendPQR($data,$archivo)
 							celular,
 							telefono,
 							correo,
-							tipoInmueble,
-							espacio,
-							ubicacion,
-							proyecto,
-							proyectoId,
-							torre,
-							torreId,
-							apto,
-							aptoId,
-							archivo,
 							observaciones,
-							fecha) 
-							values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+							fecha,
+							ident) 
+							values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 							$ticket['id'],
 							$nombre,
 							$apellidos,
@@ -311,18 +302,9 @@ function sendPQR($data,$archivo)
 							$celular,
 							$telefono,
 							$correo,
-							$tipoInmueble,
-							$espacio,
-							$dataUbi1[0]['name']." > ".$dataUbi2[0]['name']." > ".$dataUbi3[0]['name'],
-							$dataUbi1[0]['name'],
-							$proyecto,
-							$dataUbi2[0]['name'],
-							$torre,
-							$dataUbi3[0]['name'],
-							$apto,
-							$fileText,
 							$desc,
-							date("Y-m-d H:i:s")); 
+							date("Y-m-d H:i:s"),
+							1); 
 		$result = $db->Execute($query);
 	}
 	return $ticket;

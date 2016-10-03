@@ -216,17 +216,8 @@ var nioForm =
 	},
 	enviaPqr:function()
 	{
-
-		nombre
-		apellidos
-		tipoDoc
-		cedula
-		celular
-		telefono
-		correo
-		area
-		desc
 		//declaración de campos
+		var titulo 			= 	$("#titulo").val();
 		var nombre 			= 	$("#nombre").val();
 		var apellidos 		= 	$("#apellidos").val();
 		var tipoDoc 		= 	$("#tipoDoc").val();
@@ -303,17 +294,13 @@ var nioForm =
 			}, 
 				function()
 				{
-					 var formulario = new FormData(document.getElementById("formEnvio"));
-					 formulario.append("accion", "4");
+					 var formulario = $("#formEnvio").serialize()+"&accion=4";
 
 					$.ajax({
 				        url:  "php/posventa/ajax.php",
 				        data: formulario,
 				        type: "POST",
 				        dataType: "json",
-				        cache: false,
-				        contentType: false,
-				        processData: false,
 			          	beforeSend: function(objeto)
 			          	{
 			          			

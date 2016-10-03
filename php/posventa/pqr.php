@@ -141,6 +141,7 @@ function consultaSelect($id,$consulta=false)
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label class="visible-sm visible-xs" for="apellidos">&nbsp;</label>
 		    	<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Escriba sus apellidos (*)">
+		    	<input type="hidden" class="form-control" id="titulo" name="titulo" value="<?php echo $info_id[0]['titulo']?>">
 			</div>
 		</div>
 
