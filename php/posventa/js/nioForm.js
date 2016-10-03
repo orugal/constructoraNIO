@@ -214,6 +214,130 @@ var nioForm =
 			);
 		}
 	},
+	enviaPqr:function()
+	{
+
+		nombre
+		apellidos
+		tipoDoc
+		cedula
+		celular
+		telefono
+		correo
+		area
+		desc
+		//declaración de campos
+		var nombre 			= 	$("#nombre").val();
+		var apellidos 		= 	$("#apellidos").val();
+		var tipoDoc 		= 	$("#tipoDoc").val();
+		var cedula 			= 	$("#cedula").val();
+		var celular 		= 	$("#celular").val();
+		var telefono 		= 	$("#telefono").val();
+		var correo 			= 	$("#correo").val();
+		var area 	= 	$("#area").val();
+		var desc 			= 	$("#desc").val();
+		//validación de campos
+
+		if(nombre == "")
+		{
+			nioForm.alerta("Atención!!","Recuerde que debe escribir su nombre.",function(){},'info');
+		}
+		else if(apellidos == "")
+		{
+			nioForm.alerta("Atención!!","Recuerde que debe escribir sus apellidos completos.",function(){},'info');
+		}
+		else if(tipoDoc == "")
+		{
+			nioForm.alerta("Atención!!","Por favor seleccione un tipo de documento de identidad.",function(){},'info');
+		}
+		else if(cedula == "")
+		{
+			nioForm.alerta("Atención!!","Debe escribir el número de su documento de identidad.",function(){},'info');
+		}
+		else if(cedula != "" && isNaN(cedula))
+		{
+			nioForm.alerta("Atención!!","El documento de identidad sólo debe contener números.",function(){},'info');
+		}
+		else if(celular == "")
+		{
+			nioForm.alerta("Atención!!","Debe escribir un número de celular de contacto.",function(){},'info');
+		}
+		else if(celular != "" && isNaN(celular))
+		{
+			nioForm.alerta("Atención!!","El campo celular sólo debe contener números.",function(){},'info');
+		}
+		else if(telefono != "" && isNaN(telefono))
+		{
+			nioForm.alerta("Atención!!","El campo teléfono fijo sólo debe contener números.",function(){},'info');
+		}
+		else if(correo == "")
+		{
+			nioForm.alerta("Atención!!","Debe escribir un correo electrónico válido.",function(){},'info');
+		}
+		else if(correo != "" && !nioForm.validarEmail(correo))
+		{
+			nioForm.alerta("Atención!!","Por favor escriba un correo electrónico válido.",function(){},'info');
+		}
+		else if(area == "")
+		{
+			nioForm.alerta("Atención!!","Debe seleccionar el área involucrada.",function(){},'info');
+		}
+		else if(desc == "")
+		{
+			nioForm.alerta("Atención!!","Por favor escriba una breve descripción con respecto a su solicitud.",function(){},'info');
+		}
+		else
+		{
+			var dataForm = $("#formEnvio").serialize();
+
+
+			swal(
+			{
+				title: "Confirmación",
+				text: "Está a punto de enviar una solicitud, verifique que la información ingresada esté corresta, si este es el caso, desea continuar?",
+				type: "info",
+				showCancelButton: true,
+				//confirmButtonText:"Yes, delete it!",
+				showLoaderOnConfirm: true,
+				closeOnConfirm: false 
+			}, 
+				function()
+				{
+					 var formulario = new FormData(document.getElementById("formEnvio"));
+					 formulario.append("accion", "4");
+
+					$.ajax({
+				        url:  "php/posventa/ajax.php",
+				        data: formulario,
+				        type: "POST",
+				        dataType: "json",
+				        cache: false,
+				        contentType: false,
+				        processData: false,
+			          	beforeSend: function(objeto)
+			          	{
+			          			
+			          	},
+				        success:function(json)
+				        {
+				        	if(json.continuar == 1)
+				        	{
+								nioForm.alerta("Atención!!",json.mensaje,function(){location.reload();},'info');	
+				        	}
+				        	else
+				        	{
+								nioForm.alerta("Atención!!",json.mensaje,function(){location.reload();},'info');	
+				        	}
+				        },
+				        error:function(e) {
+				            //$("#ERRORES").html(e.statusText + e.status + e.responseText);
+				        }
+				    });
+				}
+
+			);
+		}
+	},
 	alerta:function(titulo,mensaje,callback,tipo)
 	{
 		swal({

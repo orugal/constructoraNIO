@@ -8,8 +8,16 @@
     <div class="container">
       <div class="row" style="padding: -3% 0 0 0">
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center"></div>
-        <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center">
-          <a href="contacto"><img src="<?php echo _DOMINIO ?>images/diseno/btnContacto.png" width="100%" /></a>
+        <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center visible-xs visible-sm">
+          <br>
+          <center><a href="contacto">
+            <img src="<?php echo _DOMINIO ?>images/diseno/btnContacto.png" width="50%" />
+          </a></center><br>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center visible-lg visible-md">
+          <a href="contacto">
+            <img src="<?php echo _DOMINIO ?>images/diseno/btnContacto.png" width="100%" />
+          </a>
         </div>
         <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4 text-center">
           <h2 class="text-center clasH2">SUEÑOS EN CONCRETO</h2>

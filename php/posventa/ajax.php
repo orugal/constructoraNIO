@@ -211,6 +211,19 @@ if(isset($_SESSION['nioGLPI']))
 			$salida = array("mensaje"=>"El mensaje no ha podido ser enviar, por favor intente de nuevo más tarde","datos"=>array(),"continuar"=>0);
 		}
 	}
+	elseif($accion == 4)//Solicitud PQR
+	{
+		$envio			= sendPQR($_POST,$destino);
+		if(count($envio) > 0)
+		{
+
+			$salida = array("mensaje"=>"El ticket ha sido enviado exitosamente, el número de si ticket es <strong>".$envio['id']."</strong>","datos"=>$envio,"continuar"=>1);
+		}
+		else
+		{
+			$salida = array("mensaje"=>"No hay datos consultados para este ID","datos"=>array(),"continuar"=>0);
+		}
+	}
 	else
 	{
 		$salida = array("mensaje"=>"No tiene acceso para ingresar a esta zona","datos"=>array(),"continuar"=>0);
@@ -222,6 +235,98 @@ else
 }	
 echo json_encode($salida);
 
+
+function sendPQR($data,$archivo)
+{
+	global $db;
+	extract($data);
+
+	$url					= _URL_GLPI;
+	$host					= _HOST_GLPI;
+	$protocolo				= _PROT_GLPI;
+	$client = new SoapClient(null, array('uri'      => $protocolo.'://' . $host . '/' . $url,
+	                                     'location' => $protocolo.'://' . $host . '/' . $url));
+
+
+
+	$contenidoArmado             = "INFORMACIÓN PQR\n\n";
+	$contenidoArmado            .= "Nombres: ".$nombre."\n";
+	$contenidoArmado            .= "Apellidos: ".$apellidos."\n";
+	$contenidoArmado            .= "Tipo de documento de identidad: ".$tipoDoc."\n";
+	$contenidoArmado            .= "Nro de documento de identidad: ".$cedula."\n";
+	$contenidoArmado            .= "Celular: ".$celular."\n";
+	$contenidoArmado            .= "Teléfono fijo: ".$telefono."\n";
+	$contenidoArmado            .= "Correo electrónico: ".$correo."\n";
+	$contenidoArmado            .= "Área: ".$area."\n";
+	$contenidoArmado            .= "Descripción de la solicitud: ".$desc."\n";
+
+	//envio el ticket
+	$argsCre['session']			=	$_SESSION['nioGLPI'];
+	$argsCre['method']			=	'glpi.createTicket';
+	$argsCre['type']			=	1;
+	$argsCre['category']		=	$tipoDano;
+	$argsCre['title']			=	"Ticket formulario PQR Constructora NIO";
+	$argsCre['user_email']		=	$correo;
+	$argsCre['content']			=	$contenidoArmado;
+	$argsCre['use_email_notification']			=	true;
+	$ticket						= $client->__soapCall('genericExecute', array(new SoapParam($argsCre, 'params')));
+
+	if(count($ticket) > 0)
+	{
+		//envio la notificación al correo
+		$noti['session']			=	$_SESSION['nioGLPI'];
+		$noti['method']				=	'glpi.addTicketFollowup';
+		$noti['content']			=	"Ticket de Seguimieto PQR Constructora NIO";
+		$noti['ticket']				=	$ticket['id'];
+		$ticketNoti					= $client->__soapCall('genericExecute', array(new SoapParam($noti, 'params')));
+
+		//aca debo guardar en la base de datos la información para que puedan bajarla en excel más adelante
+		$query = sprintf("INSERT INTO tickets (
+							ticketGLPI,
+							nombre,
+							apellido,
+							tipoDocumento,
+							numDoc,
+							celular,
+							telefono,
+							correo,
+							tipoInmueble,
+							espacio,
+							ubicacion,
+							proyecto,
+							proyectoId,
+							torre,
+							torreId,
+							apto,
+							aptoId,
+							archivo,
+							observaciones,
+							fecha) 
+							values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+							$ticket['id'],
+							$nombre,
+							$apellidos,
+							$tipoDoc,
+							$cedula,
+							$celular,
+							$telefono,
+							$correo,
+							$tipoInmueble,
+							$espacio,
+							$dataUbi1[0]['name']." > ".$dataUbi2[0]['name']." > ".$dataUbi3[0]['name'],
+							$dataUbi1[0]['name'],
+							$proyecto,
+							$dataUbi2[0]['name'],
+							$torre,
+							$dataUbi3[0]['name'],
+							$apto,
+							$fileText,
+							$desc,
+							date("Y-m-d H:i:s")); 
+		$result = $db->Execute($query);
+	}
+	return $ticket;
+}
 
 function sendTicket($data,$archivo)
 {
@@ -329,19 +434,6 @@ function sendTicket($data,$archivo)
 							$desc,
 							date("Y-m-d H:i:s")); 
 		$result = $db->Execute($query);
-
-
-
-		//pongo el archivo en el ticket
-		//envio la notificación al correo
-		/*
-		$noti['session']			=	$_SESSION['nioGLPI'];
-		$noti['method']				=	'glpi.addTicketDocument';
-		$noti['name']				=	$archivo;
-		$noti['ticket']				=	$ticket['id'];
-		$noti['base64']				=	$archivo;
-		$ticketNoti					= $client->__soapCall('genericExecute', array(new SoapParam($noti, 'params')));*/
-
 	}
 	return $ticket;
 }

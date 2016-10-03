@@ -503,7 +503,9 @@ function tiposid(id)
 		campos('none');
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('puntos').style.display = '';
-		document.getElementById('precio_normal').style.display = '';
+		document.getElementById('link').style.display = '';
+		document.getElementById('url_amigable').style.display = 'none';
+		document.getElementById('puntos').style.display = 'none';
 	}
 	//categoria tiendas
 	else if(id ==40)
