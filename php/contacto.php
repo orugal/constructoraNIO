@@ -115,6 +115,11 @@ if(isset($_POST['enviar']))
 			    </p>
 			  </div>
 			</div>
+
+			<div class="card">
+				<a class="btn btn-default"><i class="glyphicon glyphicon-earphone"></i> Llamar </a>
+				<a class="btn btn-default"><i class="glyphicon glyphicon-comment"></i> Chat </a>
+			</div>
 	</div>
     			<div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8">
     			<form method="post" id="formEnvio" enctype="multipart/form-data">

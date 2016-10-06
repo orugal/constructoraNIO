@@ -417,7 +417,7 @@ else {?>
 		</tr>
 		<tr id="descripcion">
 			<td>
-				<?if($tipo_contenido == 000){echo "Codigo de Youtube";}elseif($tipo_contenido == 58){echo "Texto del banner";}else{echo "Descripci&oacute;n";}?>
+				Descripci&oacute;n
 			</td>
 			<td>
 			<?if( $tipo_contenido == 58){?>
@@ -623,6 +623,14 @@ else {?>
 				<input type="radio" name="promocion"  value="0" <?if($promocion==0){echo "checked='checked'";}?>> No
 			</td>
 		</tr>
+		<tr id="mapa">
+			<td>
+				<?php if($tipo_contenido ==11){?>Introduzca el c&oacute;digo del <br>brochure en ISSUU<?php }elseif($tipo_contenido ==15){?>Video de youtube<?php }else{?>Introduzca el c&oacute;digo de google maps en esta secci&oacute;n<?php }?>
+			</td>
+			<td class="celdas">
+				<textarea cols="40" class="form-control" rows="10" name="mapa"><? echo $mapa; ?></textarea>
+			</td>
+		</tr>
 		<tr id="imagen1_preview">
 			<td>	
 				Vista Previa
@@ -688,39 +696,6 @@ else {?>
 				<img  src="externos/Thumb.php?img=../../images/<? echo $imagen5;?>&tamano=100" class="img img-thumbnail">
 			<?}?>	
 				</div>
-			</td>
-		</tr>
-		<tr id="visorGaleria">
-			<td colspan="2" id="fotosGalMini">
-				<?php if($multiImagenText != "")
-				{
-					$_SESSION['galeria'] = json_decode($multiImagenText,true);
-				?>
-					<script type="text/javascript">
-						ponerGaleriaFinal();
-					</script>
-				<?}else{
-				  unset($_SESSION['galeria']);
-				}?>
-			</td>
-		</tr>
-		<tr id="multiImagen"> 
-			<td>
-				Galer&iacute;a de fotos
-			</td>
-			<td>
-				<table align="left">
-					<tr>
-						<td align="left">
-							<input type="text" class="form-control" readonly="" name="multiImagenText" id="multiImagenText" size="53" value='<?php echo $multiImagenText; ?>'>
-
-						</td>
-						<td align="left">
-							&nbsp; <a border="0" href="#" onClick="ventanaPopMultiple('multiImagenText')"> <span class="glyphicon glyphicon-picture" style="font-size:1.8em"></span> </a>&nbsp;
-							<a id="btnEliminaFoto1" <?php if($imagen == ""){?> style="display:none" <?php }?> title="Eliminar im&aacute;gen del contenido" border="0" style="cursor:pointer" onClick="quitarImagenActual('imagen',this)"> <span class="glyphicon glyphicon-remove text-danger" style="font-size:1.8em"></span> </a>
-						</td>
-					</tr>
-				</table>
 			</td>
 		</tr>
 		<!-- fin campos producto -->
@@ -820,6 +795,39 @@ else {?>
 				</table>
 			</td>
 		</tr>
+		<tr id="visorGaleria">
+			<td colspan="2" id="fotosGalMini">
+				<?php if($multiImagenText != "")
+				{
+					$_SESSION['galeria'] = json_decode($multiImagenText,true);
+				?>
+					<script type="text/javascript">
+						ponerGaleriaFinal();
+					</script>
+				<?}else{
+				  unset($_SESSION['galeria']);
+				}?>
+			</td>
+		</tr>
+		<tr id="multiImagen"> 
+			<td>
+				<?php if($tipo_contenido == 43){ ?>Banners<?php }else{ ?>Galer&iacute;a de fotos <?php }?>	
+			</td>
+			<td>
+				<table align="left">
+					<tr>
+						<td align="left">
+							<input type="text" class="form-control" readonly="" name="multiImagenText" id="multiImagenText" size="53" value='<?php echo $multiImagenText; ?>'>
+
+						</td>
+						<td align="left">
+							&nbsp; <a border="0" href="#" onClick="ventanaPopMultiple('multiImagenText')"> <span class="glyphicon glyphicon-picture" style="font-size:1.8em"></span> </a>&nbsp;
+							<a id="btnEliminaFoto1" <?php if($imagen == ""){?> style="display:none" <?php }?> title="Eliminar im&aacute;gen del contenido" border="0" style="cursor:pointer" onClick="quitarImagenActual('imagen',this)"> <span class="glyphicon glyphicon-remove text-danger" style="font-size:1.8em"></span> </a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
 		<?if($tipo_contenido == 58){?>
 		<tr id="recom">
 			<td colspan="2">
@@ -896,14 +904,6 @@ else {?>
 		<tr id="seo">
 			<td colspan="2" align="center">
 				<b>CONFIGURACI&Oacute;N SEO</b>
-			</td>
-		</tr>
-		<tr id="mapa">
-			<td>
-				<?php if($tipo_contenido ==11){?>Introduzca el c&oacute;digo del <br>brochure en ISSUU<?php }elseif($tipo_contenido ==15){?>Video de youtube<?php }else{?>Introduzca el c&oacute;digo de google maps en esta secci&oacute;n<?php }?>
-			</td>
-			<td class="celdas">
-				<textarea cols="40" class="form-control" rows="10" name="mapa"><? echo $mapa; ?></textarea>
 			</td>
 		</tr>
 		<tr id="issuu">
@@ -987,7 +987,7 @@ else {?>
 				Url amigable
 			</td>
 			<td class="celdas">
-				<input type="text" class="form-control"  name="url_amigable" id="url_amigable_txt" size="53" value="<? echo $url_amigable; ?>">
+				<input type="text" class="form-control"  name="url_amigable" id="url_amigable_txt" size="53" value="<? echo $url_amigable; ?>" readonly="readonly">
 			</td>
 		</tr>
 		<tr>

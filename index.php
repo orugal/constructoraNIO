@@ -189,11 +189,25 @@ if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'opera mini') > 0) {
 
 if ($tablet_browser > 0) {
 // Si es tablet has lo que necesites
-   include(_PLANTILLAS.'interfaz/index.html');
+   if($id == 1)
+   {
+        include(_PLANTILLAS.'interfaz/index.html');
+   }
+   else
+   {
+        include(_PLANTILLAS.'interfaz/index2.html');
+   } 
 }
 else if ($mobile_browser > 0) {
 // Si es dispositivo mobil has lo que necesites
-   include(_PLANTILLAS.'interfaz/index.html');
+   if($id == 1)
+   {
+        include(_PLANTILLAS.'interfaz/index.html');
+   }
+   else
+   {
+        include(_PLANTILLAS.'interfaz/index2.html');
+   } 
 }
 else {
 // Si es ordenador de escritorio has lo que necesites

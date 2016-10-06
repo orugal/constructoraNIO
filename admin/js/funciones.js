@@ -532,6 +532,8 @@ function tiposid(id)
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('descripcion').style.display = '';
 		document.getElementById('mapa').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
 
 	}
 	//si es tipo servicios

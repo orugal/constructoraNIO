@@ -10,7 +10,7 @@ $hijos		=	$core->info_id_hijos;
 
 
 ?>
-<div class="row">
+<div class="row visible-lg visible-md">
     <div class="col col-xs-12 col-sm-12 col-lg-2 col-md-2">
       <div class="btn-group-vertical nav nav-tabs nav-justified" role="group" aria-label="">
           <a href="#tab<?php echo $info_id[0]['id'] ?>" data-toggle="tab" class="btn btn-default active" style="text-transform: uppercase"><?php echo $info_id[0]['titulo'] ?></a>
@@ -137,3 +137,151 @@ $hijos		=	$core->info_id_hijos;
   </div>
 
   </div>
+
+
+  <!-- para cel-->
+
+<div class="row visible-sm visible-xs" style="padding:0">
+    <div class="col col-xs-12 col-sm-12" style="padding:0">
+        <div class="panel-group">
+          <?php foreach($hijos as $h2){ ?>
+            <?php if($h2['tipo_contenido'] == 11){ //brochure ?>
+                <div class="panel panel-default" style="padding: 0;border:none">
+                    <div class="panel-heading" style="background: transparent !important">
+                      <h4 class="panel-title">
+                        <a style="text-transform: uppercase;" data-toggle="collapse" class="btn btn-default btn-block" href="#collapse<?php echo $h2['id'] ?>"><?php echo $h2['titulo']?></a>
+                      </h4>
+                    </div>
+                    <div id="collapse<?php echo $h2['id'] ?>" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <p class="parrafosInternos">
+                            <?php echo utf8_decode($h2['contenido'])?>
+                          </p>
+                          <?php if($h2['issuu'] != ""){ ?>
+                            <?php echo $h2['issuu']?>
+                          <?php } ?>
+                          <br><br>
+                          <div id="fb-root"></div>
+                          <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=216374165059237";
+                            fjs.parentNode.insertBefore(js, fjs);
+                          }(document, 'script', 'facebook-jssdk'));</script>
+
+                          <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                      </div>
+                    </div>
+                </div>
+            <?php }elseif($h2['tipo_contenido'] == 4){ //Galería?>
+
+                <div class="panel panel-default"  style="padding: 0;border:none">
+                    <div class="panel-heading" style="background: transparent !important">
+                      <h4 class="panel-title">
+                        <a style="text-transform: uppercase;" data-toggle="collapse" class="btn btn-default btn-block"  href="#collapse<?php echo $h2['id'] ?>"><?php echo $h2['titulo']?></a>
+                      </h4>
+                    </div>
+                    <div id="collapse<?php echo $h2['id'] ?>" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+
+                              <?php if($h2['multiImagenText'] != ""){ ?>
+                                <div id="myCarousel<?php echo $h2['id']?>" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+                                  <?php $cont=0;foreach($h2['multiImagenArray'] as $gal){ ?>
+                                    <li data-target="#myCarousel<?php echo $h2['id']?>" data-slide-to="0" <?php if($cont == 0){?>class="active"<?php }?>></li>
+                                  <?php $cont++;} ?>
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                  <?php $cont2=0;foreach($h2['multiImagenArray'] as $galint){ ?>
+                                    <div class="item <?php if($cont2 == 0){?>active<?php }?>">
+                                      <img src="images/<?php echo $galint ?>" alt="Chania">
+                                    </div>
+                                  <?php $cont2++; } ?>
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel<?php echo $h2['id']?>" role="button" data-slide="prev">
+                                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel<?php echo $h2['id']?>" role="button" data-slide="next">
+                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              </div>
+                            <?php } ?>
+                                
+                            </div>
+
+                            <div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                              <p class="parrafosInternos">
+                                <?php echo utf8_decode($h2['contenido'])?><br>
+                              </p>
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=216374165059237";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                
+                            </div>
+                          </div>
+
+                      </div>
+                    </div>
+                </div>
+
+
+                  
+
+
+            <?php }elseif($h2['tipo_contenido'] == 15){ //Video?>
+
+                <div class="panel panel-default"  style="padding: 0;border:none">
+                    <div class="panel-heading" style="background: transparent !important">
+                      <h4 class="panel-title">
+                        <a style="text-transform: uppercase;" data-toggle="collapse" class="btn btn-default btn-block"  href="#collapse<?php echo $h2['id'] ?>"><?php echo $h2['titulo']?></a>
+                      </h4>
+                    </div>
+                    <div id="collapse<?php echo $h2['id'] ?>" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <?php if($h2['videoYoutube'] != ""){ ?>
+                            <iframe width="560" height="315" src="http://www.youtube.com/embed/<?php echo $funciones->id_youtube($h2['videoYoutube'])?>"  allowfullscreen></iframe>
+                          <?php } ?><br><br>
+                          <p class="parrafosInternos">
+                            <?php echo utf8_decode($h2['contenido'])?>
+                          </p>
+                          <br><br>
+                          <div id="fb-root"></div>
+                          <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=216374165059237";
+                            fjs.parentNode.insertBefore(js, fjs);
+                          }(document, 'script', 'facebook-jssdk'));</script>
+
+                          <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                      </div>
+                    </div>
+                </div>
+
+                
+              
+
+            <?php } ?>
+        <?php }?>
+       </div>
+    </div>
+</div>
+

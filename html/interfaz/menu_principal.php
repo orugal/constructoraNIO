@@ -43,11 +43,11 @@
 </ul>
 
 <!-- Menú para dispositivos móviles pequeños-->
-<ul class="nav navbar-nav" style="margin: 0 0 5% 0">
+<ul class="nav navbar-nav visible-sm visible-xs" style="margin: 0 0 5% 0">
 	<?php foreach($menuPrincipal as $menuP){ ?>
 	<li class="dropdown visible-sm visible-xs">
-        <a <?php if(count($menuP['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>><?php echo $menuP['titulo'] ?> 
-        	<?php if(count($menuP['hijos']) > 0){ ?><b class="caret"></b><?php } ?>
+        <a <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>><?php echo $menuP['titulo'] ?> 
+        	<?php if(count($menuP['hijos']) > 0 && $menuP['id'] != _PREGUNTAS_FREC && $menuP['id'] != _NOTICIAS){ ?><b class="caret"></b><?php } ?>
         </a>
         <?php if(count($menuP['hijos']) > 0){ ?>
 	        <ul class="dropdown-menu multi-column columns-3">
@@ -61,7 +61,11 @@
 					            <?php if(count($mh['hijos']) > 0){ ?>
 					            	<li class="divider"></li>
 						        	<?php foreach($mh['hijos'] as $ml2){ ?>
-					            		<li><a style="color:#505052" <?php if(count($ml2['hijos']) == 0){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a></li>
+						        		<?php if($ml2['tipo_contenido'] == 39){ ?>
+					            			<li><a style="text-transform:uppercase;color:#505052" target="_blank" href="<?php echo $ml2['link'] ?>"><?php echo $ml2['titulo'] ?></a></li>
+					            		<?php }else{ ?>
+					            			<li><a style="text-transform:uppercase;color:#505052" <?php if(count($ml2['hijos']) == 0 or $ml2['tipo_contenido'] == 43){ ?>href="<?php echo $funciones->traerUrl($ml2['id']) ?>"<?php }else{?>tabindex="-1"<?php }?>><?php echo $ml2['titulo'] ?></a></li>
+					            		<?php } ?>
 					            	<?php } ?>
 					            <?php } ?>
 				            </ul>

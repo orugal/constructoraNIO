@@ -7,7 +7,7 @@ global $migas;
 //hijos de la categoria noticias para hacer un regreso
 $hijos_cat_noticias =   $funciones->obtenerListado(15);
 //consulto la noticias con el orden mas alto
-$query_destacada    =   $db->Execute(sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND visible=1 ORDER BY orden DESC",$id));
+$query_destacada    =   $db->Execute(sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND visible=1 ORDER BY orden ASC",$id));
 //echo sprintf("SELECT * FROM principal WHERE id_padre=%s AND destacado=1 AND eliminado=0 AND activo=1 ORDER BY fecha DESC",$id);
 //si ese query me trae algo quiere decir que hay una noticia destacada
 if($query_destacada->NumRows() > 0)
@@ -17,8 +17,8 @@ if($query_destacada->NumRows() > 0)
 else
 {
     //sino trae nada quiere decir que no hay noticia destacada, asi que debo hacer un query que me traiga la de la fecha de creacion mas reciente
-    $query_destacada_x_fecha    =   $db->Execute(sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND visible=1 ORDER BY orden DESC",$id));
-    $primera    =   $query_destacada_x_fecha->fields['id'];
+    $query_destacada_x_fecha    =   $db->Execute(sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND visible=1 ORDER BY orden ASC",$id));
+    $primera                    =   $query_destacada_x_fecha->fields['id'];
 }
 //esta variable me dice que noticia se debe mostrar como la primera en el modulo
 $visitada   =   (isset($_GET['visitada']))?$_GET['visitada']:$primera;
@@ -28,7 +28,7 @@ if(empty($visitada))
 }
 $info_id    =   $funciones->infoId($visitada);
 
-$ssql	=	sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND id !=%s AND visible=1 ORDER BY orden DESC",$id,$visitada);
+$ssql	=	sprintf("SELECT * FROM principal WHERE id_padre=%s AND eliminado=0 AND id !=%s AND visible=1 ORDER BY orden ASC",$id,$visitada);
 $paging=new PHPPaging;
 $paging->paginasAntes(6);
 $paging->paginasDespues(6);
@@ -95,7 +95,7 @@ $fechaEx2	=	explode("-",$fechaEx1[0]);
                                     <?php echo substr($rew['resumen'],0,100)?>..
                                 </p>
 
-                                <small>17 de Junio de 2016.</small>
+                                <small><?php echo $funciones->traduceFecha($rew['fecha']); ?>.</small>
                                 <a href="<?php echo $funciones->traerUrl($rew['id']) ?>" class="btn btn-link links" style="float:right" title="<?php echo utf8_encode($rew['titulo'])?>">Leer noticia</a>
                             </div>
                             <center>
