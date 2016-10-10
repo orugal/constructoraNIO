@@ -58,7 +58,7 @@ $fechaEx2	=	explode("-",$fechaEx1[0]);
                 <div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8 paddingInt1">
                     <h3><?php echo $info_id[0]['titulo']?></h3>
                     <span class="small" style="color:#999"><?php echo $funciones->traduceFecha($info_id[0]['fecha']); ?></span><br><br>
-                    <img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="100%" class="" alt="<?php echo $info_id[0]['titulo']?>"/><br><br>
+                    <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="" alt="<?php echo $info_id[0]['titulo']?>"/></center><br><br>
                     <p class="parrafosInternos textoGlobal">
                        <?php echo $info_id[0]['resumen']?>
                     </p>
