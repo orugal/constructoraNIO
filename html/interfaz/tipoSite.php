@@ -10,6 +10,16 @@ $hijos		=	$core->info_id_hijos;
 
 
 ?>
+
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 <div class="row visible-lg visible-md">
     <div class="col col-xs-12 col-sm-12 col-lg-2 col-md-2">
       <div class="btn-group-vertical nav nav-tabs nav-justified" role="group" aria-label="">
@@ -86,11 +96,11 @@ $hijos		=	$core->info_id_hijos;
                       </ol>
 
                       <!-- Wrapper for slides -->
-                      <div class="carousel-inner" role="listbox">
+                      <div class="carousel-inner" role="listbox" id="links<?php echo $h2['id']?>">
                         <?php $cont2=0;foreach($h2['multiImagenArray'] as $galint){ ?>
-                          <div class="item <?php if($cont2 == 0){?>active<?php }?>">
+                          <a class="item <?php if($cont2 == 0){?>active<?php }?>" href="images/<?php echo $galint ?>">
                             <img src="images/<?php echo $galint ?>" alt="Chania">
-                          </div>
+                          </a>
                         <?php $cont2++; } ?>
                       </div>
 
@@ -133,6 +143,7 @@ $hijos		=	$core->info_id_hijos;
               <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             </div>
           <?php } ?>
+
       <?php }?>
   </div>
 
@@ -280,8 +291,17 @@ $hijos		=	$core->info_id_hijos;
               
 
             <?php } ?>
+            <script>
+              document.getElementById('links<?php echo $h2['id']?>').onclick = function (event) {
+                  event = event || window.event;
+                  var target = event.target || event.srcElement,
+                      link = target.src ? target.parentNode : target,
+                      options = {index: link, event: event},
+                      links = this.getElementsByTagName('a');
+                  blueimp.Gallery(links, options);
+              };
+              </script>
         <?php }?>
        </div>
     </div>
 </div>
-

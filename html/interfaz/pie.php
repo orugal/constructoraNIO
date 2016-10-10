@@ -25,7 +25,7 @@
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center">
           <?php if($infoHome[0]['linkFacebook'] !=""){?><a href="<?php echo $infoHome[0]['linkFacebook']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/face.png" width="20%" /></a><?php }?>
           <?php if($infoHome[0]['linkInstagram'] !=""){?><a href="<?php echo $infoHome[0]['linkInstagram']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/insta.png" width="20%" /></a><?php }?>
-          <?php if($infoHome[0]['linkYoutube'] !=""){?><a href="<?php echo $infoHome[0]['linkYoutube']?>"><img src="<?php echo _DOMINIO ?>images/diseno/youtube.png" width="20%" /></a><?php }?>
+          <?php if($infoHome[0]['linkGooglePlus'] !=""){?><a href="<?php echo $infoHome[0]['linkGooglePlus']?>"><img src="<?php echo _DOMINIO ?>images/diseno/youtube.png" width="20%" /></a><?php }?>
           <?php if($infoHome[0]['linkTwitter'] !=""){?><a href="<?php echo $infoHome[0]['linkTwitter']?>" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/twitter.png" width="20%" /></a><?php }?>
         </div>
         <div class="col-sm-12 col-xs-12 col-md-2 col-lg-2 text-center"></div>

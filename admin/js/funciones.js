@@ -88,7 +88,7 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		//document.getElementById('antetitulo').style.display = '';
+		document.getElementById('antetitulo').style.display = '';
 		document.getElementById('descripcion').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
@@ -96,6 +96,8 @@ function tiposid(id)
 		document.getElementById('keywords').style.display = 'none';
 		document.getElementById('notas').style.display = 'none';
 		document.getElementById('resumen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
 
 		
 	}
@@ -121,6 +123,8 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
 	}
 	//peliculas
 	else if(id	== 54)
@@ -174,6 +178,8 @@ function tiposid(id)
 		campos('none');
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('adjunto').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
 	}
 	//si es tipo home
 	else if(id == 6)
@@ -192,8 +198,8 @@ function tiposid(id)
 		document.getElementById('linkTwitter').style.display = '';
 		document.getElementById('linkInstagram').style.display = '';
 		document.getElementById('linkGooglePlus').style.display = '';
-		document.getElementById('linkYoutube').style.display = '';
-		document.getElementById('linkLinkedin').style.display = '';
+		//document.getElementById('linkYoutube').style.display = '';
+		//document.getElementById('linkLinkedin').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
 	}
@@ -288,6 +294,8 @@ function tiposid(id)
 		campos('none');
 		//document.getElementById('antetitulo').style.display = '';
 		document.getElementById('titulo').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
 	}
 	
 	//Titulares
@@ -675,6 +683,8 @@ function tiposid(id)
 		document.getElementById('keywords').style.display = '';
 		document.getElementById('notas').style.display = '';
 		document.getElementById('mapa').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
 	}
 }
 /*
