@@ -6,7 +6,7 @@
 
 html,
 body {
-    height: 70%;
+    height: auto;
 }
 
 .carousel,
@@ -16,7 +16,7 @@ body {
 }
 
 .carousel-inner {
-    height: 100%;
+    height: auto;
 }
 
 /* Background images are set within the HTML using inline CSS, not here */

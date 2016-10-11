@@ -724,7 +724,7 @@ class PHPPaging {
 	function mostrarActual ($str, $convertir = false) {
 		if($str === false or $str === null or $str === '') $this->mostrarActual = false;
 		elseif($str === 0 or $str === '0') $this->mostrarActual = (string)'0';
-		elseif(!empty($str) and $str !== true) $this->mostrarActual = ($convertir == true) ? htmlentities((string)$str, ENT_QUOTES) : (string)$str;
+		elseif(!empty($str) and $str !== true) $this->mostrarActual = ($convertir == true) ? "<li class='active'><a>".htmlentities((string)$str, ENT_QUOTES)."</a></li>" : "<li class='active'><a>".(string)$str."</a></li>";
 		else return $this->error(true, "El valor indicado en el método mostrarActual() es inválido");
 		return true;
 	}
@@ -1092,7 +1092,7 @@ class PHPPaging {
 		if(!empty($this->linkAgregar)) $href.= $this->linkAgregar;
 		$estilo = $this->estilo;
 		$title = $title === false ? '' : " title=\"$title\"";
-		return "<a href=\"$href\"$title$estilo>$content</a>";
+		return "<li><a href=\"$href\"$title$estilo>$content</a></li>";
 	}
   
 	/**

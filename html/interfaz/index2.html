@@ -96,14 +96,10 @@
             <li data-target="#myCarousel<?php echo $info_id[0]['id']?>" data-slide-to="1"></li>
             <li data-target="#myCarousel<?php echo $info_id[0]['id']?>" data-slide-to="2"></li>
         </ol>
-		<div class="carousel-inner">
+		<div class="carousel-inner" >
 		   <?php $contador=0;foreach($info_id[0]['multiImagenArray'] as $ban){?>
 		        <div class="item <?php if($contador == 0){?>active<?php }?>">
-		            <div class="fill" style="background-image:url('<?php echo _DOMINIO."images/".$ban?>');"></div>
-		            <!--<div class="carousel-caption" style="text-align: left;">
-		                <h2 class="text-right" style="padding:0 10% 0 0">
-		                <?php echo $ban['contenido']?></h2>
-		            </div>-->
+		            <img src="<?php echo _DOMINIO."images/".$ban?>" />
 		        </div>
 		    <?php $contador++;}?>
 		</div>
@@ -161,7 +157,13 @@
 
 		});
 		</script>
-
+ <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+  </style>
 
 
 	</body>
