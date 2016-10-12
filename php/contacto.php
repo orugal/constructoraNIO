@@ -74,7 +74,6 @@ $hijos		=	$core->info_id_hijos;
     					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
     						<label for="tipoDoc">&nbsp;</label>
 					    	<input type="text" class="form-control" id="email" name="email" placeholder="Correo electrónico (*)">
-					    	</select>
     					</div>
     					<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
     						<label for="cedula">&nbsp;</label>
@@ -108,6 +107,14 @@ $hijos		=	$core->info_id_hijos;
     						<label for="correo">&nbsp;</label>
 					    	<textarea class="form-control" id="comentario" name="comentario" placeholder="ESCRIBA UN BREVE COMENTARIO (*)"></textarea>
     					</div>
+    				</div>
+
+    				<div class="row">
+    					<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12 checkbox">
+    						<label>
+					    	<input type="checkbox" id="politica" name="politica" value="1" style="float: left" /> 
+					    	Conozco y acepto la <a style="text-decoration: underline;" target="_blank" href="<?php echo _DOMINIO ?>politica-de-datos">pol&iacute;tica de tratamiento de datos.</a>
+					    </div>
     				</div>
 
 	    				<div class="row" style="margin:2% 0 0 0">

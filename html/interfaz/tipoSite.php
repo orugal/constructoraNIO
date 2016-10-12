@@ -11,6 +11,50 @@ $hijos		=	$core->info_id_hijos;
 
 ?>
 
+
+
+<div id="contactoProyecto" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><?php echo $info_id[0]['titulo']?> - Contacto</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post" id="formEnvio">
+            <div class="form-group">
+              <label  for="nombre">Escriba su nombre (*)</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre (*)">
+              <input type="hidden" class="form-control" id="proyecto" name="proyecto" value="<?php echo $id ?>">
+            </div>
+            <div class="form-group">
+                <label for="tipoDoc">Escriba su correo electrónico</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Correo electrónico (*)">
+            </div>
+            <div class="form-group">
+                <label for="cedula">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono fijo">
+            </div>
+            <div class="form-group">
+                <label>
+                <input type="checkbox" id="politica" name="politica" value="1" style="float: left" />&nbsp;
+                 Conozco y acepto la <a style="text-decoration: underline;" target="_blank" href="<?php echo _DOMINIO ?>politica-de-datos">pol&iacute;tica de tratamiento de datos.</a>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" style="background:#999;border:1px solid #999" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-warning" style="background:#444;border:1px solid #444"  onclick="nio.envioContactoProyectos()">ENVIAR</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
 <div id="blueimp-gallery" class="blueimp-gallery">
     <div class="slides"></div>
     <h3 class="title"></h3>
@@ -27,6 +71,7 @@ $hijos		=	$core->info_id_hijos;
         <?php foreach($hijos as $h){ ?>
           <a href="#tab<?php echo $h['id'] ?>" data-toggle="tab" class="btn btn-default" style="text-transform: uppercase"><?php echo $h['titulo'] ?></a>
         <?php } ?>
+          <a data-toggle="modal" data-target="#contactoProyecto" class="btn btn-default" style="text-transform: uppercase">CONT&aacute;CTANOS</a>
       </div>
     </div>
 
@@ -305,3 +350,6 @@ $hijos		=	$core->info_id_hijos;
        </div>
     </div>
 </div>
+
+<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>php/posventa/css/sweetalert.css" />
+<script type="text/javascript" src="<?php echo _DOMINIO?>php/posventa/js/sweetalert.min.js"></script>

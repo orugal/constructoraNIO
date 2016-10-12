@@ -15,32 +15,33 @@ $hijos		=	$core->info_id_hijos;
 	</div>
 	<div class="col col-xs-12 col-sm-12 col-lg-5 col-md-5">
 		<h2>Regístrate</h2>
-		<form>
+        <form method="post" id="formEnvio">
 		  <div class="form-group">
 		    <label for="email">Tu nombre <span class="small">(Requerido)</span>:</label>
-		    <input type="text" class="form-control" id="nombre">
+		    <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="hidden" class="form-control" id="proyecto" name="proyecto" value="<?php echo $id ?>">
 		  </div>
 		  <div class="form-group">
 		    <label for="email">Tu email <span class="small">(Requerido)</span>:</label>
-		    <input type="email" class="form-control" id="email">
+		    <input type="email" class="form-control" id="email" name="email">
 		  </div>
 		  <div class="form-group">
 		    <label for="email">Tu teléfono / Celular <span class="small">(Requerido)</span>:</label>
-		    <input type="text" class="form-control" id="telefono">
+		    <input type="text" class="form-control" id="telefono" name="telefono">
 		  </div>
 		  <div class="form-group">
 		    <label for="email">¿Por qué te gustaría invertir en este proyecto en flandes?:</label>
-		    <textarea class="form-control" id="porque"></textarea>
+		    <textarea class="form-control" id="porque" name="porque"></textarea>
 		  </div>
-
-		  <div class="form-group">
-			  <div class="radio">
-			    <strong>Conozco y acepto las políticas de datos personales y autorizo el manejo de estos<br></strong>
-			    <label><input type="radio"> Si</label>
-			    <label><input type="radio"> No</label>
-			  </div>
-		  </div>
-		  <button type="submit" class="btn btn-warning">Enviar</button>
+            <div class="form-group">
+                <label>
+                <input type="checkbox" id="politica" name="politica" value="1" style="float: left" />&nbsp;
+                 Conozco y acepto la <a style="text-decoration: underline;" target="_blank" href="<?php echo _DOMINIO ?>politica-de-datos">pol&iacute;tica de tratamiento de datos.</a>
+            </div>
+		  <button type="button" class="btn btn-warning" style="background:#444;border:1px solid #444"  onclick="nio.envioContactoProyectosProx()">Enviar</button>
 		</form>
 	</div>
 </div>
+
+<link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>php/posventa/css/sweetalert.css" />
+<script type="text/javascript" src="<?php echo _DOMINIO?>php/posventa/js/sweetalert.min.js"></script>

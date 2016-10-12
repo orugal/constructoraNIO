@@ -80,7 +80,8 @@ define('_SMTP_PASS'										,'S1s73m4s');
 define('_ES_HTML'										,true);
 
 //Correo del administrador
-define('_MAIL_ADMIN'									,'kyo20052@gmail.com');
+//define('_MAIL_ADMIN'									,'kyo20052@gmail.com');
+define('_MAIL_ADMIN'									,'agarzon@constructoranio.com, info@constructoranio.com, dcometa@constructoranio.com, jforero@constructoranio.com');
 
 
 /*TABLAS DE LA BASE DE DATOS*/

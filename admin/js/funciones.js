@@ -573,6 +573,8 @@ function tiposid(id)
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('descripcion').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
 	}
 	//Areas comunes
 	else if(id == 47)

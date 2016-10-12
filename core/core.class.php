@@ -146,6 +146,9 @@ class Core
 			case  60:
 				return $this->tipoOferta();
 			break;
+			case  46:
+				return $this->politicaDatos();
+			break;
 		}
 	}
 
@@ -271,6 +274,19 @@ class Core
 		global $id;
 		
 		$var = _PLANTILLAS.'interfaz/tipoDefault.php';
+		return $var;
+	}
+	/*
+	 * Funcion que mostrara los tipos Default
+	 * @return $var el cual sera la plantilla a mostrar
+	*/
+	function politicaDatos()
+	{
+		global $db;
+		global $funciones;
+		global $id;
+		
+		$var = _PLANTILLAS.'interfaz/politica.php';
 		return $var;
 	}
 	function tipoCategoriaTienda()

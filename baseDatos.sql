@@ -3,8 +3,7 @@ SQLyog - Free MySQL GUI v5.17
 Host - 5.6.26 : Database - glondono_webnueva
 *********************************************************************
 Server version : 5.6.26
-*/
-
+*/
 
 SET NAMES utf8;
 
@@ -174,6 +173,60 @@ CREATE TABLE `concurso` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `concurso` */
+
+/*Table structure for table `contacto` */
+
+DROP TABLE IF EXISTS `contacto`;
+
+CREATE TABLE `contacto` (
+  `idContacto` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tipoUsuario` text,
+  `nombre` text,
+  `email` text,
+  `telefono` text,
+  `cliente` text,
+  `proyecto` text,
+  `comentario` text,
+  `fecha` datetime DEFAULT NULL,
+  PRIMARY KEY (`idContacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `contacto` */
+
+/*Table structure for table `contactoproyectos` */
+
+DROP TABLE IF EXISTS `contactoproyectos`;
+
+CREATE TABLE `contactoproyectos` (
+  `idContacto` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nombre` text,
+  `email` text,
+  `telefono` text,
+  `idProyecto` bigint(20) DEFAULT NULL,
+  `proyecto` text,
+  `fecha` datetime DEFAULT NULL,
+  PRIMARY KEY (`idContacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `contactoproyectos` */
+
+/*Table structure for table `contactoproyectosprox` */
+
+DROP TABLE IF EXISTS `contactoproyectosprox`;
+
+CREATE TABLE `contactoproyectosprox` (
+  `idContacto` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nombre` text,
+  `email` text,
+  `telefono` text,
+  `idProyecto` bigint(20) DEFAULT NULL,
+  `proyecto` text,
+  `porque` text,
+  `fecha` datetime DEFAULT NULL,
+  PRIMARY KEY (`idContacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `contactoproyectosprox` */
 
 /*Table structure for table `delegaciones` */
 
