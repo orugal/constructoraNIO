@@ -119,7 +119,7 @@
             <ol class="breadcrumb">
               <?php foreach($migaRecursiva as $rec){ ?>
               	<?php if($rec['id'] != _PRINCIPAL){?>	
-	              	<?php if($rec['id'] == $id or $rec['id'] == 1314 or $rec['id'] == 13  or $rec['id'] == 1320){?>	
+	              	<?php if($rec['id'] == $id or $rec['id'] == 1314 or $rec['id'] == 13  or $rec['id'] == 1320 or $rec['id'] == 1322 or $rec['id'] == 1326){?>	
 	              		<li class="active"><?php echo $rec['titulo']?></li>
 	              	<?php }else{?>
 	              		<li><a href="<?php echo $funciones->traerUrl($rec['id']) ?>"><?php echo $rec['titulo']?></a></li>

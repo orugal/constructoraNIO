@@ -215,6 +215,98 @@ var nio =
 		},function(){
 			callback();
 		});
+	},
+	envioContacto:function()
+	{
+		//nio.alerta("Atención!!","ldksfjhsdfkjdhsfkjh",function(){location.reload();},'info');
+		var tipoUsuario =	$("#tipoUsuario").val();
+		var nombre 		=	$("#nombre").val();
+		var email 		=	$("#email").val();
+		var telefono 	=	$("#telefono").val();
+		var cliente 	=	$("#cliente").val();
+		var proyecto 	=	$("#proyecto").val();
+		var comentario 	=	$("#comentario").val();
+
+		//valido campos
+		if(tipoUsuario == "")
+		{
+			nio.alerta("Atención!!","Debe seleccionar el tipo de usuario.",function(){},'info');
+		}
+		else if(nombre == "")
+		{
+			nio.alerta("Atención!!","Debe escribir su nombre.",function(){},'info');
+		}
+		else if(email == "")
+		{
+			nio.alerta("Atención!!","Debe escribir su correo electrónico.",function(){},'info');
+		}
+		else if(email != "" && !nio.validarEmail(email))
+		{
+			nio.alerta("Atención!!","Debe escribir un correo electrónico válido.",function(){},'info');
+		}
+		else if(telefono == "")
+		{
+			nio.alerta("Atención!!","Debe escribir su número de teléfono.",function(){},'info');
+		}
+		else if(telefono != "" && isNaN(telefono))
+		{
+			nio.alerta("Atención!!","El campo teléfono sólo debe contener números.",function(){},'info');
+		}
+		else if(cliente == "")
+		{
+			nio.alerta("Atención!!","Debe seleccionar el tipo de cliente.",function(){},'info');
+		}
+		else if(proyecto == "")
+		{
+			nio.alerta("Atención!!","Debe seleccionar el proyecto.",function(){},'info');
+		}
+		else if(comentario == "")
+		{
+			nio.alerta("Atención!!","Escriba un breve comentario al respecto del proyecto.",function(){},'info');
+		}
+		else
+		{
+			
+			var dataForm = $("#formEnvio").serialize();
+
+
+			swal(
+			{
+				title: "Confirmación",
+				text: "Está a punto de enviar un mensaje de contacto, verifique que la información ingresada esté corresta, si este es el caso, desea continuar?",
+				type: "info",
+				showCancelButton: true,
+				//confirmButtonText:"Yes, delete it!",
+				showLoaderOnConfirm: true,
+				closeOnConfirm: false 
+			}, 
+				function()
+				{
+					$.ajax({
+				        url:  "php/ajax.php",
+				        data: dataForm+"&accion=1",
+				        type: "POST",
+				        dataType: "json",
+				        success:function(json)
+				        {
+				        	if(json.continuar == 1)
+				        	{
+								nio.alerta("Atención!!",json.mensaje,function(){location.reload();},'success');	
+				        	}
+				        	else
+				        	{
+								nio.alerta("Atención!!",json.mensaje,function(){location.reload();},'error');	
+				        	}
+				        },
+				        error:function(e) {
+				            //$("#ERRORES").html(e.statusText + e.status + e.responseText);
+				        }
+				    });
+				}
+
+			);	
+		}
+
 	}
 
 }

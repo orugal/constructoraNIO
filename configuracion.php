@@ -73,13 +73,14 @@ define('_DB'											,'glondono_webNueva');
 //DATOS DE ENVIO DE CORREOS
 define('_DIR_PLUGIN'									,'core/phpmailer/');
 define('_MAILER'										,'mail');
-define('_HOST_MAIL'										,'mail.wannabe.com.co');
+define('_HOST_MAIL'										,'mail.constructoranio.com');
 define('_SMTP_AUTH'										,true);
-define('_SMTP_USER'										,'info@wannabe.com.co');
-define('_SMTP_PASS'										,'Jg$E3D+u');
+define('_SMTP_USER'										,'noreply@constructoranio.com');
+define('_SMTP_PASS'										,'S1s73m4s');
 define('_ES_HTML'										,true);
+
 //Correo del administrador
-define('_MAIL_ADMIN'									,'info@wannabe.com.co');
+define('_MAIL_ADMIN'									,'kyo20052@gmail.com');
 
 
 /*TABLAS DE LA BASE DE DATOS*/
