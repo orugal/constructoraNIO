@@ -30,7 +30,7 @@ $hijos		=	$core->info_id_hijos;
 		    <input type="text" class="form-control" id="telefono" name="telefono">
 		  </div>
 		  <div class="form-group">
-		    <label for="email">¿Por qué te gustaría invertir en este proyecto en flandes?:</label>
+		    <label for="email">¿Por qué te gustaría invertir en este proyecto?:</label>
 		    <textarea class="form-control" id="porque" name="porque"></textarea>
 		  </div>
             <div class="form-group">

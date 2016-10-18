@@ -587,9 +587,12 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('imagen').style.display = '';
+		//document.getElementById('imagen').style.display = '';
 		document.getElementById('resumen').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
+		//document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
+		document.getElementById('fecha_form').style.display = '';
 	}
 	//Areas interna
 	else if(id == 49)

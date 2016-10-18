@@ -1125,7 +1125,13 @@ class Funciones
 		$pedazos = explode("-",$partes[0]);
 		return $pedazos[2]." de ".$this->TraducirMes($pedazos[1])." de ".$pedazos[0];
 	}
-
+	function traduceFechaCorta($fecha)
+	{
+		$partes  = explode(" ",$fecha);
+		$pedazos = explode("-",$partes[0]);
+		return $pedazos[2]." ".substr($this->TraducirMes($pedazos[1]),0,3);
+	
+	}
 	/*
 	 * Funcion que traduce el mes
 	 */

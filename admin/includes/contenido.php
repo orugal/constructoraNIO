@@ -800,10 +800,10 @@ $tabla .= '</td>
 									$tabla.='<td align="center"><b>SUBCONTENIDOS</b></td>';
 								}
 							}
-							if($tipo_contenido == 17)//esto es para poner noticia en el home
+							/*if($tipo_contenido == 17)//esto es para poner noticia en el home
 							{
 								$tabla.='<td align="center"><b>HOME</b></td>';
-							}
+							}*/
 							$tabla.='<td align="center"><b>M</b></td>';
 							
 							
@@ -861,27 +861,6 @@ $tabla .= '</td>
 								}
 								elseif($tipo_contenido == 10)
 								{				
-									/*$tabla	.='	<td align="center">
-													<a href="?id='.$rew['id'].'" title="Ver Rese&ntilde;as">
-														<img src="images/iconos/ver-resenias.gif" border="0" title="Ver Rese&ntilde;as">
-													</a>
-												</td>';		
-									
-									$tabla	.='	<td align="center">
-													<a href="?id=382&padre='.$rew['id'].'&tipo=1" title="Agregar Accesorios">
-														<img src="images/iconos/agregar-accesorios.gif" border="0" title="Agregar accesorios">
-													</a>
-												</td>';
-									$tabla	.='	<td align="center">
-													<a href="?id=382&padre='.$rew['id'].'&tipo=2" title="Agregar Descargas">
-														<img src="images/iconos/agregar-descargas.gif" border="0" title="Agregar Descargas">
-													</a>
-												</td>';
-									$tabla	.='	<td align="center">
-													<a href="?id=382&padre='.$rew['id'].'&tipo=6" title="Productos Relacionados">
-														Productos Relacionados
-													</a>
-												</td>';	*/
 									$tabla .='<td align="center" colspan="2">
 													<a href="appadmin/ver_video.php?video='.$rew['id'].'" title="'.$rew['titulo'].'" rel="Shadowbox;width=410px;height=310px">
 														Ver Video
@@ -915,6 +894,12 @@ $tabla .= '</td>
 													</a>
 												</td>';	
 								}
+								elseif($rew['tipo_contenido'] == 4 or $rew['tipo_contenido'] == 15 or $rew['tipo_contenido'] == 11)
+								{
+									$tabla	.='	<td align="center">
+													--
+												</td>';		
+								}
 								else
 								{				
 									$tabla	.='	<td align="center">
@@ -923,7 +908,7 @@ $tabla .= '</td>
 													</a>
 												</td>';		
 								}
-								if($tipo_contenido == 17 )//esto es para poner la noticia en el home
+								/*if($tipo_contenido == 17 )//esto es para poner la noticia en el home
 								{
 									$tabla	.=	'<td align="center">';
 									if($rew['promocion'] == 1)//seleccionado
@@ -939,7 +924,7 @@ $tabla .= '</td>
 									//	$tabla	.=	'<a href="?id='.$rew['id'].'&editar='.$rew['id'].'&atrib=1" title="Asignar Atributos"><img src="images/bot-atributos.gif" border="0"></a>';		
 									//}
 									$tabla	.='</td>';
-								}
+								}*/
 								//funcionamiento para el producto
 								$tabla	.=	'<td align="center">';
 								$tabla	.=	'<a href="?id='.$rew['id'].'&editar='.$rew['id'].'" title="Modificar"><span class="glyphicon glyphicon-pencil"></span></a>';

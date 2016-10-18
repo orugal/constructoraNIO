@@ -59,17 +59,20 @@ $fechaEx2	=	explode("-",$fechaEx1[0]);
                     <h3><?php echo $info_id[0]['titulo']?></h3>
                     <span class="small" style="color:#999"><?php echo $funciones->traduceFecha($info_id[0]['fecha']); ?></span><br><br>
                     <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="" alt="<?php echo $info_id[0]['titulo']?>"/></center><br><br>
-                    <p class="parrafosInternos textoGlobal">
+                    <div class="parrafosInternos textoGlobal" style="float: left;width: 100%">
                        <?php echo $info_id[0]['resumen']?>
-                    </p>
-                    <p class="parrafosInternos textoGlobal">
-                       <?php echo $info_id[0]['contenido']?>
-                    </p>
+                    </div>
+                    <div class="parrafosInternos textoGlobal contenidoOculto" style="display: none !important;float:left;width: 100%">
+                       <br><?php echo $info_id[0]['contenido']?>
+                    </div>
                     <?php if($info_id[0]['autor'] != ""){ ?>
                         <blockquote>
                           <small>Fuente: <?php echo $info_id[0]['autor']?></small>
                         </blockquote>
-                    <?php } ?>
+                    <?php } ?><br><br>
+                    <div style="float:left;width: 100%">
+                      <br><br><center><a id="vermasbtn" href="#" style="background-color:#45505B;color:#fff;text-decoration:none;padding:1% 5%;margin:0 0 30px;">Leer m&aacute;s</a></center><br><br>
+                    </div>
 
                     <div id="fb-root"></div>
                     <script>(function(d, s, id) {
@@ -119,4 +122,19 @@ $fechaEx2	=	explode("-",$fechaEx1[0]);
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div> 
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>          
+        
+<script type="text/javascript">
+
+  $(document).ready(function(){ 
+
+
+          $('#vermasbtn').on('click',function(e){
+              $('.contenidoOculto').toggle('slow');
+              $(this).hide();
+              e.preventDefault();
+          });
+  
+});
+</script>

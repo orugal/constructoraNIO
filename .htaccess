@@ -11,6 +11,7 @@ RewriteRule ^cartagena$ index.php?id=1349
 RewriteRule ^ciudadela-nio-neiva$ index.php?id=1351
 RewriteRule ^brochure$ index.php?id=1352
 RewriteRule ^renders$ index.php?id=1363
+RewriteRule ^avance-de-obra-nro-1$ index.php?id=1371
 RewriteRule ^trabaja-con-nosotros$ index.php?id=1321
 RewriteRule ^proximos-lanzamientos$ index.php?id=1326
 RewriteRule ^pqrs$ index.php?id=1328
@@ -20,6 +21,7 @@ RewriteRule ^flandes$ index.php?id=1350
 RewriteRule ^avance-de-obra$ index.php?id=1353
 RewriteRule ^ibague-torre-kea$ index.php?id=1361
 RewriteRule ^recorre-kea$ index.php?id=1364
+RewriteRule ^avance-de-obra-nro-2$ index.php?id=1372
 RewriteRule ^felicitaciones$ index.php?id=1329
 RewriteRule ^nuestra-vision$ index.php?id=1333
 RewriteRule ^como-usar-la-prima-para-vivienda-propia$ index.php?id=1317&visitada=1346
