@@ -59,10 +59,10 @@ $fechaEx2	=	explode("-",$fechaEx1[0]);
                     <h3><?php echo $info_id[0]['titulo']?></h3>
                     <span class="small" style="color:#999"><?php echo $funciones->traduceFecha($info_id[0]['fecha']); ?></span><br><br>
                     <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="" alt="<?php echo $info_id[0]['titulo']?>"/></center><br><br>
-                    <div class="parrafosInternos textoGlobal" style="float: left;width: 100%">
+                    <div class="parrafosInternos textoGlobal" style="float: left;width: 100%;">
                        <?php echo $info_id[0]['resumen']?>
                     </div>
-                    <div class="parrafosInternos textoGlobal contenidoOculto" style="display: none !important;float:left;width: 100%">
+                    <div class="parrafosInternos contenidoOculto" style="display: none !important;float:left;width: 100%">
                        <br><?php echo $info_id[0]['contenido']?>
                     </div>
                     <?php if($info_id[0]['autor'] != ""){ ?>

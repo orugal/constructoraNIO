@@ -166,16 +166,98 @@ $hijos		=	$core->info_id_hijos;
 
             </div>
 
+
+          <?php }elseif($h2['tipo_contenido'] == 48){ //apto modelo?>
+            <div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10 tab-pane fade" style="padding:0 2%" id="tab<?php echo $h2['id']?>">
+              <h3> <?php echo $info_id[0]['titulo'] ?> - <?php echo $h2['titulo']?></h3>
+                <div class="row">
+                  <div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+                    
+                      <?php echo utf8_decode($h2['contenido'])?><br>
+
+                      <div class="btn-group-horizontal nav nav-tabs nav-justified" role="group" aria-label="">
+                      <?php foreach($h2['hijos'] as $aptopModPest ){ ?>   
+                          <a href="#tab<?php echo $aptopModPest['id'] ?>" data-toggle="tab" class="btn btn-default active" style="font-size:0.9em;text-transform: uppercase;padding:3% !important"><?php echo $aptopModPest['titulo'] ?></a>
+                      <?php } ?>
+                      </div>   
+
+
+              <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.7&appId=216374165059237";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+
+              <div class="fb-like" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                      
+                  </div>
+                  <div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6 tab-content">
+                      <?php $contApto=0;foreach($h2['hijos'] as $aptopModPestInt ){ ?> 
+                      <div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10 tab-pane fade <?php if($contApto == 0){ ?> in active<?php }?>" style="padding:0 2%;float:left" id="tab<?php echo $aptopModPestInt['id']?>">
+
+                            <?php if($aptopModPestInt['multiImagenText'] != ""){ ?>
+                              <div id="myCarousel<?php echo $aptopModPestInt['id']?>" class="carousel slide" data-ride="carousel">
+                              <!-- Indicators -->
+                              <ol class="carousel-indicators">
+                                <?php $cont=0;foreach($aptopModPestInt['multiImagenArray'] as $gal){ ?>
+                                  <li data-target="#myCarousel<?php echo $aptopModPestInt['id']?>" data-slide-to="0" <?php if($cont == 0){?>class="active"<?php }?>></li>
+                                <?php $cont++;} ?>
+                              </ol>
+
+                              <!-- Wrapper for slides -->
+                              <div class="carousel-inner" role="listbox" id="links<?php echo $aptopModPestInt['id']?>">
+                                <?php $cont2=0;foreach($aptopModPestInt['multiImagenArray'] as $galint){ ?>
+                                  <a class="item <?php if($cont2 == 0){?>active<?php }?>" href="images/<?php echo $galint ?>">
+                                    <img src="images/<?php echo $galint ?>" alt="Chania">
+                                  </a>
+                                <?php $cont2++; } ?>
+                              </div>
+
+                              <!-- Left and right controls -->
+                              <a class="left carousel-control" href="#myCarousel<?php echo $aptopModPestInt['id']?>" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#myCarousel<?php echo $aptopModPestInt['id']?>" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+                          <?php } ?>
+                      </div>
+                        <script>
+                        document.getElementById('links<?php echo $aptopModPestInt['id']?>').onclick = function (event) {
+                            event = event || window.event;
+                            var target = event.target || event.srcElement,
+                                link = target.src ? target.parentNode : target,
+                                options = {index: link, event: event},
+                                links = this.getElementsByTagName('a');
+                            blueimp.Gallery(links, options);
+                        };
+                        </script>
+                      <?php $contApto++;} ?>
+                  </div>
+                </div>
+
+            </div>
+
           <?php }elseif($h2['tipo_contenido'] == 47){ //avance de obra?>
             <div class="col col-xs-12 col-sm-12 col-lg-10 col-md-10 tab-pane fade" style="padding:0 2%" id="tab<?php echo $h2['id']?>">
+
+              <h3><?php echo $h2['antetitulo']?></h3><br>
+
               <section class="cd-horizontal-timeline">
                 <div class="timeline">
                   <div class="events-wrapper">
                     <div class="events">
                       <ol style="list-style: none !important">
+
                         <?php $cont3=0;foreach($h2['hijos'] as $hij){ 
                             $fechSalida = explode(" ",$hij['fecha']);
-                            $fechaFin   = date("d/m/Y",strtotime($fechSalida[0]));
+                            $fechaFin   = (($cont3 + 1))."/".date("m")."/".date("Y");
                           ?>
                           <li>
                             <a href="#0" data-date="<?php echo $fechaFin ?>" <?php if($cont3 == 0){?> class="selected" <?php }?> > <?php echo $funciones->traduceFechaCorta($hij['fecha'])?> </a>
@@ -199,11 +281,11 @@ $hijos		=	$core->info_id_hijos;
                       <?php $cont2=0;foreach($h2['hijos'] as $hij2){ 
 
                             $fechSalida2 = explode(" ",$hij2['fecha']);
-                            $fechaFin2   = date("d/m/Y",strtotime($fechSalida2[0]));
+                            $fechaFin2   = (($cont2 + 1))."/".date("m")."/".date("Y");
                         ?>
                         <li <?php if($cont2 == 0){?> class="selected" <?php }?> data-date="<?php echo $fechaFin2 ?>">
-                          <h2 style="font-size: 2.5em"><?php echo $hij2['titulo'] ?></h2>
-                          <em><?php echo $funciones->traduceFecha($hij2['fecha']) ?></em>
+                          <h3><?php echo $hij2['titulo'] ?></h3>
+                          <em style="font-family: 'Roboto';font-style: normal;;font-weight: normal;font-size:1.2em"><?php echo $funciones->traduceFecha($hij2['fecha']) ?></em>
                           <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div class="row">
@@ -220,11 +302,11 @@ $hijos		=	$core->info_id_hijos;
 
                                       
                                       <div class="carousel-inner" role="listbox" id="links<?php echo $hij2['id']?>">
-                                        <?php $cont2=0;foreach($hij2['multiImagenArray'] as $galint){ ?>
-                                          <a class="item <?php if($cont2 == 0){?>active<?php }?>" href="images/<?php echo $galint ?>">
+                                        <?php $contx=0;foreach($hij2['multiImagenArray'] as $galint){ ?>
+                                          <a class="item <?php if($contx == 0){?>active<?php }?>" href="images/<?php echo $galint ?>">
                                             <img src="images/<?php echo $galint ?>" alt="Chania">
                                           </a>
-                                        <?php $cont2++; } ?>
+                                        <?php $contx++; } ?>
                                       </div>
 
                                      
@@ -246,7 +328,7 @@ $hijos		=	$core->info_id_hijos;
                             <div class="col-lg-12 col-md-12">
 
                                 <p  class="parrafosInternos"> <br>
-                                  <?php echo $hij2['resumen'] ?>
+                                  <center><?php echo utf8_decode($hij2['resumen']) ?></center>
                                 </p>
                             </div>
                           </div>
@@ -333,7 +415,7 @@ $hijos		=	$core->info_id_hijos;
                 <?php echo utf8_decode($h2['contenido'])?>
               </p>
               <?php if($h2['videoYoutube'] != ""){ ?>
-                <iframe class="iframeVideo"  width="560" height="200" src="http://www.youtube.com/embed/<?php echo $funciones->id_youtube($h2['videoYoutube'])?>"  allowfullscreen></iframe>
+                <center><iframe class="iframeVideo"  width="560" height="200" src="http://www.youtube.com/embed/<?php echo $funciones->id_youtube($h2['videoYoutube'])?>"  allowfullscreen></iframe></center>
               <?php } ?>
               <br><br>
               <div id="fb-root"></div>
@@ -503,7 +585,7 @@ $hijos		=	$core->info_id_hijos;
                                               $fechaFin2   = date("d/m/Y",strtotime($fechSalida2[0]));
                                           ?>
                                           <li <?php if($cont2 == 0){?> class="selected" <?php }?> data-date="<?php echo $fechaFin2 ?>">
-                                            <h2 style="font-size: 2.5em"><?php echo $hij2['titulo'] ?></h2>
+                                            <h3><?php echo $hij2['titulo'] ?></h3>
                                             <em><?php echo $funciones->traduceFecha($hij2['fecha']) ?></em>
                                             <div class="row">
                                               <div class="col-lg-12 col-md-12">

@@ -31,7 +31,7 @@ class Funciones
 		{
 			$arreglo	=	array("id"=>($result->fields['id']),
 								  "id_padre"=>$result->fields['id_padre'],
-								  "antetitulo"=>utf8_encode($result->fields['antetitulo']),
+								  "antetitulo"=>$result->fields['antetitulo'],
 								  "titulo"=>utf8_encode($result->fields['titulo']),
 								  "subtitulo"=>utf8_encode($result->fields['subtitulo']),
 								  "resumen"=>utf8_encode(nl2br($result->fields['resumen'])),
@@ -384,7 +384,7 @@ class Funciones
 
 			$arreglo	=	array("id"=>($result->fields['id']),
 								  "id_padre"=>$result->fields['id_padre'],
-								  "antetitulo"=>utf8_encode($result->fields['antetitulo']),
+								  "antetitulo"=>$result->fields['antetitulo'],
 								  "titulo"=>utf8_encode($result->fields['titulo']),
 								  "subtitulo"=>utf8_encode($result->fields['subtitulo']),
 								  "resumen"=>(nl2br($result->fields['resumen'])),
@@ -865,7 +865,7 @@ class Funciones
 		//inicio la seguridad del metodo POST
     	foreach($_POST as $key=>$info)
 		{
-			if($key!='contenido' and $key!='mapa' and $key!='issuu' and $key!='videoYoutube' and $key!='mapa' and $key!='imagen' and $key!='titulo' and $key!='link' and $key!='resumen')
+			if($key!='contenido' and $key!='mapa' and $key!='issuu' and $key!='videoYoutube' and $key!='mapa' and $key!='imagen' and $key!='titulo' and $key!='antetitulo'  and $key!='link' and $key!='resumen')
 			{
 				$_POST[$key]	=	$this->evitaSql($info,$key);
 			}
@@ -1404,6 +1404,14 @@ class Funciones
 				}
 			}
 		}	
+		$datos .= $salto;
+		$datos .= '<IfModule mod_deflate.c>
+					<FilesMatch ".(js|jpg|jpeg|gif|png|css|txt|html)$">
+					ExpiresActive on
+					ExpiresDefault "access plus 1 month"
+					SetOutputFilter DEFLATE
+					</FilesMatch>
+					</IfModule>';
 		fwrite($fp, $datos, 8000);
 		fclose($fp); 
 	}

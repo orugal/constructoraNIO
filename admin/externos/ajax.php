@@ -34,6 +34,8 @@ if($accion == 1)
 	$url = str_replace('|',"",$url);
 	$url = str_replace('\/',"-",$url);
 	$url = str_replace('$',"",$url);
+	$url = str_replace(':',"",$url);
+	$url = str_replace(';',"",$url);
 
 	echo $url;
 }

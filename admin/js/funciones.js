@@ -581,33 +581,22 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
+		document.getElementById('antetitulo').style.display = '';
 	}
 	//lista areas
 	else if(id == 48)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		//document.getElementById('imagen').style.display = '';
-		document.getElementById('resumen').style.display = '';
-		//document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('multiImagen').style.display = '';
-		document.getElementById('visorGaleria').style.display = '';
-		document.getElementById('fecha_form').style.display = '';
+		document.getElementById('descripcion').style.display = '';
 	}
 	//Areas interna
 	else if(id == 49)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('imagen').style.display = '';
-		document.getElementById('imagen2').style.display = '';
-		document.getElementById('imagen3').style.display = '';
-		document.getElementById('imagen4').style.display = '';
-		document.getElementById('descripcion').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('mostrar_imagen2').style.display = '';
-		document.getElementById('mostrar_imagen3').style.display = '';
-		document.getElementById('mostrar_imagen4').style.display = '';
+		document.getElementById('multiImagen').style.display = '';
+		document.getElementById('visorGaleria').style.display = '';
 	}
 	//Encuestas
 	else if(id == 50)
