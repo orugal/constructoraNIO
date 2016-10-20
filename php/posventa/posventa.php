@@ -120,19 +120,25 @@ function consultaSelect($id,$consulta=false)
    https://github.com/orugal
 -->
 <div class="row">
-	<div class="col col-xs-12 col-sm-12 col-lg-3 col-md-3"></div>
-	<div class="col col-xs-12 col-sm-12 col-lg-6 col-md-6">
+	<div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4" style="text-align: justify">
+		<img src="<?php _DOMINIO?>images/diseno/postventa.jpg" width="100%" style="margin:20px 0 0 0"/><br><br>
+		Con el objetivo de optimizar nuestros procesos y de brindarle una mejor asistencia, lo invitamos a realizar el siguiente procedimiento para solicitar el servicio postventas, de esta forma se garantizara que su solicitud siga el canal aprobado por la compañía. Este es el único mecanismo que garantiza la atención de su solicitud de postventa, cualquier otra forma de solicitud no será atendida.<br><br>
+		Inmediatamente usted termine el procedimiento, recibirá un mail de radicación, número que le servirá para su seguimiento del caso.<br><br>
+	</div>
+	<div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8">
 	<form method="post" id="formEnvio" enctype="multipart/form-data">
 		<h2 class="titulos" style="padding:2%;background:#444;color:#FFF;text-align:center;font-size:1.5em;font-weight:normal">FORMULARIO DE <?php echo $info_id[0]['titulo']?></h2>
 
-		    
-		<div class="row">
+		
+
+
+		<!--<div class="row">
 			<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="text-align:justify">
 				Con el objetivo de optimizar nuestros procesos y de brindarle una mejor asistencia, lo invitamos a realizar el siguiente procedimiento para solicitar el servicio postventas, de esta forma se garantizara que su solicitud siga el canal aprobado por la compañía. Este es el único mecanismo que garantiza la atención de su solicitud de postventa, cualquier otra forma de solicitud no será atendida.<br><br>
 
 				Inmediatamente usted termine el procedimiento, recibirá un mail de radicación, número que le servirá para su seguimiento del caso.<br><br>
 			</div>
-		</div>
+		</div>-->
 		<div class="row">
 			<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#444"><h4>DATOS DE CONTACTO</h4></div>
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
@@ -277,7 +283,7 @@ function consultaSelect($id,$consulta=false)
 			 </div> 
 		</form>
 	</div>
-	<div class="col col-xs-12 col-sm-12 col-lg-3 col-md-3"></div>
+	<!--<div class="col col-xs-12 col-sm-12 col-lg-3 col-md-3"></div>-->
 </div>
 </div>
 <link rel="stylesheet" type="text/css" href="<?php echo _DOMINIO?>php/posventa/css/bootstrap-datetimepicker.min.css" />
