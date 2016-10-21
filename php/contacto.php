@@ -46,7 +46,7 @@ $hijos		=	$core->info_id_hijos;
 			</div>
 
 			<div class="card">
-				<a class="btn btn-default"><i class="glyphicon glyphicon-earphone"></i> Llamar </a>
+				<a href="tel:573157076127" class="btn btn-default"><i class="glyphicon glyphicon-earphone"></i> Llamar </a>
 				<a class="btn btn-default"><i class="glyphicon glyphicon-comment"></i> Chat </a>
 			</div>
 	</div>

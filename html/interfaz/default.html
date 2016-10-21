@@ -11,7 +11,7 @@
     </div>
     <div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4 paddingInt2">
         <div class="row">
-            <?php foreach($hijosQuienes as $hq){?>
+            <?php while($hq = $paging->fetchResultado()){?>
                 <div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 miniInternas">
                     <center><div style="border-radius:100px;width: 100px;height: 100px;background:url(<?php echo $funciones->imagenCorrecta($hq['imagen']);?>) no-repeat center center;background-size: 200px;"></div></center>
                     <!--<center><img src="<?php echo $funciones->imagenCorrecta($hq['imagen']);?>" width="100px" height="100px" class="img-circle" /></center><br>-->
@@ -26,6 +26,15 @@
                     <img src="images/diseno/bordeHor.png" width="100%" />
                 </center>
             <?php }?>
+
+            <div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 text-center">
+                <ul class="pagination">
+                    <?php 
+                    $links   = $paging->fetchNavegacion();
+                    echo $links;
+                    ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
