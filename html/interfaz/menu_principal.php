@@ -9,7 +9,7 @@
 <ul class="nav navbar-nav floatRight visible-md visible-lg">
 	<?php foreach($menuPrincipal as $menuP){ ?>
 	    <li class="dropdown visible-lg visible-md">
-	         <a style="text-transform:uppercase;" <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>>
+	         <a style="text-transform:uppercase;" <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"  href="#" <?php }?>>
 	          	<?php echo $menuP['titulo'] ?>
 	          	<?php if(count($menuP['hijos']) > 0 && $menuP['id'] != _PREGUNTAS_FREC && $menuP['id'] != _NOTICIAS){ ?>
 		          	<b class="glyphicon glyphicon-triangle-bottom mini right"></b>
@@ -46,7 +46,7 @@
 <ul class="nav navbar-nav visible-sm visible-xs" style="margin: 0 0 5% 0">
 	<?php foreach($menuPrincipal as $menuP){ ?>
 	<li class="dropdown visible-sm visible-xs">
-        <a <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?>class="dropdown-toggle" data-toggle="dropdown"<?php }?>><?php echo $menuP['titulo'] ?> 
+        <a <?php if(count($menuP['hijos']) == 0 || $menuP['id'] == _PREGUNTAS_FREC || $menuP['id'] ==_NOTICIAS){ ?>href="<?php echo $funciones->traerUrl($menuP['id']) ?>"<?php }else{?> href="#" class="dropdown-toggle" data-toggle="dropdown"  <?php }?> ><?php echo $menuP['titulo'] ?> 
         	<?php if(count($menuP['hijos']) > 0 && $menuP['id'] != _PREGUNTAS_FREC && $menuP['id'] != _NOTICIAS){ ?><b class="caret"></b><?php } ?>
         </a>
         <?php if(count($menuP['hijos']) > 0){ ?>

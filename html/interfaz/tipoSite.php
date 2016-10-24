@@ -558,7 +558,8 @@ $hijos		=	$core->info_id_hijos;
                                         <ol style="list-style: none !important">
                                           <?php $cont3=0;foreach($h2['hijos'] as $hij){ 
                                               $fechSalida = explode(" ",$hij['fecha']);
-                                              $fechaFin   = date("d/m/Y",strtotime($fechSalida[0]));
+                                              $fechaFin   = (($cont3 + 1))."/".date("m")."/".date("Y");
+                                              //$fechaFin   = date("d/m/Y",strtotime($fechSalida[0]));
                                             ?>
                                             <li>
                                               <a href="#0" data-date="<?php echo $fechaFin ?>" <?php if($cont3 == 0){?> class="selected" <?php }?> > <?php echo $funciones->traduceFechaCorta($hij['fecha'])?> </a>
@@ -582,7 +583,8 @@ $hijos		=	$core->info_id_hijos;
                                         <?php $cont2=0;foreach($h2['hijos'] as $hij2){ 
 
                                               $fechSalida2 = explode(" ",$hij2['fecha']);
-                                              $fechaFin2   = date("d/m/Y",strtotime($fechSalida2[0]));
+                                              //$fechaFin2   = date("d/m/Y",strtotime($fechSalida2[0]));
+                                              $fechaFin2   = (($cont2 + 1))."/".date("m")."/".date("Y");
                                           ?>
                                           <li <?php if($cont2 == 0){?> class="selected" <?php }?> data-date="<?php echo $fechaFin2 ?>">
                                             <h3><?php echo $hij2['titulo'] ?></h3>
@@ -629,7 +631,7 @@ $hijos		=	$core->info_id_hijos;
                                               <div class="col-lg-12 col-md-12">
 
                                                   <p  class="parrafosInternos"> <br>
-                                                    <?php echo $hij2['resumen'] ?>
+                                                    <?php echo utf8_decode($hij2['resumen']) ?>
                                                   </p>
                                               </div>
                                             </div>
