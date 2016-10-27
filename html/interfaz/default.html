@@ -3,10 +3,19 @@
 <div class="row">
     <div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8 paddingInt1">
         <h3 style="text-transform: uppercase;"><?php echo $info_id[0]['titulo']?></h3>
+        <?php if($info_id[0]['imagen'] != "" && $info_id[0]['contenido'] == ""){?>
         <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="thumbnail" /></center>
+        <?php }?>
         <p class="parrafosInternos textoGlobal">
            <?php echo $info_id[0]['contenido']?>
         </p>
+        <?php if($info_id[0]['adjunto'] != ""){?>
+            <!--<a href="<?php echo _DOMINIO?>archivos/<?php echo $info_id[0]['adjunto']?>" target="_blank">
+               <i class="glyphicon glyphicon-download-alt"></i> DESCARGAR ADJUNTO
+            </a>-->
+            <iframe src="http://docs.google.com/gview?url=<?php echo _DOMINIO?>archivos/<?php echo $info_id[0]['adjunto']?>&embedded=true" style="width:100%; height:500px !important;" frameborder="0"></iframe>
+
+        <?php }?>
         <!--<img src="images/diseno/btn1.gif" />-->
     </div>
     <div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4 paddingInt2">

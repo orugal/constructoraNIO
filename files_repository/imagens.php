@@ -68,11 +68,11 @@ while ($archivo = readdir($directorio))
 			{
 				if($archivo == '..')
 				{
-					echo "<a href='?dir=".$dir.$archivo."/&caja=".$_GET['caja']."' onClick='document.form1.ruta.value=\"".$dir."\"'>";
+					/*echo "<a href='?dir=".$dir.$archivo."/&caja=".$_GET['caja']."' onClick='document.form1.ruta.value=\"".$dir."\"'>";
 					echo "<img src='../externos/Thumb.php?img=../repositorio/volver.jpg&tamano=100' title='Regresar' border='0' title='Regresar'>"; 
 					echo "<br>".$archivo;
 					//echo "<a href='?dir=../diseno/images/".$archivo."'><img src='repositorio/cancel.gif' border='0' title='Eliminar ".$archivo."'></a>";
-					echo "</a>";
+					echo "</a>";*/
 				}
 				elseif($archivo == '.')
 				{
@@ -98,7 +98,7 @@ while ($archivo = readdir($directorio))
 				$ruta_final = str_replace('../images/','',$dir);
 				//creo el link
 				//echo "<a href='#' onclick='poner(\"".$ruta_final.$archivo."\",\"".$_GET['caja']."\")'>";
-				echo "<a href='#' style='border:none' onclick='window.opener.document.form.adjunto.value=\"".$ruta_final.$archivo."\"'>";
+				echo "<a href='#' style='border:none' onclick='window.opener.document.form.adjunto.value=\"".$ruta_final.$archivo."\";window.close()'>";
 				//detecto el tipo de archivo para saber que icono poner
 				$extencion_icono	=	substr($archivo,-3,3);
 				if(strtolower($extencion_icono) == 'flv')
@@ -123,7 +123,7 @@ while ($archivo = readdir($directorio))
 				}
 				else
 				{
-					echo "<img style='border:none' src='../images/diseno/desconocido.png' title='".$archivo."' border='1' title='".$archivo."'  border='0' width='101px'>";
+					echo "<img style='border:none' src='../images/diseno/file.png' title='".$archivo."' border='1' title='".$archivo."'  border='0' width='101px'>";
 				}
 				
 				 

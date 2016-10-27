@@ -481,7 +481,9 @@ else {?>
 							<input type="text"  class="form-control"  name="adjunto" size="53" value="<? echo $adjunto; ?>" readonly="readonly">
 						</td>
 						<td align="left">
-							<!--<a border="0" href="#" onClick="ventanaPop2('adjunto')"><img border="0" src="../repositorio_archivos/119.png" width="30" height="30"></a>-->
+							<?php if($tipo_contenido == 0 or $tipo_contenido == 46){?>
+								<a border="0" href="#" onClick="ventanaPop2('adjunto')"><img border="0" src="../repositorio_archivos/119.png" width="30" height="30"></a>
+							<?php }?>
 						</td>
 					</tr>
 				</table>
