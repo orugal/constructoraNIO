@@ -6,16 +6,42 @@
         <?php if($info_id[0]['imagen'] != "" && $info_id[0]['contenido'] == ""){?>
         <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="thumbnail" /></center>
         <?php }?>
+        <?php if($info_id[0]['adjunto'] != ""){?>
+            <iframe src="http://docs.google.com/gview?url=<?php echo _DOMINIO?>archivos/<?php echo $info_id[0]['adjunto']?>&embedded=true" style="width:100%; height:500px !important;" frameborder="0"></iframe>
+        <?php }?>
+
+        <?php if($info_id[0]['multiImagenText'] != ""){?>
+              <div id="myCarousel<?php echo $info_id[0]['id']?>" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <?php $cont=0;foreach($info_id[0]['multiImagenArray'] as $gal){ ?>
+                  <li data-target="#myCarousel<?php echo $info_id[0]['id']?>" data-slide-to="0" <?php if($cont == 0){?>class="active"<?php }?>></li>
+                <?php $cont++;} ?>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox" id="links<?php echo $info_id[0]['id']?>">
+                <?php $cont2=0;foreach($info_id[0]['multiImagenArray'] as $galint){ ?>
+                  <a class="item <?php if($cont2 == 0){?>active<?php }?>" href="images/<?php echo $galint ?>">
+                    <img src="images/<?php echo $galint ?>" alt="">
+                  </a>
+                <?php $cont2++; } ?>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel<?php echo $info_id[0]['id']?>" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel<?php echo $info_id[0]['id']?>" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        <?php }?>
         <p class="parrafosInternos textoGlobal">
            <?php echo $info_id[0]['contenido']?>
         </p>
-        <?php if($info_id[0]['adjunto'] != ""){?>
-            <!--<a href="<?php echo _DOMINIO?>archivos/<?php echo $info_id[0]['adjunto']?>" target="_blank">
-               <i class="glyphicon glyphicon-download-alt"></i> DESCARGAR ADJUNTO
-            </a>-->
-            <iframe src="http://docs.google.com/gview?url=<?php echo _DOMINIO?>archivos/<?php echo $info_id[0]['adjunto']?>&embedded=true" style="width:100%; height:500px !important;" frameborder="0"></iframe>
-
-        <?php }?>
         <!--<img src="images/diseno/btn1.gif" />-->
     </div>
     <div class="col col-xs-12 col-sm-12 col-lg-4 col-md-4 paddingInt2">
