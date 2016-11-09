@@ -99,6 +99,8 @@ function tiposid(id)
 		document.getElementById('visorGaleria').style.display = '';
 		document.getElementById('multiImagen').style.display = '';
 		document.getElementById('adjunto').style.display = '';
+		document.getElementById('imagen2').style.display = '';
+		document.getElementById('mostrar_imagen2').style.display = '';
 
 		
 	}

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col col-xs-12 col-sm-12 col-lg-8 col-md-8 paddingInt1">
         <h3 style="text-transform: uppercase;"><?php echo $info_id[0]['titulo']?></h3>
-        <?php if($info_id[0]['imagen'] != "" && $info_id[0]['contenido'] == ""){?>
+        <?php if($info_id[0]['imagen'] != ""){?>
         <center><img src="<?php echo $funciones->imagenCorrecta($info_id[0]['imagen']);?>" width="70%" class="thumbnail" /></center>
         <?php }?>
         <?php if($info_id[0]['adjunto'] != ""){?>
@@ -48,7 +48,7 @@
         <div class="row">
             <?php while($hq = $paging->fetchResultado()){?>
                 <div class="col col-xs-12 col-sm-12 col-lg-12 col-md-12 miniInternas">
-                    <center><div style="border-radius:100px;width: 100px;height: 100px;background:url(<?php echo $funciones->imagenCorrecta($hq['imagen']);?>) no-repeat center center;background-size: 200px;"></div></center>
+                    <center><div style="border-radius:100px;width: 100px;height: 100px;background:url(<?php echo $funciones->imagenCorrecta($hq['imagen2']);?>) no-repeat center center;background-size: 200px;"></div></center>
                     <!--<center><img src="<?php echo $funciones->imagenCorrecta($hq['imagen']);?>" width="100px" height="100px" class="img-circle" /></center><br>-->
                     <h4 class="tituloMiniInterna"  style="text-transform: uppercase;"><?php echo utf8_encode($hq['titulo'])?></h4>
                     <!--<img src="images/diseno/img2.jpg" width="100%" />-->
