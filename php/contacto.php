@@ -17,7 +17,7 @@ $hijos		=	$core->info_id_hijos;
 			    <p class="card-text">
 			    	Dirección: Cll 79 # 8 – 38<br>
 					Email: info@constructoranio.com<br>
-					Celular: (+57) 315 707 6127
+					Call Center información de proyectos (+57) 315 707 6127
 			    </p>
 			  </div>
 			</div>
