@@ -29,7 +29,7 @@ $hijos		=	$core->info_id_hijos;
 			    <p class="card-text">
 			    	Dirección: Av 26 N°41 –66/ Neiva, Colombia.<br>
 					Email: ventastangara@constructoranio.com<br>
-					Teléfonos: (+57) 315 707 6127
+					Call Center información de proyectos (+57) 315 707 612
 			    </p>
 			  </div>
 			</div>
@@ -40,7 +40,7 @@ $hijos		=	$core->info_id_hijos;
 			    <h4 class="card-title">Ibagué</h4>
 			    <p class="card-text">
 			    	Dirección: Crr 4h N° 40 – 58<br>
-					Teléfonos: (+57) 315 707 6127
+					Call Center información de proyectos (+57) 315 707 612
 			    </p>
 			  </div>
 			</div>
