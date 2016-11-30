@@ -5,6 +5,16 @@ if (!extension_loaded("soap"))
 {
    die("Extension soap not loaded\n");
 }
+//$data = $_COOKIE['posventa_nombre'];
+//echo $data;
+
+/*nombre
+apellidos
+tipoDoc
+cedula
+celular
+telefono
+correo*/
 //PRODUCCIÓN
 /*$url					= "plugins/webservices/soap.php";
 $host					= "tickets.constructoranio.com";
@@ -143,11 +153,11 @@ function consultaSelect($id,$consulta=false)
 			<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12" style="color:#444"><h4>DATOS DE CONTACTO</h4></div>
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label class="visible-sm visible-xs" for="nombre">&nbsp;</label>
-		    	<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre (*)">
+		    	<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre (*)" value="<?php if(isset($_COOKIE['posventa_nombre'])){ echo $_COOKIE['posventa_nombre']; }?>" />
 			</div>
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label class="visible-sm visible-xs" for="apellidos">&nbsp;</label>
-		    	<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Escriba sus apellidos (*)">
+		    	<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Escriba sus apellidos (*)" value="<?php if(isset($_COOKIE['posventa_apellidos'])){ echo $_COOKIE['posventa_apellidos']; }?>">
 			</div>
 		</div>
 
@@ -162,25 +172,25 @@ function consultaSelect($id,$consulta=false)
 			</div>
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label for="cedula">&nbsp;</label>
-		    	<input type="text" class="form-control" id="cedula" name="cedula" placeholder="Documento de identidad (*)">
+		    	<input type="text" class="form-control" id="cedula" name="cedula" placeholder="Documento de identidad (*)" value="<?php if(isset($_COOKIE['posventa_cedula'])){ echo $_COOKIE['posventa_cedula']; }?>">
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label for="celular">&nbsp;</label>
-		    	<input type="text" class="form-control" id="celular" name="celular" placeholder="Número de celular(*)">
+		    	<input type="text" class="form-control" id="celular" name="celular" placeholder="Número de celular(*)" value="<?php if(isset($_COOKIE['posventa_celular'])){ echo $_COOKIE['posventa_celular']; }?>">
 			</div>
 			<div class="col col col-xs-12 col-sm-12 col-lg-6 col-md-6">
 				<label for="telefono">&nbsp;</label>
-		    	<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono fijo">
+		    	<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono fijo" value="<?php if(isset($_COOKIE['posventa_telefono'])){ echo $_COOKIE['posventa_telefono']; }?>">
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
 				<label for="correo">&nbsp;</label>
-		    	<input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electrónico (*)">
+		    	<input type="text" class="form-control" id="correo" name="correo" placeholder="Correo electrónico (*)" value="<?php if(isset($_COOKIE['posventa_correo'])){ echo $_COOKIE['posventa_correo']; }?>">
 			</div>
 		</div>
 

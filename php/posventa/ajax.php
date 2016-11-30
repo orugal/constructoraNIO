@@ -268,6 +268,7 @@ function sendPQR($data)
 	$argsCre['title']			=	"Ticket formulario ".$titulo." Constructora NIO";
 	$argsCre['user_email']		=	$correo;
 	$argsCre['content']			=	$contenidoArmado;
+	$argsCre['entity']			=	1;
 	$argsCre['use_email_notification']			=	true;
 	$ticket						= $client->__soapCall('genericExecute', array(new SoapParam($argsCre, 'params')));
 
@@ -276,7 +277,7 @@ function sendPQR($data)
 		//envio la notificación al correo
 		$noti['session']			=	$_SESSION['nioGLPI'];
 		$noti['method']				=	'glpi.addTicketFollowup';
-		$noti['content']			=	"Ticket de Seguimieto ".$titulo." Constructora NIO";
+		$noti['content']			=	"Ticket de Seguimiento ".$titulo." Constructora NIO";
 		$noti['ticket']				=	$ticket['id'];
 		$ticketNoti					= $client->__soapCall('genericExecute', array(new SoapParam($noti, 'params')));
 
@@ -325,6 +326,22 @@ function sendTicket($data,$archivo)
 	$dataUbi2 = consultaSelect($torre,$consulta=true);
 	$dataUbi3 = consultaSelect($apto,$consulta=true);
 
+	//genero cookies para recordar los datos del usuario para que pueda permanecer su info siempre.
+	$arrayData	=	array("nombre"=>$nombre,
+						  "apellidos"=>$apellidos,
+						  "tipoDoc"=>$tipoDoc,
+						  "cedula"=>$cedula,
+						  "celular"=>$celular,
+						  "telefono"=>$telefono,
+						  "correo"=>$correo);
+
+	setcookie('posventa_nombre', trim($nombre),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_apellidos', trim($apellidos),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_tipoDoc', trim($tipoDoc),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_cedula', trim($cedula),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_celular', trim($celular),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_telefono', trim($telefono),time()+3600*24*365*100,"/",".constructoranio.com");
+	setcookie('posventa_correo', trim($correo),time()+3600*24*365*100,"/",".constructoranio.com");
 
 	$contenidoArmado             = "INFORMACIÓN DE LA SOLICITUD\n\n";
 	$contenidoArmado            .= "Nombres: ".$nombre."\n";
@@ -360,6 +377,7 @@ function sendTicket($data,$archivo)
 	$argsCre['title']			=	"Ticket formulario POSTVENTA Constructora NIO";
 	$argsCre['user_email']		=	$correo;
 	$argsCre['content']			=	$contenidoArmado;
+	$argsCre['entity']			=	0;
 	$argsCre['use_email_notification']			=	true;
 	$ticket						= $client->__soapCall('genericExecute', array(new SoapParam($argsCre, 'params')));
 
@@ -368,7 +386,7 @@ function sendTicket($data,$archivo)
 		//envio la notificación al correo
 		$noti['session']			=	$_SESSION['nioGLPI'];
 		$noti['method']				=	'glpi.addTicketFollowup';
-		$noti['content']			=	"Ticket de Seguimieto Constructora NIO";
+		$noti['content']			=	"Ticket de Seguimiento Constructora NIO";
 		$noti['ticket']				=	$ticket['id'];
 		$ticketNoti					= $client->__soapCall('genericExecute', array(new SoapParam($noti, 'params')));
 

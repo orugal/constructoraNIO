@@ -663,6 +663,7 @@ function tiposid(id)
 		document.getElementById('recom').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('link').style.display = '';
 		
 		//document.getElementById('imagen').style.display = '';
 		//document.getElementById('imagen1_preview').style.display = '';
