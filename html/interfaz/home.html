@@ -11,11 +11,11 @@
         <div class="item <?php if($contador == 0){?>active<?php }?>">
             <?php if($ban['link'] != ""){?><a style="cursor:pointer" href="<?php echo $ban['link']?>" target="_blank"><?php }?>
                 <div class="fill" style="background-image:url('<?php echo _DOMINIO."images/".$ban['imagen']?>');"></div>
-             <?php if($ban['link'] != ""){?></a><?php }?>
             <div class="carousel-caption" style="text-align: left;">
                 <h2 class="text-right" style="padding:0 10% 0 0">
                 <?php echo $ban['contenido']?></h2>
             </div>
+             <?php if($ban['link'] != ""){?></a><?php }?>
         </div>
     <?php $contador++;}?>
 </div>

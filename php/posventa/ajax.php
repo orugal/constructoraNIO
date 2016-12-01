@@ -213,16 +213,151 @@ if(isset($_SESSION['nioGLPI']))
 	}
 	elseif($accion == 4)//Solicitud PQR
 	{
-		$envio			= sendPQR($_POST);
-		if(count($envio) > 0)
-		{
 
-			$salida = array("mensaje"=>"El ticket ha sido enviado exitosamente, el número de si ticket es <strong>".$envio['id']."</strong>","datos"=>$envio,"continuar"=>1);
+		//archivo adjunto
+
+		//si trae archivo debo subirlo 
+		if(isset($_FILES["archivo"])) 
+		{
+			$tamano 		= $_FILES["archivo"]['size'];//tamaño
+		    $tipo 			= $_FILES["archivo"]['type'];//tipo
+		    //die($tipo);
+		    $archivo		= $_FILES["archivo"]['name'];//nombre
+		    $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+			$nuevo_nombre = "";
+			for($e=0;$e<12;$e++)
+			{
+				$nuevo_nombre .= substr($str,rand(0,62),1);
+			}
+			$dir	 =	'archivos/';
+			$destino =  '';
+			$extencion	= "";
+			if($archivo != "")
+			{
+				//$ext = array('application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+				if($tipo == 'image/jpeg' or $tipo == 'image/png' or $tipo == 'image/gif' or $tipo == 'image/pjpg' or $tipo == 'image/x-png' or $tipo=='application/pdf' or $tipo == 'application/msword' or $tipo =='application/vnd.ms-excel' or $tipo == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' or $tipo == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+				{
+				 	
+				    	if($tipo == 'image/jpeg')
+				    	{
+				    		$extencion	='jpg';
+				    	}		
+				    	else if($tipo == 'image/png')
+				    	{
+				    		$extencion	='png';
+				    	}		
+				    	else if($tipo == 'image/gif')
+				    	{
+				    		$extencion	='gif';
+				    	}		
+				    	else if($tipo == 'image/pjpg')
+				    	{
+				    		$extencion	='jpg';
+				    	}		
+				    	else if($tipo == 'image/x-png')
+				    	{
+				    		$extencion	='png';
+				    	}		
+				    	else if($tipo == 'application/pdf')
+				    	{
+				    		$extencion	='pdf';
+				    	}		
+				    	else if($tipo == 'application/msword')
+				    	{
+				    		$extencion	='doc';
+				    	}		
+				    	else if($tipo == 'application/vnd.ms-excel')
+				    	{
+				    		$extencion	='xls';
+				    	}		
+				    	else if($tipo == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+				    	{
+				    		$extencion	='docx';
+				    	}		
+				    	else if($tipo == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+				    	{
+				    		$extencion	='xlsx';
+				    	}	
+				    //nombre final
+			    	$prefijo	=  "pqr-".$nuevo_nombre.".".$extencion;
+			    	//ruta final
+			    	$destino	=  $dir.$prefijo;
+			    	//die($destino);
+			    	if ($archivo != "")
+					{
+						
+						if(copy($_FILES['archivo']['tmp_name'],$destino))
+						{ 
+							//die("Bien 1!!");
+							$continua = true;
+
+				        }
+				        else
+				        {
+				        	//die("Bien 2!!");
+				        	$continua = false;
+							$salida = array("mensaje"=>"El archivo no pudo ser cargado.",
+						            		"continuar"=>0);
+				        }
+					}
+					else
+					{
+						//die("Bien 3!!");
+						$continua = true;
+						$prefijo = "";
+						$salida = array("mensaje"=>"No hay archivo que cargar.",
+						      "continuar"=>1);
+					}
+				 }
+				 else
+				 {
+				 	//die("Bien 4!!");
+				 	$continua = false;
+				 	$prefijo = "";
+					$salida = array("mensaje"=>"El archivo que ha seleccionado no tiene el formato permitido, recuerde que sólo se permiten archivos de imagen JPG, PNG y archivos de texto de WORD, hojas de EXCEL y PDF ó supera el peso permitido de 1MB",
+						      "continuar"=>0);
+				 }
+			}
+			else
+			{
+				$continua = true;
+				$prefijo = "";
+				$salida = array("mensaje"=>"No hay archivo que cargar.",
+						      "continuar"=>1);
+			}
+
 		}
 		else
 		{
-			$salida = array("mensaje"=>"No hay datos consultados para este ID","datos"=>array(),"continuar"=>0);
+			//die("Bien 5!!");
+			$continua = true;
+			$prefijo = "";
+			$salida = array("mensaje"=>"No viene archivo.",
+				     	    "continuar"=>1);
 		}
+
+
+
+
+		if($continua == true)
+		{
+			$envio			= sendPQR($_POST,$destino);
+			if(count($envio) > 0)
+			{
+
+				$salida = array("mensaje"=>"El ticket ha sido enviado exitosamente, el número de si ticket es <strong>".$envio['id']."</strong>","datos"=>$envio,"continuar"=>1);
+			}
+			else
+			{
+				$salida = array("mensaje"=>"No hay datos consultados para este ID","datos"=>array(),"continuar"=>0);
+			}
+		}
+		else
+		{
+			$salida = array("mensaje"=>"El mensaje no ha podido ser enviar, por favor intente de nuevo más tarde","datos"=>array(),"continuar"=>0);
+		}
+
+		
 	}
 	else
 	{
@@ -236,7 +371,7 @@ else
 echo json_encode($salida);
 
 
-function sendPQR($data)
+function sendPQR($data,$archivo)
 {
 	global $db;
 	extract($data);
@@ -258,6 +393,19 @@ function sendPQR($data)
 	$contenidoArmado            .= "Teléfono fijo: ".$telefono."\n";
 	$contenidoArmado            .= "Correo electrónico: ".$correo."\n";
 	$contenidoArmado            .= "Área: ".$area."\n";
+
+	if(!empty($archivo))
+	{
+
+		$fileText					 = _DOMINIO."php/posventa/".$archivo;
+		$contenidoArmado            .= "Archivo: "._DOMINIO."php/posventa/".$archivo."\n\n";
+	}
+	else
+	{
+		$fileText					 = "";
+		$contenidoArmado            .= "\n";
+	}
+
 	$contenidoArmado            .= "Descripción de la solicitud: ".$desc."\n";
 
 	//envio el ticket
@@ -292,9 +440,10 @@ function sendPQR($data)
 							telefono,
 							correo,
 							observaciones,
+							archivo,
 							fecha,
 							ident) 
-							values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+							values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
 							$ticket['id'],
 							$nombre,
 							$apellidos,
@@ -304,6 +453,7 @@ function sendPQR($data)
 							$telefono,
 							$correo,
 							$desc,
+							$fileText,
 							date("Y-m-d H:i:s"),
 							1); 
 		$result = $db->Execute($query);

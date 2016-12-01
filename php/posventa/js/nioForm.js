@@ -225,7 +225,7 @@ var nioForm =
 		var celular 		= 	$("#celular").val();
 		var telefono 		= 	$("#telefono").val();
 		var correo 			= 	$("#correo").val();
-		var area 	= 	$("#area").val();
+		var area 			= 	$("#area").val();
 		var desc 			= 	$("#desc").val();
 		//validación de campos
 
@@ -294,13 +294,17 @@ var nioForm =
 			}, 
 				function()
 				{
-					 var formulario = $("#formEnvio").serialize()+"&accion=4";
+					 var formulario = new FormData(document.getElementById("formEnvio"));
+					 formulario.append("accion", "4");
 
 					$.ajax({
 				        url:  "php/posventa/ajax.php",
 				        data: formulario,
 				        type: "POST",
 				        dataType: "json",
+				        cache: false,
+				        contentType: false,
+				        processData: false,
 			          	beforeSend: function(objeto)
 			          	{
 			          			

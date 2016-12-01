@@ -184,13 +184,18 @@ function consultaSelect($id,$consulta=false)
 		    	</select>
 			</div>
 		</div>
-
 		<div class="row">
 			<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
 				<label for="desc">&nbsp;</label>
 		    	<textarea class="form-control" id="desc" name="desc" placeholder="Descripción (*)"></textarea>
 			</div>
 		</div>
+		<div class="row" style="margin:3% 0 0 0">
+				<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12">
+					<input type="file" name="archivo" />
+					<span class="small">Archivos PDF, WORD, EXCEL, PNG; JPEG</span>
+				</div>
+			</div>
 
 			<div class="row" style="margin:2% 0 0 0">
 				<div class="col col col-xs-12 col-sm-12 col-lg-12 col-md-12 text-right">
